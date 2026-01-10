@@ -1,12 +1,18 @@
 import { defineConfig } from 'vitepress'
+import mathjax3 from 'markdown-it-mathjax3';
+import { ab_mdit, jsdom_init } from 'markdown-it-any-block'
+import { withMermaid } from "vitepress-plugin-mermaid";
+
+jsdom_init()
+
+const customElements = ['mjx-container'];
 
 
 const JS_PREFIX = "/appdev-II-theory/javascript"
 const VUE_PREFIX = "/appdev-II-theory/vue"
 
-// https://vitepress.dev/reference/site-config
-export default defineConfig({
-  title: 'Application Development',
+
+export default withMermaid(defineConfig({  title: 'Application Development',
   description: 'Documentation for AppDev Projects and Theory',
   head : [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: './assets/favicon.svg' }]
@@ -40,6 +46,28 @@ export default defineConfig({
           ]
         }
       ],
+      '/appdev-I-theory/': [
+          {
+            text: 'AppDev I Theory',
+            collapsed: false,
+            items: [
+              { text: 'Overview', link: '/appdev-I-theory/index' },
+              { text: 'W1 – Intro to Applications', link: '/appdev-I-theory/1 Intro to Applications'},
+              { text: 'W2 – Characteristics & Types', link: '/appdev-I-theory/2 Characteristics & Types of Applications' },
+              { text: 'W3 – Network Architectures', link: '/appdev-I-theory/3 Network Architectures' },
+              { text: 'W4 – MVC Architecture', link: '/appdev-I-theory/4 Model-View-Controller' },
+              { text: 'W5 – HTML, CSS, Bootstrap', link: '/appdev-I-theory/5 HTML, CSS, Bootstrap' },
+              { text: 'W6 – REST APIs', link: '/appdev-I-theory/6 Rest APIs' },
+              { text: 'W7 – Backend', link: '/appdev-I-theory/7 Backend' },
+              { text: 'W8 – Frontend', link: '/appdev-I-theory/8 Frontend_annotation' },
+              { text: 'W9 – Security', link: '/appdev-I-theory/9 Security' },
+              { text: 'W10 – Application Testing', link: '/appdev-I-theory/10 Application Testing' },
+              { text: 'W11 – Beyond HTML', link: '/appdev-I-theory/11 Beyond HTML' },
+              { text: 'W12 - Deployment', link: '/appdev-I-theory/12 Deployment' },
+            ]
+          }
+        ],
+
       // Sidebar for appdevI project section
       '/appdev-I-project/': [
         {
@@ -150,12 +178,27 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/AdityaBaxla/app-dev-docs' }
     ]
   },
+  mermaid: {
+    theme: 'base',
+    logLevel: 'debug',
+  },
   markdown: {
     // If you want auto-sidebar generation for deeply nested structures,
     // use this setting:
+    config: (md) => {
+      md.use(mathjax3),
+      md.use(ab_mdit)
+    },
     sidebar: {
       '/Appdev_I/': 'auto',
       '/Appdev_II/': 'auto',
-    }
+    },
+    vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => tag.includes('mjx'),
+      },
+    },
+  },
   }
-})
+}))

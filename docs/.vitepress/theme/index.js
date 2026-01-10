@@ -3,9 +3,7 @@ import { h } from 'vue'
 import './style.css'
 import DefaultTheme from 'vitepress/theme'
 import OSSwitcher from '../components/OSSwitcher.vue'
-
-
-
+import './anyblock.css'
 
 /** @type {import('vitepress').Theme} */
 export default {
