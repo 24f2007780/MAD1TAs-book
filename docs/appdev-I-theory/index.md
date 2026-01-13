@@ -50,3 +50,8 @@ Please refer to the detailed guides in this section for comprehensive coverage o
 
 
 contributed by mad1 tas Yashvi, Darshan
+
+[jinja2](./jinja2.md)
+[string-formatting](./string-formatting.md)
+[string-templates](./string-templating.md)
+
