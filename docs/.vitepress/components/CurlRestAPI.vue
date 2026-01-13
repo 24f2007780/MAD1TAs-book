@@ -1,6 +1,6 @@
 <template>
   <div class="curl-box">
-    <h2 class="title">📤 cURL – JSON REST API Simulator</h2>
+    <h2 class="title">📤 cURL – JSON API Simulator</h2>
 
     <!-- URL -->
     <div class="row">
@@ -18,12 +18,39 @@
       </select>
     </div>
 
-    <!-- Flags -->
-    <div class="flags">
-      <label><input type="checkbox" v-model="flags.verbose" /> -v</label>
-      <label><input type="checkbox" v-model="flags.include" /> -i</label>
-      <label><input type="checkbox" v-model="flags.header" /> -H</label>
-    </div>
+  <!-- Flags -->
+  <div class="flags">
+    <label>
+      <input type="checkbox" v-model="flags.verbose" />
+      -v
+    </label>
+
+    <label>
+      <input type="checkbox" v-model="flags.include" />
+      -i
+    </label>
+
+    <label>
+      <input type="checkbox" v-model="flags.header" />
+      -H
+    </label>
+  </div>
+
+  <!-- Help text -->
+  <div class="flag-help">
+    <p v-if="flags.verbose">
+      🔍 <strong>-v (Verbose)</strong>: Shows detailed request & response info
+      including headers and connection details.
+    </p>
+
+    <p v-if="flags.include">
+      📥 <strong>-i (Include)</strong>: Includes HTTP response headers in the output.
+    </p>
+
+    <p v-if="flags.header">
+      🧾 <strong>-H</strong>: Adds custom HTTP headers (e.g., Content-Type).
+    </p>
+  </div>
 
     <!-- JSON Body -->
     <div class="row" v-if="method !== 'GET'">
@@ -133,6 +160,18 @@ function simulate() {
 .row {
   margin-bottom: 10px;
 }
+.flag-help {
+  margin-top: 6px;
+  font-size: 14px;
+  background: #f1f5f9;
+  border: 1px dashed #000;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.flag-help p {
+  margin: 4px 0;
+}
 
 input,
 select,
@@ -156,7 +195,7 @@ textarea {
 button {
   margin-top: 10px;
   padding: 8px 16px;
-  background: #000;
+  background: rgb(42, 95, 220)3e1;
   color: #fff;
   border: none;
   border-radius: 6px;

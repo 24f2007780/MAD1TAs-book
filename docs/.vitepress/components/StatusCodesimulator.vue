@@ -1,8 +1,8 @@
 <template>
 <div class="api-demo">
-  <h2>📘 Flask REST API – Status Code Simulator</h2>
+  <h2>📘 Flask API – Status Code Simulator</h2>
   <p class="hint">
-    Click a scenario to simulate what a <b>Flask REST API</b> would return.
+    Click a scenario to simulate what a <b>Flask API</b> would return.
   </p>
 
   <div class="buttons">
@@ -44,7 +44,7 @@ HTTP 200 OK
 DATA:
 [
   { "id": 1, "name": "Flask Basics" },
-  { "id": 2, "name": "REST APIs" }
+  { "id": 2, "name": "APIs" }
 ]
 `,
 

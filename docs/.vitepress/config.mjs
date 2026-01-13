@@ -1,9 +1,8 @@
 import { defineConfig } from 'vitepress'
-import mathjax3 from 'markdown-it-mathjax3';
-import { ab_mdit, jsdom_init } from 'markdown-it-any-block'
+// import mathjax3 from 'markdown-it-mathjax3';
+// import { ab_mdit, jsdom_init } from "markdown-it-any-block"
+// jsdom_init()
 import { withMermaid } from "vitepress-plugin-mermaid";
-
-jsdom_init()
 
 const customElements = ['mjx-container'];
 
@@ -14,6 +13,8 @@ const VUE_PREFIX = "/appdev-II-theory/vue"
 
 export default withMermaid(defineConfig({  title: 'Application Development',
   description: 'Documentation for AppDev Projects and Theory',
+  base: "/MAD1TAs-book/",
+
   head : [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: './assets/favicon.svg' }]
   ],
@@ -52,18 +53,29 @@ export default withMermaid(defineConfig({  title: 'Application Development',
             collapsed: false,
             items: [
               { text: 'Overview', link: '/appdev-I-theory/index' },
-              { text: 'W1 – Intro to Applications', link: '/appdev-I-theory/1 Intro to Applications'},
-              { text: 'W2 – Characteristics & Types', link: '/appdev-I-theory/2 Characteristics & Types of Applications' },
-              { text: 'W3 – Network Architectures', link: '/appdev-I-theory/3 Network Architectures' },
-              { text: 'W4 – MVC Architecture', link: '/appdev-I-theory/4 Model-View-Controller' },
-              { text: 'W5 – HTML, CSS, Bootstrap', link: '/appdev-I-theory/5 HTML, CSS, Bootstrap' },
-              { text: 'W6 – REST APIs', link: '/appdev-I-theory/6 Rest APIs' },
-              { text: 'W7 – Backend', link: '/appdev-I-theory/7 Backend' },
-              { text: 'W8 – Frontend', link: '/appdev-I-theory/8 Frontend_annotation' },
-              { text: 'W9 – Security', link: '/appdev-I-theory/9 Security' },
-              { text: 'W10 – Application Testing', link: '/appdev-I-theory/10 Application Testing' },
-              { text: 'W11 – Beyond HTML', link: '/appdev-I-theory/11 Beyond HTML' },
-              { text: 'W12 - Deployment', link: '/appdev-I-theory/12 Deployment' },
+              { text: ' Basic setup', link:'appdev-I-theory/0-basic-setup-guide'},
+              { text: 'W1 – Intro to Applications', link: '/appdev-I-theory/1-intro-to-applications'},
+              { text: 'W2 – HTML CSS ASCII Unicode', link: '/appdev-I-theory/2-HTML-CSS-Unicode' },
+              {
+                text: 'W3 – Presentation: VIEW',
+                link: '/appdev-I-theory/3-jinja-presentation-layer-VIEW',
+                collapsed: false,
+                items: [
+                  {
+                    text: 'String Templating',
+                    link: '/appdev-I-theory/string-templating'
+                  }
+                ]
+              },
+              { text: 'W4 – Database: MODEL', link: '/appdev-I-theory/4-database-layer-MODEL' },
+              { text: 'W5 – business logic: CONTROLLER', link: '/appdev-I-theory/5-business-logic-layer-CONTROLLER' },
+              { text: 'W6 – REST APIs', link: '/appdev-I-theory/6-Rest-APIs' },
+              { text: 'W7 – Backend', link: '/appdev-I-theory/7-Backend' },
+              { text: 'W8 – Frontend', link: '/appdev-I-theory/8-Frontend' },
+              { text: 'W9 – Security', link: '/appdev-I-theory/9-Security' },
+              { text: 'W10 – Testing', link: '/appdev-I-theory/10-Testing' },
+              { text: 'W11 – Beyond HTML', link: '/appdev-I-theory/11-Beyond-HTML' },
+              { text: 'W12 - Deployment', link: '/appdev-I-theory/12-Deployment' },
             ]
           }
         ],
@@ -183,12 +195,16 @@ export default withMermaid(defineConfig({  title: 'Application Development',
     logLevel: 'debug',
   },
   markdown: {
+    math: true,
+    image: {
+      // image lazy loading is disabled by default
+      lazyLoading: true
+    },
     // If you want auto-sidebar generation for deeply nested structures,
     // use this setting:
-    config: (md) => {
-      md.use(mathjax3),
-      md.use(ab_mdit)
-    },
+    // config: (md) => {
+    //   md.use(mathjax3) // md.use(ab_mdit)
+    // },
     sidebar: {
       '/Appdev_I/': 'auto',
       '/Appdev_II/': 'auto',
