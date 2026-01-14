@@ -1,6 +1,11 @@
+INTRO FOR MAD_1 in this course you will learn
+
 # Basic setup guide
 
-Hello students. In this module, we will guide you through the basic setup and use of the tools required for this course.
+Hello students. In this module, we will guide you through the basic setup and use of the tools required for this course. Also:
+- What is latency and bandwidht
+- accessing command-line input using the `sys` module
+
 
 ::: tip **Note:**
  We strongly encourage you to practice the course content on a laptop and not rely on a smartphone.
@@ -148,14 +153,6 @@ The installation steps for VS Code differ by operating system. Below are the ste
 ***VS Code tour video guide:*** [vscode tour video](https://youtu.be/yjeHLSrhPao).
 
 
-# Latency
-Speed of light: 3,00,000 m/s ~ $2 \times 10^{8}$ m/s on **copper** cable ~5ns/m  ~ 5ms for 1000km
-- If continuous request-response : <span style="color:rgb(240, 96, 118)"> 50 requests/sec </span> (CHN to DEL 2000km 20ms round trip)
-## Response size
-
-$$\boxed{\begin{aligned}&\text{ 19245 bytes of content(trackers, 100B headers, HTML, CSS, JS)} \\& \text{receives 14–16.4B daily →each person searching 3-4x}\\& 189,815  \text{ requests/second} \sim \frac{3.652  \times 10^9}{19.245 \times 10^3}\\&\text{Network connection=3.6 Gbps otherwise server crashes}\end{aligned}}$$
-$$\boxed{\begin{aligned}\text{Youtube$\underbrace{2M}_\text{live views} \times\underbrace{6MB}_\text{py HTTP server process}$=12 TB RAM}\end{aligned}}$$
-$$\boxed{\begin{aligned}&\text{Google index 100B web pages $\sim$ 100 PetaBytes}\\&\text{Cross-reference, pagerank distributed over Million Servers }\end{aligned}}$$
 
 | Prefix | Power of 10 |
 | ------ | ----------- |
@@ -188,19 +185,169 @@ $$\boxed{\begin{aligned}&\text{Google index 100B web pages $\sim$ 100 PetaBytes}
     - **1 billion** = $10^{3}$  million = $10^{9}$  units
     - **1 trillion** = $10^{3}$  billion = $10^{6}$  million = $10^{12}$  units
 
----
+    
+# Latency (Time delay)
+Latency = How long it takes for data to travel from client → server → client
 
+Speed of light in vacuum $\approx 3 \times 10^8 \text{ m/s}$
+In copper/fiber cables $\approx 2 \times 10^8 \text{ m/s}$
+Rule of thumb:
+  - ≈ 5 nanoseconds per meter
+  - ≈ 5 milliseconds per 1000 km
 
-## 🌐 Bandwidth Concepts
+- If continuous request-response: new request is sent only after receiving the response
+
+::: danger ❓Problem 1: A student in Chennai orders clothes from a online shop which hosts a server in Delhi.
+  - Distance between client and server = 2000 km
+  - Signal speed $= 2 \times 10^8 \text{ m/s}$
+:::
+
+::: details Calculate the one-way delay (in ms)
+$$\begin{gather} \text{ Time } = \frac{\text{Distance}}{\text{Speed}} \\ \frac{2000 \times 10^3}{2 \times 10^8} \\ = 1 \times 10^{-2} = 10\text{ milliseconds}\end{gather}$$
+:::
+
+::: details Calculate the round-trip delay (in ms)
+$2 \times \text{10 ms = 20 ms}$ as student goes to delhi and delhi back to student
+:::
+
+::: details What is the maximum number of requests per second the client can make?
+$$\begin{gather} \text{Requests per second} \approx \frac{1}{\text{Round-trip latency}} \\ = \frac{1}{\text{20 ms}} = \frac{1}{0.02} =
+\text{50 requests/sec} \end{gather}$$
+👉 Latency limits how many requests you can do per second, even if student has high bandwidth
+:::
+<LatencyVisualizer />
+
+## 🌐 Bandwidth
 $$
 \text{Bandwidth} = (\text{Number of requests per second }) \times (\text{size of request})
 $$
 
+:::danger ❓Problem 2: A **course-selling portal** allows students to search for courses:
+- HTML + CSS + JS = 18 KB
+- HTTP headers = 200 B
+- Total response size ≈ 18.2 KB
 
-<!-- <ClientOnly> -->
-  <LatencyVisualizer />
-<!-- </ClientOnly> -->
+During peak time:
+- 1,000 students are searching
+- Each user makes 2 searches per second
+:::
 
+:::details How many requests per second does the server receive?
+$$
+1000 \times 2 = 2000 \text{ requests/sec}
+$$
+:::
+
+
+::: details How much data (in MB per second) does the server send?
+$$\begin{gather}
+2000 \times 18.2 \text{ KB} = 36{,}400 \text{ KB/s} \\=  36.4 \text{ MB/s}
+\end{gather}
+$$
+:::
+
+::: detials What is the minimum bandwidth (in Mbps) required?
+$$
+36.4 \times 8 = 291.2 \text{ Mbps}
+$$
+
+👉 At least **300 Mbps bandwidth** is needed to avoid congestion.
+:::
+
+::: danger 3.❓ Gamer streams a **live event** using own streaming server.
+- Number of viewers = 50,000
+- Each viewer needs a a **4 MB buffer** on the server (few seconds of video)
+
+
+::: details How much total memory (in GB) is required?
+$$\begin{gather}
+50{,}000 \times 4 \text{ MB} = 200{,}000 \text{ MB}
+\\ = 200 \text{ GB}
+\end{gather}
+$$
+
+:::
+
+:::details Why is it impractical to handle this using a single server?
+- RAM requirement is very high
+- Network bandwidth can restrict you.
+- One server failure stops the game stream⁉️
+
+👉 Real systems use **CDNs, edge servers, and load balancing**
+:::
+
+::: info Explain why:
+Increasing bandwidth does not always reduce page loading time.
+:::
+
+
+| Concept       | Meaning                              |
+| ------------- | ------------------------------------ |
+| **Latency**   | How fast data travels (time delay)   |
+| **Bandwidth** | How much data can be sent per second |
 
 For more numericals
 <iframe src="https://drive.google.com/file/d/1WzbE5AQ08NXfRE6adb7sggVSy6yndeY2/preview" width="640" height="480"></iframe>
+
+## Sys Module
+
+The `sys` module in Python provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter. We will only cover a few important aspects of the `sys` module here.
+
+- `sys.argv`: A list of command-line arguments passed to a Python file. The first element is the file name.
+- `sys.exit([arg])`: Exit from Python. This function can take an optional argument to specify the exit status.
+- `sys.version`: A string containing the version of the Python interpreter.
+- `sys.platform`: A string that identifies the platform on which Python is running.
+
+### sys.argv
+
+The `sys.argv` list contains the command-line arguments passed to the file. The first element, `sys.argv[0]`, is the name of the file itself. The subsequent elements are the arguments passed to the file.
+
+Here is an example of how to use `sys.argv` to print the file name and its arguments:
+
+```python
+import sys
+print("file name:", sys.argv[0])
+```
+
+If you run the file with arguments like this:
+
+```bash
+python myfile.py arg1 arg2
+```
+
+The output will be:
+
+```txt
+file name: myfile.py
+```
+
+We can also print the entire `sys.argv` list:
+
+```python
+import sys
+print(sys.argv)
+```
+
+If you run the file with arguments like this:
+
+```bash
+python myfile.py argument1 argument2 "complex argument 3"
+```
+
+The output will be:
+
+```txt
+['myfile.py', 'argument1', 'argument2', 'complex argument 3']
+```
+
+See the image below for a visual representation of `sys.argv` for the above command:
+
+![sys-argv](./static/sys-argv.png)
+
+:::info
+
+- The first element of `sys.argv` is always the file name.
+- If no arguments are passed, `sys.argv` will contain only one element, the file name.
+- Arguments are space-separated strings but we can enclose them in quotes to include spaces in arguments or name of the file.
+
+:::

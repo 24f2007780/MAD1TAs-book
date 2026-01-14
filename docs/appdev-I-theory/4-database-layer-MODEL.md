@@ -26,7 +26,7 @@ design pattern was originally created by *Trygve Reenskaug* while working at *Xe
 
 :::
 
-User uses controller -> to manipulate model -> that updates view -> that user sees
+User uses controller→ to manipulate model→ that updates view→ that user sees
 
 ```python
 names = {0: 'Yashvi', 1:'Baskaran', 2:'Shriya'}

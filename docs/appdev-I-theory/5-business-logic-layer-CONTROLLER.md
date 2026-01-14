@@ -43,11 +43,14 @@ $http:// \underbrace{0.0.0.0}_\text{default IP address}: \underbrace{8000}_\text
 
 HTTP 1.1 variant → large persistent connections and pipelining<br>
 
+::: tip ✅ TODO: Try `curl wttr.in/{type city name}` on your wsl terminal like `curl wttr.in/london`
+:::
+
 :::code-group
 
 ```bash [Client Request]
 GET / HTTP/1.1
-Host: localhost:8000 or www.domain.com
+Host: localhost:5000 or www.domain.com
 User-Agent: curl/7.64.1
 Accept: */*
 ```

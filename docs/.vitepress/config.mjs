@@ -56,7 +56,20 @@ export default defineConfig({
             items: [
               { text: 'Overview', link: '/appdev-I-theory/index' },
               { text: ' Basic setup', link:'appdev-I-theory/0-basic-setup-guide'},
-              { text: 'W1 – Intro to Applications', link: '/appdev-I-theory/1-intro-to-applications'},
+              { 
+                text: 'W1 – Intro to Applications', link: '/appdev-I-theory/1-intro-to-applications',
+                collapsed: false,
+                items: [
+                  {
+                    text: 'Types of architecture',
+                    link: '/appdev-I-theory/1-types-architecture'
+                  },
+                  {
+                    text: 'Networks TCP/IP',
+                    link: '/appdev-I-theory/1-network-history-TCP'
+                  }
+                ]
+              },
               { text: 'W2 – HTML CSS ASCII Unicode', link: '/appdev-I-theory/2-HTML-CSS-Unicode' },
               {
                 text: 'W3 – Presentation: VIEW',
@@ -65,11 +78,15 @@ export default defineConfig({
                 items: [
                   {
                     text: 'String Templating',
-                    link: '/appdev-I-theory/string-templating'
+                    link: '/appdev-I-theory/3-string-templating'
                   },
                   {
                     text: 'Jinja2',
-                    link: '/appdev-I-theory/jinja2.md'
+                    link: '/appdev-I-theory/3-jinja2.md'
+                  },
+                  {
+                    text:'PyHTML',
+                    link: '/appdev-I-theory/3-pyhtml.md'
                   }
                 ]
               },
