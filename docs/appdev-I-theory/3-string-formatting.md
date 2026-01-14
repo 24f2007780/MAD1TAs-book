@@ -136,14 +136,14 @@ Hello, my name is Alice and I am 30 years old.
 ---
 
 :::danger
-**Security Warning:** Avoid using f-strings or `str.format()` with untrusted user input. Both `fstring` and `string.format` allows **dynamic expression evaluation** which can be exploited. Always sanitize and validate any user-provided data before embedding it in strings or simply use safer templating engines like [**string.Template**](./string-templating.md#stringtemplate) or [**jinja2.Template**](./jinja2_cheatsheet.md#jinja2-guide).<br>
+**Security Warning:** Avoid using f-strings or `str.format()` with untrusted user input. Both `fstring` and `string.format` allows **dynamic expression evaluation** which can be exploited. Always sanitize and validate any user-provided data before embedding it in strings or simply use safer templating engines like [**string.Template**](./3-string-templating.md#string.Template) or [**jinja2.Template**](./3-jinja2.md).<br>
 :::
 
 :::tip
 
 - **see comparision of string formatting methods in python** [here](https://realpython.com/python-string-formatting/#choosing-the-right-string-formatting-method)
 
-- **see comparsion with templating tools** [here](./jinja2.md#comparison-tables)
+- **see comparsion with templating tools** [here](./3-jinja2.md#Comparison Tables)
 
 - for more information on security risks related to string formatting, refer to this article: [Python String Formatting Security Risks](https://www.geeksforgeeks.org/python/vulnerability-in-str-format-in-python/)
 

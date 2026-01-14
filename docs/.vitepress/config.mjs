@@ -55,7 +55,23 @@ export default defineConfig({
             collapsed: false,
             items: [
               { text: 'Overview', link: '/appdev-I-theory/index' },
-              { text: ' Basic setup', link:'appdev-I-theory/0-basic-setup-guide'},
+              { text: 'Basic setup', link:'appdev-I-theory/0-basic-setup-guide',
+                collapsed: false,
+                items: [
+                  {
+                    text: 'VSCode setup',
+                    link: '/appdev-I-theory/0-vscode-setup'
+                  },
+                  {
+                    text: 'Latency & Bandwidth',
+                    link: '/appdev-I-theory/0-latency-bandwidth'
+                  },
+                  {
+                    text:'sys',
+                    link: '/appdev-I-theory/0-sys'
+                  }
+                ]
+              },
               { 
                 text: 'W1 – Intro to Applications', link: '/appdev-I-theory/1-intro-to-applications',
                 collapsed: false,
@@ -82,11 +98,11 @@ export default defineConfig({
                   },
                   {
                     text: 'Jinja2',
-                    link: '/appdev-I-theory/3-jinja2.md'
+                    link: '/appdev-I-theory/3-jinja2'
                   },
                   {
                     text:'PyHTML',
-                    link: '/appdev-I-theory/3-pyhtml.md'
+                    link: '/appdev-I-theory/3-pyhtml'
                   }
                 ]
               },
@@ -129,8 +145,8 @@ export default defineConfig({
                 { text: 'Datatype', link: `${JS_PREFIX}/datatypes` },
                 { text: 'Conditional', link: `${JS_PREFIX}/conditionals` },
                 { text: 'Math Operators', link: `${JS_PREFIX}/operators` },
-                { text: 'Comparison Operators', link: `${JS_PREFIX}/comparisonoperators.md` },
-                { text: 'Logical Operators', link: `${JS_PREFIX}/logicaloperators.md` },
+                { text: 'Comparison Operators', link: `${JS_PREFIX}/comparisonoperators` },
+                { text: 'Logical Operators', link: `${JS_PREFIX}/logicaloperators` },
                 { text: 'Type Conversion', link: `${JS_PREFIX}/typeconversion` },
                 { text: 'String', link: `${JS_PREFIX}/strings` },
                 { text: 'Loops', link: `${JS_PREFIX}/loops` },

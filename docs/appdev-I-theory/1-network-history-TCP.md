@@ -4,7 +4,7 @@ flowchart LR
     %% --- TOP BLOCK: Networking History & Protocols ---
     A["📞 **Telephone** Networks <br> Physical line tied up during call. A talks to B through *complex switching network*"]
     B["📦 **Packet-switched networks**: Wire occupied only when data is sent; can carry several different convos, any type of data. faster"]
-    proto["Many protocols: *IBM SNA, DECnet, Ethernet* each had own rules: How to format packets, place them on wire, headers/checksums"]
+    proto["Many protocols: *IBM SNA, DECnet, Ethernet* each had own rules"]
     C["How do different networks talk❓→ 🌍 **Internet**<br>standard headers & packet format *network of servers*"]
 
     A --> B --"**ARPANet**<br>Node-to-node network"--> proto  --> C
@@ -19,6 +19,18 @@ http["📄 HyperText: Text with links & Formatting tags"]
 web["🌍**World Wide Web**: network of linked documents"]
 tcp --> domain --> http --"DNS database of ISP local cache/other DNS servers"--> web 
 ```
+
+
+:::tip **Web server**: 
+ - Listen for incoming requests on a **fixed port**→ Respond
+ - OS manages ports and network connections
+:::
+
+:::tip **Protocol** defines: 
+- What should client can ask server?
+- How the server respond to client?
+*How to format packets, place them on wire, headers/checksums*
+:::
 
 ## HyperText Transfer Protocol (HTTP)
 - Rulebook for communication between browser and server
@@ -37,7 +49,7 @@ tcp --> domain --> http --"DNS database of ISP local cache/other DNS servers"-->
 | **POST**   | Send data    | Submit a form, upload files  |
 | **PUT**    | Update data  | Edit user profile   |
 | **DELETE** | Remove data  | Delete account |
-
+You will learn about it in greater detail in [Week 6](./6-Rest-APIs.md)
 
 ## Transmission Control Protocol
 TCP uses 16-bit unsigned integers for port numbers
@@ -56,8 +68,30 @@ If you try to bind with port 0, Operating System automatically assigns a random 
   - Size: `32` bits = 4 Bytes
 - Assigned temporarily using DHCP when your device boots
 - IPv6
-- Size: `128` bits
-- Created due to IPv4 address shortage
+  - Size: `128` bits
+  - Written as 8 groups of 16-bit hexadecimal numbers
+  - Created due to IPv4 address shortage
+
+::: details ❓ An IPv4 address is given as: `172.16.10.25`<br>Each IPv4 octet is first converted to hexadecimal and then combined pairwise to form an IPv6-style address using 4 hexadecimal digits per group.<br>How will the above IPv4 address be represented in IPv6-style hexadecimal notation?<br>A) `AC10:0A19:0000:0000`<br>B) `0000:0000:AC10:0A19`<br>C) `AC10:190A:0000:0000`<br>D) `0000:AC10:0A19:0000`<br>
+$$
+\begin{align}
+&\textbf{Given IPv4 address: } 172.16.10.25 \\
+&\textbf{Step 1: Convert each IPv4 octet from decimal to hexadecimal} \\
+&172_{10} = (10 \times 16 + 12) = AC_{16} \\
+&16_{10} = (1 \times 16 + 0) = 10_{16} \\
+&10_{10} = (0 \times 16 + 10) = 0A_{16} \\
+&25_{10} = (1 \times 16 + 9) = 19_{16} \\
+&\textbf{Step 2: Group hexadecimal values pairwise (16 bits per group)} \\
+&(AC,,10) \rightarrow AC10, \quad (0A,,19) \rightarrow 0A19 \\
+&\textbf{Step 3: Pad remaining groups with zeros to match IPv6 format} \\
+&\text{IPv6-style representation } = 0000:0000:AC10:0A19
+\end{align}
+$$
+
+
+Correct Answer: B) `0000:0000:AC10:0A19`
+![](./static/binary-conversion-table.png)
+:::
 
 
 👉 IP = which machine?
@@ -69,15 +103,6 @@ If you try to bind with port 0, Operating System automatically assigns a random 
 | **25**  | sending Email      |
 
 
-:::details **Web server**: 
- - Listen for incoming requests on a **fixed port**→ Respond
- - OS manages ports and network connections
-:::
-
-:::details **Protocol** defines: 
-- What should client can ask server?
-- How the server respond to client?
-:::
 
 ### Status codes
 
@@ -103,8 +128,7 @@ If you try to bind with port 0, Operating System automatically assigns a random 
   <StatusCodeSimulator />
 <!-- </ClientOnly> -->
 
-| Web 1.0 1990-2000 | Web 2.0 2004-2016 | Web 3 2016- |
-| ------- | ------- | ----- |
+&emsp;&emsp;&emsp; Web 1.0 1990-2000 &emsp;&emsp;&emsp;&emsp; Web 2.0 2004-2016  &emsp;&emsp;&emsp;&emsp; Web 3 2016- 
 
 <img src="https://i.imgur.com/tbReLji.png" width="1400">
 

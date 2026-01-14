@@ -2,9 +2,6 @@
 # Architectures
 ## Client ↔ Server Architecture
 
-![](./static/client-peer-architecture.png)
-source: https://em360tech.com/tech-articles/client-server-architecture-enterprise-it
-
 ```mermaid
 sequenceDiagram
     participant Client
@@ -43,6 +40,10 @@ Ex: *bittorrent, Blockchain, Distributed file systems*
 - At the same time, you upload the pieces you already have to others<br>
 👉 So, every downloader also becomes an uploader
 :::
+
+![](./static/client-peer-architecture.png)
+source: https://em360tech.com/tech-articles/client-server-architecture-enterprise-it
+
 
 ::: details Design Pattern
 A general, reusable solution to a commonly occurring problem within a given context in software design. 

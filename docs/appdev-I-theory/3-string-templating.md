@@ -1,4 +1,4 @@
-# string.Template <a name="stringtemplate"></a>
+# string.Template
 
 The `string.Template` class is part of Python's standard library `string` provides a way to create simple string templates with placeholders that can be replaced with actual values. It uses `$` or `${}` to denote placeholders. It is designed for simpler use cases and is **safer for user input** as it does not allow arbitrary code execution or object discovery.
 
