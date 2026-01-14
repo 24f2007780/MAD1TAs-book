@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../node_modules/vitepress-mermaid-preview/dist/stateDiagram-v2-5AN5P6BG-CqP6cMGQ.js"],
+  "sourcesContent": ["import { s as a, b as t, a as r, S as s } from \"./chunk-OW32GOEJ-D8o-yYoy.js\";\nimport { _ as i } from \"./component-D1GmXNq6.js\";\nvar _ = {\n  parser: r,\n  get db() {\n    return new s(2);\n  },\n  renderer: t,\n  styles: a,\n  init: /* @__PURE__ */ i((e) => {\n    e.state || (e.state = {}), e.state.arrowMarkerAbsolute = e.arrowMarkerAbsolute;\n  }, \"init\")\n};\nexport {\n  _ as diagram\n};\n"],
+  "mappings": ";;;;;;;;;;;;;;;AAEA,IAAI,IAAI;AAAA,EACN,QAAQ;AAAA,EACR,IAAI,KAAK;AACP,WAAO,IAAI,GAAE,CAAC;AAAA,EAChB;AAAA,EACA,UAAU;AAAA,EACV,QAAQ;AAAA,EACR,MAAsB,EAAE,CAAC,MAAM;AAC7B,MAAE,UAAU,EAAE,QAAQ,CAAC,IAAI,EAAE,MAAM,sBAAsB,EAAE;AAAA,EAC7D,GAAG,MAAM;AACX;",
+  "names": []
+}

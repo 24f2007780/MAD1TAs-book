@@ -23,6 +23,10 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+defineOptions({
+  name: 'StatusCodeSimulator',
+})
+
 
 const output = ref('Click a scenario to see the API response')
 

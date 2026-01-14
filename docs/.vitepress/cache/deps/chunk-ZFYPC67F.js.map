@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../node_modules/vitepress-mermaid-preview/dist/chunk-353BL4L5-t05ly1Yi.js"],
+  "sourcesContent": ["import { _ as i } from \"./component-D1GmXNq6.js\";\nfunction t(c, e) {\n  c.accDescr && e.setAccDescription?.(c.accDescr), c.accTitle && e.setAccTitle?.(c.accTitle), c.title && e.setDiagramTitle?.(c.title);\n}\ni(t, \"populateCommonDb\");\nexport {\n  t as p\n};\n"],
+  "mappings": ";;;;;AACA,SAAS,EAAE,GAAG,GAAG;AADjB;AAEE,IAAE,cAAY,OAAE,sBAAF,2BAAsB,EAAE,YAAW,EAAE,cAAY,OAAE,gBAAF,2BAAgB,EAAE,YAAW,EAAE,WAAS,OAAE,oBAAF,2BAAoB,EAAE;AAC/H;AACA,EAAE,GAAG,kBAAkB;",
+  "names": []
+}

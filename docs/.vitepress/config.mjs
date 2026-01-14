@@ -1,8 +1,9 @@
-import { defineConfig } from 'vitepress'
 // import mathjax3 from 'markdown-it-mathjax3';
 // import { ab_mdit, jsdom_init } from "markdown-it-any-block"
 // jsdom_init()
-import { withMermaid } from "vitepress-plugin-mermaid";
+import { defineConfig } from 'vitepress'
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
+import { vitepressMermaidPreview } from 'vitepress-mermaid-preview';
 
 const customElements = ['mjx-container'];
 
@@ -11,10 +12,11 @@ const JS_PREFIX = "/appdev-II-theory/javascript"
 const VUE_PREFIX = "/appdev-II-theory/vue"
 
 
-export default withMermaid(defineConfig({  title: 'Application Development',
+export default defineConfig({  
+  title: 'Application Development',
   description: 'Documentation for AppDev Projects and Theory',
-  base: "/MAD1TAs-book/",
-
+  base: "/",
+  lang: 'en-US',
   head : [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: './assets/favicon.svg' }]
   ],
@@ -47,7 +49,7 @@ export default withMermaid(defineConfig({  title: 'Application Development',
           ]
         }
       ],
-      '/appdev-I-theory/': [
+            '/appdev-I-theory/': [
           {
             text: 'AppDev I Theory',
             collapsed: false,
@@ -195,8 +197,7 @@ export default withMermaid(defineConfig({  title: 'Application Development',
     ]
   },
   mermaid: {
-    theme: 'base',
-    logLevel: 'debug',
+    theme: 'default',
   },
   markdown: {
     math: true,
@@ -205,10 +206,16 @@ export default withMermaid(defineConfig({  title: 'Application Development',
       lazyLoading: true
     },
     // If you want auto-sidebar generation for deeply nested structures,
-    // use this setting:
     // config: (md) => {
     //   md.use(mathjax3) // md.use(ab_mdit)
     // },
+    config(md) {
+      md.use(tabsMarkdownPlugin) // ✅ tabs support
+      md.use(vitepressMermaidPreview);
+
+    },
+  },
+      // If you want auto-sidebar generation for deeply nested structures,
     sidebar: {
       '/Appdev_I/': 'auto',
       '/Appdev_II/': 'auto',
@@ -216,9 +223,9 @@ export default withMermaid(defineConfig({  title: 'Application Development',
     vue: {
     template: {
       compilerOptions: {
-        isCustomElement: (tag) => tag.includes('mjx'),
+        isCustomElement: (tag) => tag.startsWith('mjx-'),
       },
     },
   },
   }
-}))
+)

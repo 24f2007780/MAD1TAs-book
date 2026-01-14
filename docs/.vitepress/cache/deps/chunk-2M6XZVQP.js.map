@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../node_modules/vitepress-mermaid-preview/dist/chunk-AACKK3MU-CUIJzIyW.js"],
+  "sourcesContent": ["import { _ as s } from \"./component-D1GmXNq6.js\";\nvar t, e = (t = class {\n  /**\n   * @param init - Function that creates the default state.\n   */\n  constructor(i) {\n    this.init = i, this.records = this.init();\n  }\n  reset() {\n    this.records = this.init();\n  }\n}, s(t, \"ImperativeState\"), t);\nexport {\n  e as I\n};\n"],
+  "mappings": ";;;;;AACA,IAAI;AAAJ,IAAO,KAAK,IAAI,MAAM;AAAA;AAAA;AAAA;AAAA,EAIpB,YAAY,GAAG;AACb,SAAK,OAAO,GAAG,KAAK,UAAU,KAAK,KAAK;AAAA,EAC1C;AAAA,EACA,QAAQ;AACN,SAAK,UAAU,KAAK,KAAK;AAAA,EAC3B;AACF,GAAG,EAAE,GAAG,iBAAiB,GAAG;",
+  "names": []
+}

@@ -10,11 +10,10 @@
     "vitepress": "^1.6.4"
   },
   "devDependencies": {
-    "@iktakahiro/markdown-it-katex": "^4.0.1",
-    "markdown-it-any-block": "^3.3.5",
     "markdown-it-mathjax3": "^4.3.2",
     "mermaid": "^11.12.2",
-    "vitepress": "^1.0.0",
-    "vitepress-plugin-mermaid": "^2.0.17"
+    "vitepress": "^1.6.4",
+    "vitepress-mermaid-preview": "^0.1.1",
+    "vitepress-plugin-tabs": "^0.5.0"
   }
 }

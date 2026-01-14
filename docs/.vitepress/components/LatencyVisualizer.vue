@@ -42,6 +42,11 @@
 </template>
 
 <script setup>
+  defineOptions({
+  name: 'LatencyVisualizer',
+})
+
+
 import { ref } from 'vue'
 
 const totalDistanceKm = ref(18000)
@@ -49,9 +54,13 @@ const output = ref('Click "Send Request" to calculate RTT')
 
 // convert number to scientific notation (×10^n)
 function sci(n) {
-  const exp = Math.floor(Math.log10(Math.abs(n)))
+  if (n === 0) return '0'
+  else{
+    const exp = Math.floor(Math.log10(Math.abs(n)))
+  
   const mantissa = (n / Math.pow(10, exp)).toFixed(2)
   return `${mantissa} × 10^${exp}`
+  }
 }
 
 function simulate() {

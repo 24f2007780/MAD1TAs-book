@@ -76,6 +76,10 @@ Server: Flask
 </template>
 
 <script setup>
+defineOptions({
+  name: 'CurlRestAPI',
+})
+
 import { ref, watch } from 'vue'
 
 const url = ref('http://localhost:5000/api/course')
@@ -195,7 +199,7 @@ textarea {
 button {
   margin-top: 10px;
   padding: 8px 16px;
-  background: rgb(42, 95, 220)3e1;
+  background: #2a5fdc;
   color: #fff;
   border: none;
   border-radius: 6px;

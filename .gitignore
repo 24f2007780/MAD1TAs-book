@@ -3,4 +3,5 @@ node_modules/
 
 
 # production
-docs/.vitepress/distnode_modules/
+docs/.vitepress/dist
+package-lock.json
