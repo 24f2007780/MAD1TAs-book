@@ -1,57 +1,80 @@
 
 # Representing Text 
 ::: tip Representing Text on computers
-Computers only work with **bits** $0/1$. So we need some Standard “encoding” i.e. some sequence of bits interpreted as a character
+Computers only work with **bits** $0/1$. So we need some Standard “encoding” i.e. **some sequence of bits represent a specific character**
 :::
 
 
-## Binary-Decimal
+## ASCII
 
-##### Hexadecimal = 16 prime factorisation
-- Electronics: ON state 1 & OFF state 0 so less circuitry to design devices *0/significant voltage*
-- Computer work by logical decisions YES 1 or NO 0
+::: tip American Standard Code for **Information Interchange**: is a character encoding between Machines or humans → standard that assigns a unique numerical value to each character. 
+$$\begin{gather}\text{We use 7-bits because $2^7$ 128 different entities can fit i.e. numbers + English 26 letters }\\\underbrace{0...9}_{48 -57}+\underbrace{A...Z}_{65 -90}+ \underbrace{a...z}_{97-122}
+\end{gather}$$
+![](https://blog.gcwizard.net/wp-content/uploads/2021/01/ASCII-code.png)
 
-- $n$ bits $2^n$ possible values (0 to $2^n -1$) in binary combinations
-- 6 = $0\times2^0 + 1 \times 2^1 + 1\times {2}^2 + 0 \times 2^3$ `0110` binary
+But if we want to include `!@# %&*() -Ľätīń/Rõman` then  $2^8 =256$ we use 8 bit ASCII
 
-| Integer part:<br>1. `x/2` → note remainder + divide quotient until 0<br>2. Place the remainder values from **bottom to top** most to least-significant bit<br>Fractional part:<br>3. `*2` → note down the integer part of the result +  fractional part of the result `*2` until 0 or a desired level of precision<br>4. Write the integer parts from **top to bottom** to get the binary number.<br> | Integer Part:<br>1. Write bits of binary as $2^x$<br>2. Multiply bits with $x$ corresponding power<br>3. add each term<br>Fractional part:<br>powers of 2 are -negative from `-1`     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
 
-<Binary-Decimal />
+- `"A"` in binary is `01000001`=$2^6+2^0=64+1=65$ 
+- `"a"` in binary is `01100001`=$2^6+ 2^5 + 2^0= 64+32+1=97$
+- If you notice both letters are almost the same in binary just the 5th digit (start from the right with 0) is different. UPPER "A" has 0, LOWER "a" has 1
+:::
 
-### [ASCII](https://blog.gcwizard.net/wp-content/uploads/2021/01/ASCII-code.png)
-American Standard Code for **Information Interchange**: between Machines or humans → Standard **encoding** (seq of bits = specific character) is a character encoding standard that assigns a unique numerical value to each character. 
-`7-bits: 128`$2^7$ diff entities
-$\underbrace{0...9}_{48 -57}+\underbrace{A...Z}_{65 -90}+ \underbrace{a...z}_{97-122}$+0...9+!@# %&*() -Ľätīń/Rõman → $2^8 =256$
-- `"A"` is uniquely in binary =`01000001`=$2^6+2^0=64+1=65$ 
-- `'a'=01100001`=$2^6+ 2^5 + 2^0= 64+32+1=97$
-UPPER[2]=1, LOWER[2]=0
-![](https://dotnettutorials.net/wp-content/uploads/2022/08/word-image-29702-1.png)
+ASCII works well for English✅ but the world has many languages अ (Hindi), அ (Tamil), 不 (Chinese)
+cannot be represented in 7-bit ASCII⚠️
+
 ## Unicode
-`UCS Universal Chracter Set`**Codepoints** for more scripts, characters. after 127 ASCII
-- `UCS 2-bytes/char` $2^{16}=65,536$
-- `UCS 4-byte/char` $2^{32}=\underset{\text{billion}}{\underset{\downarrow}{4}},294,967,296$
- Optimal coding 
-- All ASCII documents are automatically UTF-8 compatible 
-- 1st check prefix → linked list through chain of prefixes possible
+Unicode is a `universal character standard` that assigns a unique number (code point) to every character, across:
+- All major languages
+- Symbols, emojis, math, arrows, etc
+Characters are written as `code points`:
+$$\text{U+XXXX (hexadecimal)}$$
+
+&emsp;&emsp;&emsp;&emsp;&emsp; 'a' → `U+0061` &emsp;&emsp;&emsp;&emsp;&emsp; 'अ' → `U+0905` &emsp;&emsp;&emsp;&emsp; 😀 → `U+1F600`
+
+#### Unicode Encodings (UCS)
+
+To store Unicode characters in memory, we need an encoding.
+| Encoding           | Bytes per character | Max characters               |
+| ------------------ | ------------------- | ---------------------------- |
+| **UCS-2**          | 2 bytes             | $2^{16}=65,536$            |
+| **UCS-4 / UTF-32** | 4 bytes             | $2^{32} \approx \text{ 4.3 billion}$ |
 
 
-- UCS4 $32\times5k=1.6Lakh$
-- ASCII $8/7/6\times 5k=40k/35k/40k$ 
-- frequency of occurrence (e,t,a,o) Huffmann $10-20k$ 
-- `zip` compression independent of data, ~ algo
-- `1 byte 10xxxx`→  common prefix code (represents value or look at next)
+:::details Problem 1.❓ A text document contains:<br>**1000 words**<br>Approximately **5000 characters** (including spaces)<br>How much bits will be required to store it in `UCS-4, 8 bit ASCII, 7 bit ASCII, 6 bits`?
+
+| Encoding Scheme           | Bits per Character | Total Bits Required               |
+| ------------------------- | ------------------ | --------------------------------- |
+| UCS-4                     | 32 bits            | $32 \times 5000 = 160{,}000$ bits |
+| ASCII (8-bit)             | 8 bits             | $8 \times 5000 = 40{,}000$ bits   |
+| Original ASCII            | 7 bits             | $7 \times 5000 = 35{,}000$ bits   |
+| Minimal alphabet encoding | ~6 bits            | $6 \times 5000 = 30{,}000$ bits   |
+
+- [frequency of occurrence (e,t,a,o are commonly used) Huffmann](https://engineering.purdue.edu/ece264/17au/hw/HW13?alt=huffman)  `zip` compression independent of data, ~ algo
+:::
+
+- ⚠️UCS-4 uses 4 bytes per character so even 'A' wastes `32 bits`
+  - ✅Use short encodings for common characters (1 byte for alphabets)
+  - ✅Use longer encodings for rare characters
+
+➡️ This leads to Prefix Coding
+
+Decoder must:
+- Read `1st byte PREFIX` as tells how many bytes follow
+- Read remaining bytes
 
 |     | 1st Byte | 2nd Byte | 3rd Byte | 4th Byte | Maximum Expressible Unicode Value |
 | --- | -------- | -------- | -------- | -------- | --------------------------------- |
 | Unicode Transformation Format | 0xxxxxxx |          |          |          | 007F hex ($2^7=127$)              |
-| Eng UTF-8 (ASCII compatible) | 110xxxxx | 10xxxxxx |          |          | 07FF hex ($2^{11}=2047$)          |
+| Eng UTF-8  | 110xxxxx | 10xxxxxx |          |          | 07FF hex ($2^{11}=2047$)          |
 |latin/other UTF-16 bits | 1110xxxx | 10xxxxxx | 10xxxxxx |          | FFFF hex ($2^{16}=65535$)         |
 | UTF-32/UCS-4 | 11110xxx | 10xxxxxx | 10xxxxxx | 10xxxxx  | 10FFFF hex ($2^{21}=1,114,111$)   |
 
-- Huffman optimal coding based on frequency of occurrence
-- using 1 byte for most common alphabets
-- group others, have "prefix" code
+### Why UTF-8 is the most successful Unicode encoding?
+✅ Backward compatible with ASCII<br>
+✅ Efficient for English text<br>
+✅ Can encode all Unicode characters<br>
+✅ Most common encoding on the Web 🌐
 <iframe
   width="100%"
   height="400"
@@ -62,12 +85,50 @@ UPPER[2]=1, LOWER[2]=0
   allowfullscreen>
 </iframe>
 
-# Markup
+## Markup
 
-:::tip Markup
-a way of using cues/codes in regular flow of text to make *clear, easy to understand* display of text
- 1. <span style="font-weight:bold; color:rgb(98, 151, 208)">Presentational</span>  embed codes not part of regular text, *specific to the editor*❌semantic meaning but ✅WYSIWYG direct edit *MS Word, Google Docs*
-2. <span style="font-weight:bold; color:rgb(98, 151, 208)">Procedural</span> → 1️⃣ change font → large, bold 2️⃣ indent 2 lines
-3.  <span style="font-weight:bold; color:rgb(98, 151, 208)">Descriptive</span> `<title> with <heading> within 2 <paragraph>s` *Latex, HTML* ✅meaning but ❌ WYSIWYG write/edit
-:::
+Markup is a way of adding special cues or codes within normal text to control how the text is structured or displayed, making it *clearer and easier to understand*.
+<div class="card">
+  <h3>
+    1. Presentational Markup
+  </h3>
+  <ul>
+    <li>Focuses on <strong>how text looks</strong></li>
+    <li>Formatting codes are <em>specific to the editor</em>, not part of regular text</li>
+    <li>Does <strong>not</strong> describe the meaning of content</li>
+    <li>✅ <strong>WYSIWYG</strong> (What You See Is What You Get) → direct visual editing</li>
+    <li><strong>Examples:</strong> MS Word, Google Docs</li>
+  </ul>
+</div>
 
+<div class="card">
+  <h3>
+    2. Procedural Markup
+  </h3>
+  <ul>
+    <li>Describes <strong>steps or procedures</strong> to format text</li>
+    <li>Example instructions:</li>
+    <ul>
+      <li>1️⃣ Change font → make it large and bold</li>
+      <li>2️⃣ Indent by two lines</li>
+    </ul>
+    <li>Emphasizes <strong>how to format</strong>, not what the content means</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>
+    3. Descriptive Markup
+  </h3>
+  <ul>
+    <li>Describes the <strong>meaning and structure</strong> of content</li>
+    <li>Actual appearance is decided by the <strong>renderer</strong> (browser / compiler)</li>
+    <li>✅ Clear semantic meaning</li>
+    <li>❌ Not WYSIWYG while writing</li>
+    <li>
+      Example structure:
+      <code>&lt;title&gt; with &lt;heading&gt; within 2 &lt;paragraph&gt;s</code>
+    </li>
+    <li><strong>Examples:</strong> LaTeX, HTML</li>
+  </ul>
+</div>

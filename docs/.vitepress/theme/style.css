@@ -45,37 +45,83 @@
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.2rem;
-  margin: 1.5rem 0;
+  gap: 1.6rem;                 /* more space between cards */
+  margin: 1.8rem 0 2.2rem 0;   /* extra space after grid */
 }
 
+/* individual card */
 .card {
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 1rem 1.2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 0.6rem;       /* 👈 space after each card */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: 
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+/* subtle interaction (optional but nice) */
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  border-color: var(--vp-c-brand-soft);
 }
 
 .card h3 {
   margin-top: 0;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
   color: var(--vp-c-brand-1);
+  font-size: 1.05rem;
+}
+
+.card p {
+  margin: 0.4rem 0;
+  line-height: 1.55;
 }
 
 .card ul {
-  padding-left: 1.1rem;
-  margin: 0;
+  padding-left: 1.2rem;
+  margin: 0.4rem 0;
 }
 
 .card li {
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
+  margin-bottom: 0.45rem;
+  line-height: 1.45;
 }
 
+/* optional: small divider inside card */
+.card hr {
+  border: none;
+  border-top: 1px dashed var(--vp-c-divider);
+  margin: 0.8rem 0;
+}
 .hl {
   color: rgb(98, 151, 208);
   font-weight: 600;
+}
+
+/* =========================================================
+   VitePress Custom Callout: blue
+   Dark grey–blue, technical tone
+   ========================================================= */
+
+.custom-block.blue {
+  --vp-custom-block-bg: #e3e8ef;        /* light grey-blue */
+  --vp-custom-block-border: #4b5d73;    /* muted blue-grey */
+  --vp-custom-block-text: #2f3b4a;      /* dark slate text */
+    background-color: var(--vp-custom-block-bg);
+  border-left: 4px solid var(--vp-custom-block-border);
+  color: var(--vp-custom-block-text);
+
+}
+
+.dark .custom-block.blue {
+  --vp-custom-block-bg: #1f2933;        /* deep grey-blue */
+  --vp-custom-block-border: #5b6f8a;    /* steel blue */
+  --vp-custom-block-text: #d1d9e6;      /* soft light text */
 }
 
 :root {

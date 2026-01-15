@@ -1,12 +1,23 @@
+/* =========================================================
+   Center all markdown tables in VitePress (CORRECT)
+   ========================================================= */
 
-/* dynamic size for table [did'nt change anything] */ 
+.vp-doc .table-wrapper {
+  display: flex;
+  justify-content: center;
+}
 
 .vp-doc table {
-    width: 100%;
-    table-layout: auto;
-  }
-  
-  .vp-doc th, .vp-doc td {
-    padding: 8px;
-    text-align: left;
-  }
+  display: block;           /* 🔑 critical */
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;       /* keep table compact */
+  max-width: 100%;
+}
+
+.vp-doc th,
+.vp-doc td {
+  padding: 8px 12px;
+  text-align: left;
+}
+

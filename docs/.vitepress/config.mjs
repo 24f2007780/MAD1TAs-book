@@ -87,11 +87,15 @@ export default defineConfig({
                   }
                 ]
               },
-              { text: 'W2 – Representing Text', link: '/appdev-I-theory/2-ascii-unicode' , collapsed: false
+              { text: 'W2 – HTML pages', link: '/appdev-I-theory/2-html' , collapsed: false
                 ,items: [
                   {
-                    text: 'HTML page',
-                    link: '/appdev-I-theory/2-html'
+                    text: 'Binary Decimal Octet Hexadecimal conversions',
+                    link: '/appdev-I-theory/2-binary-decimal'
+                  },
+                  {
+                    text: 'ASCII Unicode',
+                    link: '/appdev-I-theory/2-ascii-unicode'
                   },
                   {
                     text:'CSS styling',

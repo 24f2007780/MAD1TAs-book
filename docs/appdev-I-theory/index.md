@@ -10,7 +10,7 @@ This section contains all the theoretical resources for Appdev I.
 1. **[Web Application Foundations](./1-intro-to-applications.md)**  
    Applications, platforms, web architecture, and MVC design.Protocols, HTTP, request–response flow, and performance basics.
 
-2. **[HTML & CSS Basics](./2-ascii-unicode.md)**  
+2. **[HTML & CSS Basics](./2-html.md)**  
    ASCII, Unicode, Markup, styling, DOM fundamentals, and responsive design.
 
 3. **[Presentation Layer (View)](./3-presentation-layer-VIEW.md)**  

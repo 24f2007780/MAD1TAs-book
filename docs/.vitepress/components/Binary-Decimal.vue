@@ -42,17 +42,21 @@
         <h2>Binary → Decimal (2ⁿ Method)</h2>
 
         <div class="center">
-          <table class="power-table">
+        <table class="power-table">
+          <tbody>
             <tr>
               <td v-for="s in binarySteps" :key="s.power">{{ s.bit }}</td>
             </tr>
             <tr>
-              <td v-for="s in binarySteps" :key="s.power">2<sup>{{ s.power }}</sup></td>
+              <td v-for="s in binarySteps" :key="s.power">
+                2<sup>{{ s.power }}</sup>
+              </td>
             </tr>
             <tr>
               <td v-for="s in binarySteps" :key="s.power">{{ s.value }}</td>
             </tr>
-          </table>
+          </tbody>
+        </table>
         </div>
 
         <p class="result">
@@ -66,14 +70,19 @@
 
         <div class="center pf-wrap">
           <table class="pf-table">
-            <tr>
-              <th colspan="2">÷ 2</th>
-            </tr>
-            <tr v-for="(row, i) in decimalSteps" :key="i">
-              <td class="q">{{ row.quotient }}</td>
-              <td class="r">{{ row.remainder }}</td>
-            </tr>
+            <thead>
+              <tr>
+                <th colspan="2">÷ 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(row, i) in decimalSteps" :key="i">
+                <td class="q">{{ row.quotient }}</td>
+                <td class="r">{{ row.remainder }}</td>
+              </tr>
+            </tbody>
           </table>
+
 
           <div class="arrow">
             ↑
