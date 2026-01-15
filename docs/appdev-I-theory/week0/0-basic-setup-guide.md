@@ -1,11 +1,9 @@
-INTRO FOR MAD_1 in this course you will learn
-
 # Basic setup guide
 
 Hello students. In this module, we will guide you through the basic setup and use of the tools required for this course. Also:
+
 - What is latency and bandwidth?
 - accessing command-line input using the `sys` module
-
 
 ::: tip **Note:**
  We strongly encourage you to practice the course content on a laptop and not rely on a smartphone.
@@ -17,11 +15,11 @@ In this course, we will use the Python programming language for application deve
 
 ### Why Python
 
-* Easy to learn and use.
-* Extensive libraries and frameworks.
-* Cross-platform compatibility.
-* Strong community support.
-* Versatile and can be used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.
+- Easy to learn and use.
+- Extensive libraries and frameworks.
+- Cross-platform compatibility.
+- Strong community support.
+- Versatile and can be used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.
 
 ### Installation of Python
 
@@ -84,7 +82,6 @@ Video guide: [python virtual environment video](https://youtu.be/Z9Vm9Uxk5pA).
   </iframe>
 </div> -->
 
-
 ![virtual environment activated](../static/virtual-env.png)
 
 ### pip - Python package installer
@@ -95,13 +92,13 @@ Video guide: [python virtual environment video](https://youtu.be/Z9Vm9Uxk5pA).
 
 #### Basic pip commands
 
-* To install a package: `pip install package_name`
-* To uninstall a package: `pip uninstall package_name`
-* To list installed packages: `pip freeze`
-* To upgrade a package: `pip install --upgrade package_name`
-* To install packages from a requirements file: `pip install -r requirements.txt`
-* To uninstall packages from a requirements file: `pip uninstall -r requirements.txt`
-* To show information about a package: `pip show package_name`
+- To install a package: `pip install package_name`
+- To uninstall a package: `pip uninstall package_name`
+- To list installed packages: `pip freeze`
+- To upgrade a package: `pip install --upgrade package_name`
+- To install packages from a requirements file: `pip install -r requirements.txt`
+- To uninstall packages from a requirements file: `pip uninstall -r requirements.txt`
+- To show information about a package: `pip show package_name`
 
 For example, to install the Flask package, run:
 

@@ -15,38 +15,46 @@ Here is an example of how to use `sys.argv` to print the file name and its argum
 
 :::tabs
 ==args
+
 ```python
 import sys
 print("file name:", sys.argv[0])
 ```
+
 If you run the file with arguments like this:
 
 ```bash
 python myfile.py arg1 arg2
 ```
+
 == output
 
 ```txt
 file name: myfile.py
 ```
+
 :::
 
 :::tabs
 == print entire sys.argv list:
+
 ```python
 import sys
 print(sys.argv)
 ```
+
 If you run the file with arguments like this:
 
 ```bash
 python myfile.py argument1 argument2 "complex argument 3"
 ```
+
 == output
 
 ```txt
 ['myfile.py', 'argument1', 'argument2', 'complex argument 3']
 ```
+
 :::
 
 See the image below for a visual representation of `sys.argv` for the above command:
@@ -60,3 +68,4 @@ See the image below for a visual representation of `sys.argv` for the above comm
 - Arguments are space-separated strings but we can enclose them in quotes to include spaces in arguments or name of the file.
 
 :::
+

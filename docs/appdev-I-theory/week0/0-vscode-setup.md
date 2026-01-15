@@ -22,6 +22,7 @@ The installation steps for VS Code differ by operating system. Below are the ste
 1. After installation, open Command Prompt and type `code --version` to verify the installation.
 1. You should see the installed VS Code version printed in the terminal.
 1. If you see an error message, revisit the installation steps and ensure that VS Code is added to PATH.
+
 <iframe
   width="100%"
   height="400"
@@ -40,4 +41,3 @@ The installation steps for VS Code differ by operating system. Below are the ste
 1. Install extensions by going to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or pressing `Ctrl + Shift + X`.
 
 ***VS Code tour video guide:*** [vscode tour video](https://youtu.be/yjeHLSrhPao).
-

@@ -39,102 +39,124 @@ export default defineConfig({
      
       {
       // Sidebar for the "appdevI" section
-      '/appdev-I/': [
-        {
-          text: 'Reference',
-          items: [
+      // '/appdev-I/': [
+      //   {
+      //     text: 'Reference',
+      //     items: [
             // { text: 'Introduction', link: '/reference/' },
             // { text: 'CLI', link: '/reference/cli' },
             // { text: 'API', link: '/reference/api' }
-          ]
-        }
-      ],
-      '/appdev-I-theory/': [
-          {
-            text: 'AppDev I Theory',
-            collapsed: false,
-            items: [
-              { text: 'Overview', link: '/appdev-I-theory/index' },
-              { text: 'Basic setup', link:'appdev-I-theory/0-basic-setup-guide',
-                collapsed: false,
-                items: [
-                  {
-                    text: 'VSCode setup',
-                    link: '/appdev-I-theory/0-vscode-setup'
-                  },
+      //     ]
+      //   }
+      // ],
+        '/appdev-I-theory/': [
+            {
+              text: 'AppDev I Theory',
+              // link: '/appdev-I-theory/index',
+              collapsed: false,
+              next: false,
+              prev: false,
+              items: [
+                { text: 'Overview', link: '/appdev-I-theory/overview' },
+                { text: 'Week0: Basic Guide', link:'/appdev-I-theory/week0/week0-index',
+                  collapsed: true,
+                  items: [
+                    {
+                      text: 'Basic Setup Guide',
+                      link: '/appdev-I-theory/week0/0-basic-setup-guide'
+                    },
+                    {
+                      text: 'VSCode setup',
+                      link: '/appdev-I-theory/week0/0-vscode-setup'
+                    },
                   {
                     text: 'Latency & Bandwidth',
-                    link: '/appdev-I-theory/0-latency-bandwidth'
+                    link: '/appdev-I-theory/week0/0-latency-bandwidth'
                   },
                   {
                     text:'sys',
-                    link: '/appdev-I-theory/0-sys'
+                    link: '/appdev-I-theory/week0/0-sys'
                   }
       
                 ]
               },
               { 
-                text: 'W1 – Intro to Applications', link: '/appdev-I-theory/1-intro-to-applications',
-                collapsed: false,
+                text: 'Week1: Intro to Applications', link: '/appdev-I-theory/week1/week1-index',
+                collapsed: true,
                 items: [
                   {
+                    text: 'What is an Application?',
+                    link: '/appdev-I-theory/week1/1-intro-to-applications'
+                  },
+                  {
                     text: 'Types of architecture',
-                    link: '/appdev-I-theory/1-types-architecture'
+                    link: '/appdev-I-theory/week1/1-types-architecture'
                   },
                   {
                     text: 'Networks TCP/IP',
-                    link: '/appdev-I-theory/1-network-history-TCP'
+                    link: '/appdev-I-theory/week1/1-network-history-TCP'
                   }
                 ]
               },
-              { text: 'W2 – HTML pages', link: '/appdev-I-theory/2-html' , collapsed: false
-                ,items: [
+              { 
+                  text: 'Week2: HTML and Styling',
+                  link: '/appdev-I-theory/week2/week2-index',
+                  collapsed: true,
+                  items: [
+                  {
+                    text: 'HTML Basics',
+                    link: '/appdev-I-theory/week2/2-html'
+                  },
                   {
                     text: 'Binary Decimal Octet Hexadecimal conversions',
-                    link: '/appdev-I-theory/2-binary-decimal'
+                    link: '/appdev-I-theory/week2/2-binary-decimal'
                   },
                   {
                     text: 'ASCII Unicode',
-                    link: '/appdev-I-theory/2-ascii-unicode'
+                    link: '/appdev-I-theory/week2/2-ascii-unicode'
                   },
                   {
                     text:'CSS styling',
-                    link: '/appdev-I-theory/2-css'
+                    link: '/appdev-I-theory/week2/2-css'
                   }
                 ]
               },
               {
-                text: 'W3 – Presentation: VIEW',
-                link: '/appdev-I-theory/3-presentation-layer-VIEW',
-                collapsed: false,
+                text: 'Week3: Jinja2 and Templating',
+                link: '/appdev-I-theory/week3/week3-index',
+                collapsed: true,
                 items: [
                   {
+                    text: 'Presentation layer: View',
+                    link: '/appdev-I-theory/week3/3-presentation-layer-VIEW'
+                  },
+                  {
                     text: 'String formatting in python',
-                    link: '/appdev-I-theory/3-string-formatting'
+                    link: '/appdev-I-theory/week3/3-string-formatting'
                   },
                   {
                     text: 'String Templating',
-                    link: '/appdev-I-theory/3-string-templating'
+                    link: '/appdev-I-theory/week3/3-string-templating'
                   },
                   {
                     text: 'Jinja2',
-                    link: '/appdev-I-theory/3-jinja2'
+                    link: '/appdev-I-theory/week3/3-jinja2'
                   },
                   {
                     text:'PyHTML',
-                    link: '/appdev-I-theory/3-pyhtml'
+                    link: '/appdev-I-theory/week3/3-pyhtml'
                   }
                 ]
               },
-              { text: 'W4 – Database: MODEL', link: '/appdev-I-theory/4-database-layer-MODEL' },
-              { text: 'W5 – business logic: CONTROLLER', link: '/appdev-I-theory/5-business-logic-layer-CONTROLLER' },
-              { text: 'W6 – REST APIs', link: '/appdev-I-theory/6-Rest-APIs' },
-              { text: 'W7 – Backend', link: '/appdev-I-theory/7-Backend' },
-              { text: 'W8 – Frontend', link: '/appdev-I-theory/8-Frontend' },
-              { text: 'W9 – Security', link: '/appdev-I-theory/9-Security' },
-              { text: 'W10 – Testing', link: '/appdev-I-theory/10-Testing' },
-              { text: 'W11 – Beyond HTML', link: '/appdev-I-theory/11-Beyond-HTML' },
-              { text: 'W12 - Deployment', link: '/appdev-I-theory/12-Deployment' },
+              // { text: 'W4 – Database: MODEL', link: '/appdev-I-theory/week4/4-database-layer-MODEL' },
+              // { text: 'W5 – business logic: CONTROLLER', link: '/appdev-I-theory/week5/5-business-logic-layer-CONTROLLER' },
+              // { text: 'W6 – REST APIs', link: '/appdev-I-theory/week6/6-Rest-APIs' },
+              // { text: 'W7 – Backend', link: '/appdev-I-theory/week7/7-Backend' },
+              // { text: 'W8 – Frontend', link: '/appdev-I-theory/week8/8-Frontend' },
+              // { text: 'W9 – Security', link: '/appdev-I-theory/week9/9-Security' },
+              // { text: 'W10 – Testing', link: '/appdev-I-theory/week10/10-Testing' },
+              // { text: 'W11 – Beyond HTML', link: '/appdev-I-theory/week11/11-Beyond-HTML' },
+              // { text: 'W12 - Deployment', link: '/appdev-I-theory/week12/12-Deployment' },
             ]
           }
         ],
