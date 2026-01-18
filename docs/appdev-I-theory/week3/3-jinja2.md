@@ -24,8 +24,6 @@ In previous sections, we have discussed about `string.Template` and Python's bui
 - Macros for reusable components.
 - Filters for data transformation.
 
----
-
 ## Template Syntax Overview
 
 Templates in Jinja2 are plain text blocks with placeholders and control structures enclosed in special delimiters, which when rendered with context data produce the final output.
@@ -62,8 +60,6 @@ Some important information about Jinja2 rendering:
   - `{# ... #}`: Comments (not rendered).
 - **If data is missing, Jinja2 outputs an empty string by default (can be configured).**
 - **If any argument is passed extra to `render()`, it will be ignored if not used in the template.**
-
----
 
 ## Variable Printing or Interpolation
 
@@ -120,8 +116,6 @@ print(rendered)
 
 :::
 
----
-
 ## Comments
 
 We can add comments in Jinja2 templates using `{# ... #}` syntax. Comments are ignored during rendering.
@@ -133,8 +127,6 @@ We can add comments in Jinja2 templates using `{# ... #}` syntax. Comments are i
 :::warning
 Do not confuse Jinja2 comments with HTML comments (`<!-- ... -->`). Jinja2 comments are not included in the output rendered by jinja2, while HTML comments are. Many times we may try to comment out jinja2 code using HTML comments, but that will not work as expected.
 :::
-
----
 
 ## Control Structures
 
@@ -172,6 +164,7 @@ print(rendered)
 ``` html [output]
   <h1>Hello, Alice!</h1>
 ```
+
 :::
 
 ### For Loops
@@ -204,6 +197,7 @@ print(rendered)
     <li>Cherry</li>
   </ul>
 ```
+
 :::
 
 #### Special loop vars
@@ -219,6 +213,7 @@ Inside a for loop, Jinja2 provides special variables to get information about th
 - `loop.length`: Total number of items.
 
 :::code-group
+
 ```python [Example #5]
 from jinja2 import Template
 template = Template("""
@@ -235,6 +230,7 @@ print(rendered)
   <p>2: Banana </p>,
   <p>3: Cherry </p>
 ```
+
 :::
 
 :::details Try it yourself
@@ -287,6 +283,7 @@ print(rendered)
 ```html [output]
   <p>Total Price: $59.97</p>
 ```
+
 :::
 
 ### With Statement (Scoped Variables)
@@ -321,6 +318,7 @@ print(rendered)
   <p>Discount: $10.0</p>
   <p>Discount outside block: $</p>  {# undefined here #}
 ```
+
 :::
 
 ### Macros (Reusable Blocks)
@@ -350,11 +348,11 @@ Jinja2 macros are similar to functions in programming languages. They allow us t
 {{ render_input("password", type="password") }}
 ```
 
-
 ```html [output]
   <input type="text" name="username" />
   <input type="password" name="password" />
 ```
+
 :::
 
 #### Importing Macros
@@ -407,6 +405,7 @@ Escape Jinja2 syntax using `{% raw %}` ... `{% endraw %}` to prevent evaluation.
 ```html [output]
    {{ this will not be evaluated 2+3 }}
 ```
+
 :::
 
 ### Whitespace Control
@@ -496,7 +495,6 @@ rendered = template.render()
 print(rendered)
 ```
 
-
 ```html [output]
 <!DOCTYPE html>
 <html>
@@ -516,8 +514,8 @@ print(rendered)
 </body>
 </html>
 ```
-:::
 
+:::
 
 Explanation:When a child template is rendered, Jinja2 first resolves the template inheritance chain defined by the extends statements. It collects all block definitions from the base and child templates, determines which blocks override others, and builds a single final template structure. This resolved template is then rendered to produce the final output.
 
@@ -558,6 +556,7 @@ We can use `super()` to call the content of the parent block within an overridde
 </body>
 </html>
 ```
+
 :::
 
 This will prepend the base content block( super()'s output ) to the block content.
@@ -607,6 +606,7 @@ print(rendered)
 ## Includes
 
 Jinja2 allows including reusable template fragments using the `include` statement. This is useful for components like headers, footers, or navigation bars that are shared across multiple templates.
+
 ```html
 {% include "header.html" %}
 ```
@@ -645,6 +645,7 @@ print(rendered)
     <p>&copy; </p>
   </footer>
 ```
+
 :::
 
 Header.html:
@@ -696,6 +697,7 @@ print(rendered)
   <p>2</p>
   <p>No description available.</p>
 ```
+
 :::
 
 ### Groupby Filter
@@ -767,6 +769,7 @@ print(output2)
     <li>Broccoli - $0.8</li> 
   </ul>
 ```
+
 :::
 
 :::details Try it yourself

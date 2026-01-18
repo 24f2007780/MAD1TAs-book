@@ -1,8 +1,6 @@
-- ✅✅ [Builtin-filter](https://jinja.palletsprojects.com/en/stable/templates/#list-of-builtin-filters)
+# Presentation Layer (VIEW)
 
-
-### [Usability Heuristics ](https://www.nngroup.com/articles/ten-usability-heuristics/)
-
+## [Usability Heuristics ](https://www.nngroup.com/articles/ten-usability-heuristics/)
 
 1. **Visibility of System Status:** Always keep users informed about what is happening through timely & clear feedback.
 2. **Match Between System & the Real World:** Use language, concepts, & conventions familiar to users; avoid jargon & follow real-world logic.
@@ -16,7 +14,8 @@
 10. **Help & Documentation:** Provide easy-to-search, concise help & documentation focused on user tasks, available when needed.
 
 
-### Accessibility
+## Accessibility
+
 <div class="card-grid">
 
   <div class="card">
@@ -88,7 +87,6 @@
   </div>
 
 </div>
-
 
 [Inspect Developer Tools](https://youtu.be/Pf2z_Ue73qE?si=XAul5yx0EI6pAZWH) 
 `console.table(array)`

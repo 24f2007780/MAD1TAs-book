@@ -1,4 +1,4 @@
-# Sys Module
+# `sys` Module
 
 The `sys` module in Python provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter. We will only cover a few important aspects of the `sys` module here.
 
@@ -67,5 +67,6 @@ See the image below for a visual representation of `sys.argv` for the above comm
 - If no arguments are passed, `sys.argv` will contain only one element, the file name.
 - Arguments are space-separated strings but we can enclose them in quotes to include spaces in arguments or name of the file.
 
-:::
+**Note: Python does not decide what arguments are — it simply receives them from the operating system as a list of strings.**
 
+:::

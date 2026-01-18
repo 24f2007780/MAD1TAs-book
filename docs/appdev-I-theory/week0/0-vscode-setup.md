@@ -23,10 +23,24 @@ The installation steps for VS Code differ by operating system. Below are the ste
 1. You should see the installed VS Code version printed in the terminal.
 1. If you see an error message, revisit the installation steps and ensure that VS Code is added to PATH.
 
+### Windows Installation Video Guide
+
 <iframe
   width="100%"
   height="400"
   src="https://www.youtube.com/embed/wU7IQLIOwoo"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+
+### macOS Installation Video Guide
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/w0xBQHKjoGo"
   title="YouTube video player"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

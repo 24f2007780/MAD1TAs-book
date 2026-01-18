@@ -104,16 +104,24 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                   {
-                    text: 'HTML Basics',
-                    link: '/appdev-I-theory/week2/2-html'
-                  },
-                  {
-                    text: 'Binary Decimal Octet Hexadecimal conversions',
-                    link: '/appdev-I-theory/week2/2-binary-decimal'
+                    text: 'Number System and conversions',
+                    link: '/appdev-I-theory/week2/2-number-systems'
                   },
                   {
                     text: 'ASCII Unicode',
                     link: '/appdev-I-theory/week2/2-ascii-unicode'
+                  },
+                  {
+                    text: 'HTML Basics',
+                    link: '/appdev-I-theory/week2/2-html-basics'
+                  },
+                  {
+                    text: 'HTML Elements',
+                    link: '/appdev-I-theory/week2/2-html-elements'
+                  },
+                  {
+                    text: 'HTML Tables',
+                    link: '/appdev-I-theory/week2/2-html-tables'
                   },
                   {
                     text:'CSS styling',

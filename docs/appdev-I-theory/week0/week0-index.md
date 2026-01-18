@@ -8,4 +8,3 @@ Here are the topics covered in this week:
 - [Setting up VS Code](0-vscode-setup.md)
 - [Using the sys module](0-sys.md)
 - [Understanding Latency and Bandwidth](0-latency-bandwidth.md)
-

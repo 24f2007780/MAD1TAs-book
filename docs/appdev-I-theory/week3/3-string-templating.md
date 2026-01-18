@@ -5,6 +5,7 @@ The `string.Template` class is part of Python's standard library `string` provid
 We have to use the `Template` class from the `string` module to create a template object. We can then use the `substitute()` or `safe_substitute()` methods to replace the placeholders with actual values.
 
 :::code-group
+
 ``` python [Example #1]
 from string import Template
 template = Template("Hello, my name is $name and I am ${my_age} years old.")
@@ -20,6 +21,7 @@ print(greeting2)
 Hello, my name is David and I am 35 years old.
 Hello, my name is Eva and I am 29 years old.
 ```
+
 :::
 
 ::: details Try it yourself
@@ -34,10 +36,21 @@ print(result)
 
 :::
 
-| Pros                                                                                                                                                                                                                | Cons                                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Simple and easy to use for basic templating<br>Template and data are clearly separated<br>Available in Python 2.4+ and all 3.x versions<br>Safe for user input (no code execution)<br>No attribute or object access | Less flexible than f-strings and `str.format()`<br>No support for expressions<br>No advanced formatting options<br>Limited feature set<br>Not suitable for complex templating |
+### Pros
 
+- Simple and easy to use for basic templating
+- Template and data are clearly separated
+- Available in Python 2.4+ and all 3.x versions
+- Safe for user input (no code execution)
+- No attribute or object access
+
+### Cons
+
+- Less flexible than f-strings and `str.format()`
+- No support for expressions
+- No advanced formatting options
+- Limited feature set
+- Not suitable for complex templating
 
 ## Placeholder Syntax
 
@@ -50,6 +63,7 @@ print(result)
 :::
 
 :::code-group
+
 ``` python [Example #2]
 from string import Template
 template1 = Template("Total cost is $amount.")
@@ -69,6 +83,7 @@ Total cost is 100.
 Your balance is 250 USD.
 This costs $5.
 ```
+
 :::
 
 ## substitute() vs safe_substitute()
@@ -77,6 +92,7 @@ This costs $5.
 - `safe_substitute()`: Leaves placeholders unchanged if they are missing, avoiding exceptions.
 
 :::code-group
+
 ``` python [Example #3]
 from string import Template
 template = Template("Hello, $name! Welcome to $place.")
@@ -110,8 +126,6 @@ print(result2)
 ```
 
 :::
-
----
 
 ## When to Use string.Template
 

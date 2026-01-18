@@ -1,12 +1,14 @@
 # Basic setup guide
 
-Hello students. In this module, we will guide you through the basic setup and use of the tools required for this course. Also:
+Hello! In this module, we will guide you through the basic setup and use of the tools required for this course. Also:
 
 - What is latency and bandwidth?
 - accessing command-line input using the `sys` module
 
-::: tip **Note:**
+::: tip **Disclaimer:**
+
  We strongly encourage you to practice the course content on a laptop and not rely on a smartphone.
+
 :::
 
 ## 1. Python
@@ -42,6 +44,10 @@ To create a virtual environment, open Command Prompt (or a terminal) and navigat
 
 ```bash
 python -m venv env_name
+
+# If python does not work try:
+py -m venv env_name
+
 ```
 
 Replace `env_name` with the desired name for your virtual environment.

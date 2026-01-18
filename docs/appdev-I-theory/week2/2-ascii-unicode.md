@@ -1,5 +1,6 @@
 
 # Representing Text 
+
 ::: tip Representing Text on computers
 Computers only work with **bits** $0/1$. So we need some Standard “encoding” i.e. **some sequence of bits represent a specific character**
 :::
