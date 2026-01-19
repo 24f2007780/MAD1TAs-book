@@ -20,7 +20,7 @@ This section contains all the theoretical resources for Appdev I.
    <span style="font-weight:bold; color:rgb(181, 118, 244)">PyHTML, Python templates, Jinja2</span>
 4. **[Database Layer (Model)](./week4/week4-index.md)**  
    Persistence, databases, relationships, and ER modeling  
-   <span style="font-weight:bold; color:rgb(181, 118, 244)">SQLite + ORM → SQLAlchemy</span>
+   <span style="font-weight:bold; color:rgb(181, 118, 244)">Flask Basics</span>
 
 Please refer to the detailed guides in this section for comprehensive coverage of each topic.
 

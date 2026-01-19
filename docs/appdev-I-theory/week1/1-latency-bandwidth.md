@@ -22,7 +22,7 @@ If communication is **continous request–response** based:
   - Signal speed through cables $= 2 \times 10^8 \text{ m/s}$
 :::
 
-::: details How long does the data take to reach the server? (one way in milliseconds)
+::: info How long does the data take to reach the server? (one way in milliseconds)
 Even though it feels “instant”, the signal still has to physically travel through cables.<br>
 So, we use basic `Speed=Distance/Time` physics formula from our School Science textbooks!!😃 <br>just rearrange it:
 $$\begin{gather} \text{ Time } = \frac{\text{Distance}}{\text{Speed}} \\ \frac{2000 \times 10^3}{2 \times 10^8} \\ = 1 \times 10^{-2} = 10\text{ milliseconds}\end{gather}$$
@@ -37,7 +37,7 @@ So data travels twice the distance, hence **twice the time**
 $$2 \times \text{10 ms = 20 ms}$$
 :::
 
-::: details What is the maximum number of requests per second the client can make? If the student waits for the response before sending the next request
+::: info What is the maximum number of requests per second the client can make? If the student waits for the response before sending the next request
 - One request takes Round-trip time
 - Only after Round-Trip is finished, the next request starts
 So in 1 second, the number of requests possible is:

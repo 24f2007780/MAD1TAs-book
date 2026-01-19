@@ -2,7 +2,7 @@
 ## Cascading Style Sheets
 - CSS describes how HTML elements are to be displayed on screen. It saves a lot of work as can control the layout of multiple web pages all at once
 
-### CSS Selectors Work (Think of Them as Conditions)
+## Type of CSS Selectors (Think of Them as Conditions)
 ```txt
 IF an element matches the selector
 THEN apply the styles inside { }
