@@ -1,11 +1,3 @@
-Lecture slides: https://drive.google.com/file/d/1tF4xXmpifRsXBd1YA4Ww5w3xDrvEMfNt/view?usp=sharing
-
-<div style="background-color=black;color:white">
-</div>
-<!-- <script setup>
-import LatencyVisualizer from '@components/'
-</script> -->
-
 # App
 ::: info App
 is computer program, originally referred to any mobile or desktop application, but as more "App stores" have emerged to sell mobile apps to smartphone and tablet users, the term has evolved to refer to small programs that can be downloaded and installed all at once.

@@ -18,7 +18,10 @@ This section contains all the theoretical resources for Appdev I.
 3. **[Presentation Layer (View)](./week3/week3-index.md)**  
    UI/UX principles and server-side templating  
    <span style="font-weight:bold; color:rgb(181, 118, 244)">PyHTML, Python templates, Jinja2</span>
+4. **[Database Layer (Model)](./4-database-layer-MODEL)**  
+   Persistence, databases, relationships, and ER modeling  
+   <span style="font-weight:bold; color:rgb(181, 118, 244)">SQLite + ORM → SQLAlchemy</span>
 
 Please refer to the detailed guides in this section for comprehensive coverage of each topic.
 
-contributed by mad1 TA's *Yashvi*, **Darshan** and HIMANSHU 🐻‍❄️.
+contributed by MAD1 TAs Yashvi, Himanshu & Darshan

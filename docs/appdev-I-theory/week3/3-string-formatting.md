@@ -2,7 +2,9 @@
 
 In python course, we have been introduced to various ways of string formatting like `f-strings`, `.format` method and `%` operator. Now we will shortly revist these concepts before moving to a few more advanced string templating tools like `string.Template` and `jinja2.Template`.
 
-## % Operator (C-lang printf style)<a id="percent-operator"></a>
+---
+
+## % Operator (C-lang printf style)<a name="percent-operator"></a>
 
 The `%` operator is an older method of string formatting in Python, similar to the `printf` style in C. It uses format specifiers to indicate where and how to format the values with strict type checking.
 
@@ -11,8 +13,7 @@ The `%` operator is an older method of string formatting in Python, similar to t
 - `%f` - Floating point numbers
 
 :::code-group
-
-``` python [% operator]
+``` python [code]
 name = "John"
 age = 25
 greeting = "Hello, my name is %s and I am %d years old." % (name, age)
@@ -39,13 +40,12 @@ Hello, my name is John and I am 25 years old.
 - Limited functionality
 - Mostly outdated and not recommended for new code
 
-## str.format() method (Python 2.7+) <a id="str-format-method"></a>
+## str.format() method (Python 2.7+) <a name="str-format-method"></a>
 
 The `str.format()` method allows you to format strings by placing placeholders in the string and then calling the `format()` method with the values to replace those placeholders. `str.format()` replaces placeholders with values and allows **accessing object attributes** and **items**, but **does not evaluate Python expressions.**
 
 :::code-group
-
-``` python [.format()]
+``` python [code]
 name1 = "Bob"
 age1 = 25
 
@@ -85,7 +85,7 @@ Hello, my name is Charlie and I am 28 years old.
 - Attribute/item access can still be dangerous
 - Security risk if user input is part of the template
 
-## f-strings (Python 3.6+)  <a id="f-strings"></a>
+## f-strings (Python 3.6+)  <a name="f-strings"></a>
 
 f-strings or formatted string literals are a way to embed expressions inside string literals, using curly braces `{}`. They are prefixed with the letter `f` or `F`. f-strings allow for **full expression evaluation** inside the curly braces.
 
@@ -101,6 +101,7 @@ print(greeting)
 ```txt [output]
 Hello, my name is Alice and I am 30 years old.
 ```
+:::
 
 ### Pros
 
@@ -118,7 +119,8 @@ Hello, my name is Alice and I am 30 years old.
 - Not suitable for complex templating
 - **High security risk with user input**
 
-## Summary<a id="summary"></a>
+
+## Summary<a name="summary"></a>
 
 | Feature                     | % Operator          | str.format()        | f-strings           |
 |-----------------------------|---------------------|---------------------|---------------------|

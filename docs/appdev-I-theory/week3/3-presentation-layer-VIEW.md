@@ -1,4 +1,9 @@
 # Presentation Layer (VIEW)
+**"What user sees"**
+- User-interface of application
+- Interfaces for finding ℹ️information from `model`
+- Ex: `HTML pages, templates, Register form, Charts`
+
 
 ## [Usability Heuristics ](https://www.nngroup.com/articles/ten-usability-heuristics/)
 

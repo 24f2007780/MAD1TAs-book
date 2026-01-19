@@ -50,17 +50,49 @@ tcp --> domain --> http --"DNS database of ISP local cache/other DNS servers"-->
 | **PUT**    | Update data  | Edit user profile   |
 | **DELETE** | Remove data  | Delete account |
 
-<!-- You will learn about *HTTP methods* in greater detail in [Week 6](./6-Rest-APIs.md) -->
+You will learn about *HTTP methods* in greater detail in [Week 6](./6-Rest-APIs.md)
 
-<!-- ## ⭐Checkout [Curl Commands](../week5/5-business-logic-layer-CONTROLLER#curl-commands) from Week-5 -->
+### ⭐Checkout [Curl Commands](5-business-logic-layer-CONTROLLER#curl-commands) from Week-5
 
 ## Transmission Control Protocol
+**Transport Layer that ensures data gets delivered correctly**
+TCP ensures reliable communication between different machines **Accuracy > Speed**:
+- reassembles packets in CORRECT ORDER
+- data arrives without loss
+- missing data is resent if that chunk number is not acknowledged by receiver
+- dynamically adjusts sending speed based on receiver's capacity & network overload
+
+#### Ports
 TCP uses 16-bit unsigned integers for port numbers
 - This allows values from 0 to 65,535 ($2^{16 \text{ bits}}-1$). 
 
-#### Ports
-::: info Port 0 is reserved
+::: danger Port 0 is reserved
 If you try to bind with port 0, Operating System automatically assigns a random free port.
+:::
+
+## Internet Protocol
+**Network Layer decides where data should go**
+IP is responsible for:
+- assigning IP addresses
+- routing packets across networks
+- breaking data into packets
+- forwarding packets from router to router (no guarantee of delivered or in same order)
+
+packet has:
+```txt
+source IP address
+destination IP address
+payload (data)
+```
+
+::: warning  TCP/IP always work as a pair:
+1. Application gives data to TCP
+  - breaks data into segments
+2. IP wraps each segment into packets
+  - packets travel thru the internet
+  - delivers to destination
+3. TCP reorders & verifies data
+4. App receives clean data
 :::
 
 #### IP Address
@@ -91,20 +123,23 @@ $$
 \end{align}
 $$
 
+
 Correct Answer: B) `0000:0000:AC10:0A19`
-![binary-to-decimal](../static/binary-conversion-table.png)
+![](./static/binary-conversion-table.png)
 :::
 
-👉 IP = which machine?
-👉 Port = which service on that machine?
 
+👉 IP = which machine?
+👉 Port = which service on that machine? 
 | Port    | Service            |
 | ------- | ------------------ |
-| **80**  | HTTP webpages      |
-| **443** | HTTPSecure         |
+| **80**  | HTTP webpages         |
+| **443** | HTTPSecure |
 | **25**  | sending Email      |
 
-### Status codes
+
+
+## Status codes
 
 | Category | Status Code | Status Name | Description |
 | --- | --- | --- | --- |
@@ -144,4 +179,3 @@ Correct Answer: B) `0000:0000:AC10:0A19`
 - **Multicast** is a one-to-many communication where data is sent from one sender to multiple specified receivers who join a multicast group, optimizing bandwidth usage.
 ::: 
 
-## ⭐Checkout [Latency & bandwidth](../week0/0-latency-bandwidth.md) from Week-0

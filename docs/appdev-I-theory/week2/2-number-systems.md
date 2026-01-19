@@ -1,6 +1,6 @@
 <div class="card">
 
-### 🔢 Decimal Number System (Base 10)
+## 🔢 Decimal Number System (Base 10)
 
 - **Digits used:** $\{0,1,2,3,4,5,6,7,8,9\}$
 - **Base:** $10$
@@ -26,7 +26,7 @@ $$
 
 <div class="card">
 
-### 💻 Binary Number System  (Base 2)
+## 💻 Binary Number System  (Base 2)
 
 - **Digits used:** $\{0,1\}$
 - **Base:** $2$
@@ -56,7 +56,7 @@ Example: $\text{4 bits} \to 2^4 = \text{ 16 values Range: } \to 0 \text{ to }15$
 
 <div class="card">
 
-### 🔷 Octal Number System  (Base 8)
+## 🔷 Octal Number System  (Base 8)
 
 - **Digits used:**$\{0,1,2,3,4,5,6,7\}$
 - **Base:** $8$
@@ -87,7 +87,7 @@ $$
 
 <div class="card">
 
-### 🟣 Hexadecimal Number System  (Base 16)
+## 🟣 Hexadecimal Number System  (Base 16)
 
 - **Digits used:** $0-9,; A-F$
 - **Base:** $16$
@@ -146,7 +146,7 @@ $\begin{align}
 check your steps in below interactive component:
 :::
 
-<Binary-Decimal />
+<NumberSystemConverter />
 
 ## 🔁 Other Conversions (Quick Rules)
 
@@ -223,4 +223,13 @@ $$
 3. **Binary → Hexadecimal** $11101101_2 =  ?$
 4. **Octal → Decimal** $624_8 =  ?$
 5. **Hexadecimal → Binary** $3F_{16} = ?$
+:::
+
+::: tip ⚡ Shortcut Rule
+Binary ↔ Octal ↔ Hexadecimal conversions can be done **directly**
+using grouping because:
+- 1 octal digit = 3 binary bits
+- 1 hex digit = 4 binary bits
+
+Division method is **NOT used** here.
 :::

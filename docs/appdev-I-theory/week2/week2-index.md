@@ -7,3 +7,5 @@ In this week we will cover the following topics:
 - [HTML Basics](2-html-basics.md)
 - [HTML Elements](2-html-elements.md)
 - [HTML Tables](2-html-tables.md)
+- [CSS Important topics: selectors & specificity order](2-css-specificity&inheritance.md)
+- [CSS extra selectors](2-css-extra.md)

@@ -33,14 +33,14 @@ $$\text{U+XXXX (hexadecimal)}$$
 
 &emsp;&emsp;&emsp;&emsp;&emsp; 'a' → `U+0061` &emsp;&emsp;&emsp;&emsp;&emsp; 'अ' → `U+0905` &emsp;&emsp;&emsp;&emsp; 😀 → `U+1F600`
 
-#### Unicode Encodings (UCS)
+::: details Unicode Encodings (UCS)
 
 To store Unicode characters in memory, we need an encoding.
 | Encoding           | Bytes per character | Max characters               |
 | ------------------ | ------------------- | ---------------------------- |
 | **UCS-2**          | 2 bytes             | $2^{16}=65,536$            |
 | **UCS-4 / UTF-32** | 4 bytes             | $2^{32} \approx \text{ 4.3 billion}$ |
-
+:::
 
 :::details Problem 1.❓ A text document contains:<br>**1000 words**<br>Approximately **5000 characters** (including spaces)<br>How much bits will be required to store it in `UCS-4, 8 bit ASCII, 7 bit ASCII, 6 bits`?
 
@@ -58,7 +58,7 @@ To store Unicode characters in memory, we need an encoding.
   - ✅Use short encodings for common characters (1 byte for alphabets)
   - ✅Use longer encodings for rare characters
 
-➡️ This leads to Prefix Coding
+::: details Prefix Coding
 
 Decoder must:
 - Read `1st byte PREFIX` as tells how many bytes follow
@@ -70,6 +70,8 @@ Decoder must:
 | Eng UTF-8  | 110xxxxx | 10xxxxxx |          |          | 07FF hex ($2^{11}=2047$)          |
 |latin/other UTF-16 bits | 1110xxxx | 10xxxxxx | 10xxxxxx |          | FFFF hex ($2^{16}=65535$)         |
 | UTF-32/UCS-4 | 11110xxx | 10xxxxxx | 10xxxxxx | 10xxxxx  | 10FFFF hex ($2^{21}=1,114,111$)   |
+
+:::
 
 ### Why UTF-8 is the most successful Unicode encoding?
 ✅ Backward compatible with ASCII<br>

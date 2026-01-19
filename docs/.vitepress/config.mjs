@@ -70,8 +70,8 @@ export default defineConfig({
                       link: '/appdev-I-theory/week0/0-vscode-setup'
                     },
                   {
-                    text: 'Latency & Bandwidth',
-                    link: '/appdev-I-theory/week0/0-latency-bandwidth'
+                    text: 'General Units to remember',
+                    link: '/appdev-I-theory/week0/0-metrics'
                   },
                   {
                     text:'sys',
@@ -95,6 +95,10 @@ export default defineConfig({
                   {
                     text: 'Networks TCP/IP',
                     link: '/appdev-I-theory/week1/1-network-history-TCP'
+                  },
+                  {
+                    text: 'Latency & bandwidth',
+                    link: '/appdev-I-theory/week1/1-latency-bandwidth'
                   }
                 ]
               },
@@ -124,9 +128,13 @@ export default defineConfig({
                     link: '/appdev-I-theory/week2/2-html-tables'
                   },
                   {
-                    text:'CSS styling',
-                    link: '/appdev-I-theory/week2/2-css'
-                  }
+                    text:'CSS: specificity & selectors',
+                    link: '/appdev-I-theory/week2/2-css-specificity&inheritance'
+                  },
+                  {
+                    text:'Additional Topics in CSS',
+                    link: '/appdev-I-theory/week2/2-css-extra'
+                  },
                 ]
               },
               {
@@ -156,7 +164,16 @@ export default defineConfig({
                   }
                 ]
               },
-              // { text: 'W4 – Database: MODEL', link: '/appdev-I-theory/week4/4-database-layer-MODEL' },
+              {
+                text: 'Week4: Model & Flask basics',
+                link: '/appdev-I-theory/week4/week4-index',
+                collapsed: true,
+                items: [
+                  {
+                    text: 'W4 – Database: MODEL', link: '/appdev-I-theory/week4/4-database-layer-MODEL'
+                  },
+                ]
+              },
               // { text: 'W5 – business logic: CONTROLLER', link: '/appdev-I-theory/week5/5-business-logic-layer-CONTROLLER' },
               // { text: 'W6 – REST APIs', link: '/appdev-I-theory/week6/6-Rest-APIs' },
               // { text: 'W7 – Backend', link: '/appdev-I-theory/week7/7-Backend' },

@@ -1,8 +1,12 @@
-# Pyhtml
+# Pyhtml and System Integration
 
-In this section, we will briefly cover generating simple HTML output using the `pyhtml` library. `pyhtml` is a simple and lightweight library for generating HTML in Python. It allows you to create HTML elements using Python syntax. Pyhtml uses functions to represent HTML tags.
+In this section, we will briefly cover: generating simple HTML output using the `pyhtml` library.
 
-## Installation
+## Pyhtml Library
+
+The `pyhtml` library is a simple and lightweight library for generating HTML in Python. It allows you to create HTML elements using Python syntax. Pyhtml uses functions to represent HTML tags.
+
+### Installation
 
 To install the `pyhtml` library, you can use pip:
 
@@ -10,11 +14,12 @@ To install the `pyhtml` library, you can use pip:
 pip install pyhtml
 ```
 
-## Basic Usage
+### Basic Usage
 
 Here is a simple example of how to use the `pyhtml` library to create an HTML document:
 
-```python
+:::code-group
+```python [Python code]
 from pyhtml import html, head, title, body, h1, p
 doc = html(
     head(
@@ -28,9 +33,7 @@ doc = html(
 print(doc)
 ```
 
-This will generate the following HTML output:
-
-```html
+```html [HTML output]
 <html>
   <head>
     <title>My First Pyhtml Page</title>
@@ -41,14 +44,15 @@ This will generate the following HTML output:
   </body>
 </html>
 ```
+:::
 
 Here we used the `html`, `head`, `body`, `h1`, and `p` functions from the `pyhtml` library to create an HTML document structure. The base element is `html`, which contains the `head` and `body` elements. Inside the `head`, we added a `title`, and inside the `body`, we added a heading (`h1`) and a paragraph (`p`). We can follow this structure to create more complex HTML documents.
 
-## Creating Nested HTML Structures using Pyhtml
+### Creating Nested HTML Structures using Pyhtml
 
 You can create more complex HTML structures by nesting elements. Here is an example:
-
-```python
+:::code-group
+```python [Python code]
 from pyhtml import html, head, title, body, h1, p, ul, li
 doc = html(
     head(
@@ -67,9 +71,8 @@ doc = html(
 print(doc)
 ```
 
-This will generate the following HTML output:
 
-```html
+```html [HTML output]
 <html>
   <head>
     <title>My Complex Pyhtml Page</title>
@@ -85,10 +88,9 @@ This will generate the following HTML output:
   </body>
 </html>
 ```
+:::
 
-:::tip
-
-**Try it yourself!**
+:::details Try it yourself!
 
 ```python
 from pyhtml import html, head, title, body, h1, p, ul, li
@@ -111,7 +113,7 @@ print(doc)
 
 :::
 
-## Comparison between pyhtml and jinja2
+### Comparison between pyhtml and jinja2
 
 | Feature               | pyhtml                                      | jinja2                                    |
 |-----------------------|---------------------------------------------|-------------------------------------------|
