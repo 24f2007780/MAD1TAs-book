@@ -31,6 +31,12 @@ A college library built a database to keep track of:
 | S102       | B3      | 2024-01-12  |
 | S103       | B1      | 2024-01-18  |
 
+
+This design shows a **many-to-many relationship**:
+
+* A student can borrow multiple books.
+* A book can be borrowed by multiple students (over course of time but one at a time).
+
 ## ER diagrams
 <img style="margin: auto;" src="../static/ER-diagram.jpg">
 

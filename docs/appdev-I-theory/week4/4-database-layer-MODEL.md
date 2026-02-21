@@ -1,43 +1,50 @@
 
 ## MVC (Model-View-Controller)
-MVC is a software design pattern that separates an interactive applications into Model (data), View (UI), and Controller (logic) to improve modularity, maintainability, and scalability.
-
+MVC is a software architecture pattern that divides an interactive application into three independent components: Model (data & rules), View (presentation), and Controller (interaction logic).
+This separation improves modularity, maintainability, scalability, and testability.
 ![](../static/Model-View-Controller-Architecture.png)
 <!-- It was originally introduced by *Trygve Reenskaug* while working at *Xerox PARC Smalltalk* in the late 1970s. -->
 
 ::: info Core idea
-Separate what the application stores (data), how it is presented (UI),
-and how user requests are handled (control flow).
-MVC enforces this separation of concerns:
-
-- UI changes shouldn’t break business logic
-- database changes shouldn’t directly affect UI
-- Business logic should not be mixed with HTML templates
+What the system knows → **Model**
+How it looks → **View**
+How it responds to user actions → **Controller**
+1. MVC enforces this separation of concerns so that:
+- UI changes don’t break business logic & without the model ever knowing
+- database changes should be possible without views every knowing
+- Business logic is not mixed with HTML templates
+2. State of interaction maintained as part of overall system memory
+3. The web in general does not have the close knit structure of GUI applications
+needed for MVC so be flexible.
 :::
 
 :::tabs
 
 == Model
 **What application knows (data and rules)**
-- Stores Core data for the application and the validation constraints on data 
-- Ex: `price >= 0 in Product Table, ID is unique in User Table`
-- Searching & manipulation on databases. 
-- Interacts with databases, files, or external data-APIs
+- Stores Core data for the application and the validation constraints on data
+- Defines relationships between objects
+- Ex: `price >= 0 in Product Table, ID must be unique in User Table`
+- Performs data manipulation and querying
+- Communicates with databases, files, or external data-APIs
 
 == View
-**What user sees (presentation)**
+**What user sees (how the model is visually presented)**
 - User-interface of application
 - Defines how information (received from Controller/Model) is presented (`View` is not concerned about how it is stored/processed)
+- Displays selected attributes of the Model (hides the non-relevant data for the page)
+- A View does not control application flow
 - Ex: `HTML pages, server-side templates, forms, rendered charts`
 
 == Controller
-**What the app does? What should happen on user request?**
+**What the app does? What should happen on user request? Acts as the bridge between the user and the system**
 - “Business logic” - how to manipulate data
-- Handles user actions by coordinating between *Model* and *View*<br>
-Examples:
-	- Deciding which dashboard to show after login
-	- Handling button clicks or form submissions
-	- Validating input and triggering model updates
+- Handles user input (clicks, forms, commands)<br>
+- Translates user actions into meaningful operations
+- Communicate with Model and/or Views. Generally NEVER talk to a database directly
+- Decides which View should be displayed (which role dashboard to show after login)
+Examples: Validating input and triggering model updates
+-
 :::
 
 User uses <span style="font-weight:bold; color:rgb(240, 96, 118)"> Controller </span> → updates the <span style="font-weight:bold; color:rgb(98, 151, 208)"> Model </span> → Controller selects a <span style="font-weight:bold; color:rgb(152, 205, 137)"> View </span> → **User** sees rendered data
@@ -46,9 +53,9 @@ User uses <span style="font-weight:bold; color:rgb(240, 96, 118)"> Controller </
 1. User fills Register form and clicks “Submit”
 2. Request goes to the Controller
 	- validates input (`unique email address, integer 10-digit phone number`)
-	- updates the Model with New user record
-3. `Model` updates database
-4. `Controller` selects a View
+	- Sends update request to the Model with new user record
+3. `Model` updates the database
+4. `Controller` chooses an appropriate View.
 5. `View` renders updated `Model` data
 6. User sees the result
 :::

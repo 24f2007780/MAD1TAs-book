@@ -17,6 +17,16 @@ Usually used for the common theme of your entire website within 1 file!!
   </head>
 <body>
 ```
+More examples:
+```html
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',
+filename='bootstrap/css/bootstrap.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ url for('static',
+filename='style.css') }}"/>
+<script type="text/javascript" src="{{ url_for('static', filename='js/
+custom_validations. js') }}"></script>
+```
+
 
 #### 2. Internal CSS `<style></style>`
 may be used if that HTML page has a unique style, separate or in addition to the external styling.

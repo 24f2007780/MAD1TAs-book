@@ -205,6 +205,33 @@ export default defineConfig({
                   }
                 ],
               },
+              {
+                text: 'Week5: Controllers & Flask SQLalchemy',
+                link: '/appdev-I-theory/week5/week5-index',
+                collapsed: true,
+                items: [
+                  {
+                    text: 'CRUD operations & API',
+                    link: '/appdev-I-theory/week5/5-CRUD-API',
+                  },
+                  {
+                    text: 'curl commands & server',
+                    link: '/appdev-I-theory/week5/5-business-logic-layer-CONTROLLER',
+                  },
+                  // {
+                  //   text: 'Flask Basics',
+                  //   link: '/appdev-I-theory/week4/5-',
+                  // },
+                  // {
+                  //   text: 'Templating in Flask',
+                  //   link: '/appdev-I-theory/week4/4-flask-templating',
+                  // },
+                  // {
+                  //   text: 'More Features in Flask',
+                  //   link: '/appdev-I-theory/week4/4-more-flask-features',
+                  // }
+                ],
+              },
               // { text: 'W5 – business logic: CONTROLLER', link: '/appdev-I-theory/week5/5-business-logic-layer-CONTROLLER' },
               // { text: 'W6 – REST APIs', link: '/appdev-I-theory/week6/6-Rest-APIs' },
               // { text: 'W7 – Backend', link: '/appdev-I-theory/week7/7-Backend' },

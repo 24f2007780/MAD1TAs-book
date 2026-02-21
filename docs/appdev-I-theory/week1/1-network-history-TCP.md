@@ -51,7 +51,7 @@ tcp --> domain --> http --"DNS database of ISP local cache"--> web
 
 | Method     | Meaning      | Simple Example |
 | ---------- | ------------ | -------------- |
-| **GET**    | Ask for data | Open a webpage, search queries |
+| **GET**    | Ask for data | Click on link to open a webpage, search queries |
 | **POST**   | Send data    | Submit a form, upload files  |
 | **PUT**    | Update data  | Edit user profile   |
 | **DELETE** | Remove data  | Delete account |
