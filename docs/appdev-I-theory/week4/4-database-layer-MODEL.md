@@ -32,7 +32,7 @@ needed for MVC so be flexible.
 **What user sees (how the model is visually presented)**
 - User-interface of application
 - Defines how information (received from Controller/Model) is presented (`View` is not concerned about how it is stored/processed)
-- Displays selected attributes of the Model (hides the non-relevant data for the page)
+- It can display selected attributes by asking Model(hides the non-relevant columns for the page) **presentation filter**
 - A View does not control application flow
 - Ex: `HTML pages, server-side templates, forms, rendered charts`
 
@@ -40,9 +40,8 @@ needed for MVC so be flexible.
 **What the app does? What should happen on user request? Acts as the bridge between the user and the system**
 - “Business logic” - how to manipulate data
 - Handles user input (clicks, forms, commands)<br>
-- Translates user actions into meaningful operations
-- Communicate with Model and/or Views. Generally NEVER talk to a database directly
-- Decides which View should be displayed (which role dashboard to show after login)
+- Translates user actions (via buttons & menus) into appropriate messages, communicate these messages to Model and/or Views. Generally NEVER talk to a database directly.
+- Decides which View should be displayed in appropriate places on screen (which role dashboard to show after login)
 Examples: Validating input and triggering model updates
 -
 :::

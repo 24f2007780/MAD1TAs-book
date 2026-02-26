@@ -1,4 +1,17 @@
 # CRUD Operations
+CRUD stands for:
+
+* **C** – Create
+* **R** – Read
+* **U** – Update
+* **D** – Delete
+
+* Set of **actions** that define the complete life cycle of data. In the library system:
+
+1. A book is **Created**.
+2. Users **Read** book information many times.
+3. Book details may be **Updated**.
+4. Eventually, records may be **Deleted**.
 
 ## 1. CREATE Operation
 
@@ -29,7 +42,6 @@ If student S102 borrows B2:
 | S102       | B2      | 2024-02-01  |
 
 System checks:
-
 * Does student S102 exist?
 * Does book B2 exist?
 * Are foreign key constraints satisfied?
@@ -56,7 +68,7 @@ The **Read** operation retrieves data from the database without modifying it.
 #### Example 1: Changing Department
 
 Suppose Rohan (S102) changes department from EE to CS.
-* Locates record where student_id = S102.
+* Locates record where `student_id = S102`.
 * Updates only the dept column.
 
 #### Example 2: Correcting a Borrow Date
@@ -79,9 +91,8 @@ The **Delete** operation removes records from the database.
 If `student_id = S103` leaves the institution:
 The system must ensure:
 
-* Related BorrowedBooks entries are handled.
-* Either prevent deletion (if constraints exist)
-* Or cascade delete related records.
+* Related `BorrowedBooks` entries are handled.
+* Either prevent deletion (if constraints exist) or cascade delete related records.
 
 ### Example 2: Removing a Borrow Record
 
@@ -90,45 +101,13 @@ When a book is returned, the borrow entry may be deleted:
 Delete:
 | S101 | B2 | 2024-01-15 |
 
-# CRUD Concept
 
-CRUD stands for:
+#### Database Optimization
+1. **Read-Heavy Systems**: Large number of queries, few insertions or updates.
+Optimization: Indexing, Caching
 
-* **C** – Create
-* **R** – Read
-* **U** – Update
-* **D** – Delete
-
-* Set of **actions** that define the complete life cycle of data. In the library system:
-
-1. A book is **Created**.
-2. Users **Read** book information many times.
-3. Book details may be **Updated**.
-4. Eventually, records may be **Deleted**.
-
-## Database Optimization
-
-#### 1. Read-Heavy Systems
-
-* Large number of queries.
-* Few insertions or updates.
-
-Optimization:
-
-* Indexing.
-* Caching.
-* Fast query processing.
-
-
-#### 2. Write-Heavy Systems
-* Frequent inserts and updates.
-* Less emphasis on reading speed.
-
-
-Optimization:
-* Fast write throughput.
-* Efficient transaction logging.
-* Data durability mechanisms.
+2. **Write-Heavy Systems**: Frequent inserts and updates
+Optimization: Efficient transaction logging, Data durability mechanisms.
 
 
 ## Summary
@@ -140,4 +119,28 @@ CRUD operations form the foundation of database systems.
 * Update modifies existing records while preserving integrity.
 * Delete removes records when necessary.
 
-<!--email_off-->24f2007780@ds.study.iitm.ac.in<!--/email_off-->
+## API – Application Programming Interface
+
+An API (Application Programming Interface) is a standardized way for a client (frontend / mobile app / external system) to communicate with a server.
+
+The client only knows API endpoints
+
+The client does NOT know:
+
+Database schema
+
+Internal business logic
+
+Server implementation details
+
+A Controller groups related actions logically:
+| Controller             | Actions                                      |
+| ---------------------- | -------------------------------------------- |
+| BookController         | createBook, getBooks, updateBook, deleteBook |
+| StudentController      | createStudent, getStudents                   |
+| BorrowController       | createBorrow, returnBook                     |
+| NotificationController | sendEmail, sendAlert                         |
+
+The server exposes structured URLs and HTTP methods
+
+<LibraryAPIExample />

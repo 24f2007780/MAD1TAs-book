@@ -14,12 +14,11 @@ A college library built a database to keep track of:
 
 
 ##### `Books`
-
-| book_id | title            | category |
-| ------- | ---------------- | -------- |
-| B1      | Database Systems | CS       |
-| B2      | Calculus         | Math     |
-| B3      | Physics Basics   | Physics  |
+| book_id | title            | category | edition | publisher       |
+| ------- | ---------------- | -------- | ------- | --------------- |
+| B1      | Database Systems | CS       | 3rd     | Pearson         |
+| B2      | Calculus         | Math     | 2nd     | McGraw Hill     |
+| B3      | Physics Basics   | Physics  | 1st     | Cambridge Press |
 
 
 ##### `BorrowedBooks` (Many-to-Many)
