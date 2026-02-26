@@ -218,6 +218,10 @@ export default defineConfig({
                     text: 'curl commands & server',
                     link: '/appdev-I-theory/week5/5-business-logic-layer-CONTROLLER',
                   },
+                  {
+                    text: 'Flask SQLAlchemy',
+                    link: '/appdev-I-theory/week5/5-flask-sqlalchemy-basics',
+                  },
                   // {
                   //   text: 'Flask Basics',
                   //   link: '/appdev-I-theory/week4/5-',
