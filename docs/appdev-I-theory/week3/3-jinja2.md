@@ -247,11 +247,13 @@ template = Template("""
 rendered = template.render(users=[{"first_name": "John", "last_name": "Doe"}, {"first_name": "Jane", "last_name": "Smith"}, {"first_name": "Alice", "last_name": "Johnson"}])
 print(rendered)
 ```
+
 :::
+
 :::info
 
 - Jinja2 supports looping over lists, tuples, dictionaries, and ranges.
-- we can also use `continue` and `break` statements inside loops.
+- Jinja2 does not support `break` or `continue` statements in loops.
 - Jinja2 has only `for` loops, no `while` loops.
 
 :::
