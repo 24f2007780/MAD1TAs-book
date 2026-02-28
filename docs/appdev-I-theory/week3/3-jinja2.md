@@ -152,7 +152,7 @@ Jinja2 provides control structures like conditionals and loops to add logic to t
 from jinja2 import Template
 template = Template("""
   {% if user == "Alice" %}
-    <h1>Hello, {{ user.name }}!</h1>
+    <h1>Hello, {{ user }}!</h1>
   {% else %}
     <h1>Please log in.</h1>
   {% endif %}
