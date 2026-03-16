@@ -117,4 +117,6 @@ pip install flask
 ```
 
 ::: info Make sure to activate your virtual environment before installing packages to ensure they are installed in the correct environment.
+- [pip cheatsheet](https://opensource.com/sites/default/files/gated-content/cheat_sheet_pip.pdf)
+
 :::

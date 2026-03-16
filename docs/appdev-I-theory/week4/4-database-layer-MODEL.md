@@ -1,5 +1,5 @@
 
-## MVC (Model-View-Controller)
+# MVC(Model-View-Controller)
 MVC is a software architecture pattern that divides an interactive application into three independent components: Model (data & rules), View (presentation), and Controller (interaction logic).
 This separation improves modularity, maintainability, scalability, and testability.
 ![](../static/Model-View-Controller-Architecture.png)

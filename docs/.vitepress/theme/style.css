@@ -262,3 +262,12 @@
 .vp-doc h2 {
   text-align: center;
 }
+
+.vp-doc {
+  max-width: 100% !important;
+}
+
+.VPContent .container {
+  max-width: 1100px !important;
+}
+

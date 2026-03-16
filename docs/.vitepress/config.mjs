@@ -219,25 +219,42 @@ export default defineConfig({
                     link: '/appdev-I-theory/week5/5-business-logic-layer-CONTROLLER',
                   },
                   {
-                    text: 'Flask SQLAlchemy',
+                    text: 'Flask SQLAlchemy Basics',
                     link: '/appdev-I-theory/week5/5-flask-sqlalchemy-basics',
                   },
-                  // {
-                  //   text: 'Flask Basics',
-                  //   link: '/appdev-I-theory/week4/5-',
-                  // },
-                  // {
-                  //   text: 'Templating in Flask',
-                  //   link: '/appdev-I-theory/week4/4-flask-templating',
-                  // },
+                  {
+                    text: 'SQLAlchemy Querying',
+                    link: '/appdev-I-theory/week5/5-flask-sqlalchemy-querying',
+                  },
+                  {
+                    text: 'Table Creation',
+                    link: '/appdev-I-theory/week5/5-table-creation',
+                  },
+              
+                  {
+                    text: 'SQLAlchemy Relationships',
+                    link: '/appdev-I-theory/week5/5-flask-sqlalchemy-relationships'
+                  },
+    
                   // {
                   //   text: 'More Features in Flask',
                   //   link: '/appdev-I-theory/week4/4-more-flask-features',
                   // }
                 ],
               },
-              // { text: 'W5 – business logic: CONTROLLER', link: '/appdev-I-theory/week5/5-business-logic-layer-CONTROLLER' },
-              // { text: 'W6 – REST APIs', link: '/appdev-I-theory/week6/6-Rest-APIs' },
+              {
+                text: 'Week6: RESTful API',
+                link: '/appdev-I-theory/week6/week6-index',
+                collapsed: true,
+                items: [
+                { text: 'REST APIs', 
+                  link: '/appdev-I-theory/week6/6-REST-APIs' },
+                { text: 'Flask restful basics', 
+                  link: '/appdev-I-theory/week6/6-flask-restful-basics.md' },
+                { text: 'OpenAPI specification', 
+                  link: '/appdev-I-theory/week6/6-openapi-specification.md' },
+                ]
+              }
               // { text: 'W7 – Backend', link: '/appdev-I-theory/week7/7-Backend' },
               // { text: 'W8 – Frontend', link: '/appdev-I-theory/week8/8-Frontend' },
               // { text: 'W9 – Security', link: '/appdev-I-theory/week9/9-Security' },
