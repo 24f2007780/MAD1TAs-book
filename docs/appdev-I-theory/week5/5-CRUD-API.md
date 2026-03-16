@@ -1,15 +1,17 @@
 # CRUD Operations
-CRUD stands for:
+CRUD is:
+<div class="card">
+C – <b>Create</b><br>
+R – <b>Read</b><br>
+U – <b>Update</b><br>
+D – <b>Delete</b><br>
+</div>
 
-* **C** – Create
-* **R** – Read
-* **U** – Update
-* **D** – Delete
-
-* Set of **actions** that define the complete life cycle of data. In the library system:
+- A set of **actions** that define the complete life cycle of data.<br>
+In the library system [discussed before](../week4/4-SQL-Recap.html#database-example-library-management-system):
 
 1. A book is **Created**.
-2. Users **Read** book information many times.
+2. Users can **Read** books many times.
 3. Book details may be **Updated**.
 4. Eventually, records may be **Deleted**.
 
@@ -49,17 +51,18 @@ System checks:
 Only then is the record created.
 
 
-# 2. READ Operation
+## 2. READ Operation
 The **Read** operation retrieves data from the database without modifying it.
 
 - Examples: 
 1. Get List of Students: the system retrieves all rows from the Students table.
 2. Summary statistics for librarian dashboard: aggregation functions such as
 - `COUNT` to get total number of books 
-- `GROUP BY` to get number of books per category (maybe plot a histogram of same).
+- `GROUP BY` to get number of books per category (maybe plot a `matplotlib` piechart of the same).
 
 
-# 3. UPDATE Operation
+
+## 3. UPDATE Operation
 
 * Record must already exist.
 * Only specified fields are changed.
@@ -82,7 +85,8 @@ After correction:
 Only borrow_date field is modified.
 
 
-# 4. DELETE Operation
+
+## 4. DELETE Operation
 
 The **Delete** operation removes records from the database.
 
@@ -92,7 +96,7 @@ If `student_id = S103` leaves the institution:
 The system must ensure:
 
 * Related `BorrowedBooks` entries are handled.
-* Either prevent deletion (if constraints exist) or cascade delete related records.
+* Either prevent deletion (if constraints exist) or [cascade delete](https://docs.sqlalchemy.org/en/21/orm/cascades.html#delete) related records.
 
 ### Example 2: Removing a Borrow Record
 
@@ -106,32 +110,18 @@ Delete:
 1. **Read-Heavy Systems**: Large number of queries, few insertions or updates.
 Optimization: Indexing, Caching
 
-2. **Write-Heavy Systems**: Frequent inserts and updates
+2. **Write-Heavy Systems**: Frequent inserts and updates<br>
 Optimization: Efficient transaction logging, Data durability mechanisms.
 
 
-## Summary
-
-CRUD operations form the foundation of database systems.
-
-* Create ensures new, valid records are inserted.
-* Read retrieves and analyzes stored data.
-* Update modifies existing records while preserving integrity.
-* Delete removes records when necessary.
-
 ## API – Application Programming Interface
 
-An API (Application Programming Interface) is a standardized way for a client (frontend / mobile app / external system) to communicate with a server.
+An API (Application Programming Interface) is a <span style="font-weight:bold; color:rgb(181, 118, 244)">standardized way</span> for a client (frontend/external system) to communicate with a server.
 
-The client only knows API endpoints
-
-The client does NOT know:
-
-Database schema
-
-Internal business logic
-
-Server implementation details
+The client only knows <span style="font-weight:bold; color:rgb(98, 151, 208)">API endpoints</span>. The client does NOT know:
+- Database schema
+- Internal business logic
+- Server implementation details
 
 A Controller groups related actions logically:
 | Controller             | Actions                                      |
@@ -139,8 +129,7 @@ A Controller groups related actions logically:
 | BookController         | createBook, getBooks, updateBook, deleteBook |
 | StudentController      | createStudent, getStudents                   |
 | BorrowController       | createBorrow, returnBook                     |
-| NotificationController | sendEmail, sendAlert                         |
 
 The server exposes structured URLs and HTTP methods
 
-<LibraryAPIExample />
+<LibraryAPI />
