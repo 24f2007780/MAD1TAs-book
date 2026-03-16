@@ -219,13 +219,21 @@ export default defineConfig({
                     link: '/appdev-I-theory/week5/5-business-logic-layer-CONTROLLER',
                   },
                   {
-                    text: 'Flask SQLAlchemy',
+                    text: 'Flask SQLAlchemy: Basics Crud Operation',
                     link: '/appdev-I-theory/week5/5-flask-sqlalchemy-basics',
                   },
                   {
-                    text: 'SQLAlchemy Relationships',
-                    link: '/appdev-I-theory/week5/5-flask-sqlalchemy-relationships'
+                    text: 'Flask SQLAlchemy: Querying Database',
+                    link: '/appdev-I-theory/week5/5-flask-sqlalchemy-querying.md',
                   },
+                  {
+                    text: 'Flask SQLAlchemy: Tables and Models',
+                    link: '/appdev-I-theory/week5/5-table-creation',
+                  },
+                  // {
+                  //   text: 'Flask Basics',
+                  //   link: '/appdev-I-theory/week4/5-',
+                  // },
                   // {
                   //   text: 'Templating in Flask',
                   //   link: '/appdev-I-theory/week4/4-flask-templating',
