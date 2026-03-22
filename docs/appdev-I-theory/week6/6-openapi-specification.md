@@ -1,17 +1,14 @@
-# **API Data Transfer Formats**
+# API Data Transfer Formats
 
 Web services use different formats to transfer data between client and server.
 <div class="card">
-<h3>🌐 HTML (HyperText Markup Language)</h3>
+<h3> HTML (HyperText Markup Language)</h3>
 
 - Used mainly for **displaying web pages**  
 - Not suitable for APIs because:  
     - Contains presentation + data mixed  
     - Hard to parse programmatically  
 - Rarely used in modern APIs  
-
-**Example**
-<img src="https://www.devopsschool.com/blog/wp-content/uploads/2022/02/student-json-object.jpg" style="width:100%; border-radius:8px;">
 </div>
 
 <!-- JSON -->
@@ -81,12 +78,12 @@ Web services use different formats to transfer data between client and server.
 | **Learning Curve** | Easy            | Easy (but indentation-sensitive) | Moderate           |
 
 
-## **OpenAPI (Swagger)**
+## OpenAPI (Swagger)
 - A **standard specification** for describing REST APIs
 - Written in **JSON or YAML**
 - Acts as a **contract between client and server**
 
-#### **Key Features**
+#### Key Features**
 ##### 1. API Description Language
 - Defines:
   - Endpoints
@@ -181,7 +178,7 @@ components:
 ```
 
 
-## **Why OpenAPI is Important?**
+## Why OpenAPI is Important?
 - Standardizes API design
 - Improves collaboration
 - Reduces bugs
@@ -192,10 +189,19 @@ components:
 :::details Additional Points
 
 ### API Best Practices
-- Use **nouns** → `/users`, not `/getUsers`
-- Version APIs → `/api/v1/users`
-- Use query params → filtering, pagination
 
+1. Use Nouns for Resources
+Good: `/users, /posts`
+Bad: `/getUsers, /createPost`
+2. Version Your API
+`/api/v1/users`
+`/api/v2/users`
+3. Handle Errors Consistently
+`{"error": "Not Found", "message": "User 123 not found", "status_code": 404}`
+4. Use Query Parameters for Filtering
+`/api/posts?status=published&category=tech`
+5. Implement Pagination
+`/api/posts?page=2&limit=10`
 
 ### HTTP Methods Summary
 - **GET** → Read (safe, idempotent)
@@ -203,13 +209,9 @@ components:
 - **PUT** → Update (idempotent)
 - **DELETE** → Remove (idempotent)
 :::
-### API Testing Tools
-- Postman / Thunder Client
-- curl (command line)
-- Swagger UI 
 
 
-### **🔹 Testing with Thunder Client or Postman**
+### Testing with Thunder Client or Postman
 
 :::tabs
 ==GET Request
@@ -276,23 +278,7 @@ components:
 :::
 
 
-#### Best Practices:
-
-1. Use Nouns for Resources
-Good: `/users, /posts`
-Bad: `/getUsers, /createPost`
-2. Version Your API
-`/api/v1/users`
-`/api/v2/users`
-3. Handle Errors Consistently
-`{"error": "Not Found", "message": "User 123 not found", "status_code": 404}`
-4. Use Query Parameters for Filtering
-`/api/posts?status=published&category=tech`
-5. Implement Pagination
-`/api/posts?page=2&limit=10`
-
-
-### **Testing the API**
+### Testing the API with curl
 
 :::tabs
 ==PUT
@@ -315,7 +301,7 @@ curl -X POST http://127.0.0.1:5000/users -H "Content-Type: application/json" -d 
 :::
 
 
-### **Key Takeaways**
+### Key Takeaways
 - `PUT` is **idempotent** → No matter how many times you update user 1, the result remains the same.  
 - `DELETE` is **idempotent** → User 1 remains deleted regardless of retries.  
 - ❌ `POST` is **not idempotent** → Creates a **new user every time**.
@@ -332,21 +318,3 @@ curl -X POST http://127.0.0.1:5000/users -H "Content-Type: application/json" -d 
 
 :::
 
-
-##### Example CURL Requests
-Create Student
-```sh
-curl -X POST http://127.0.0.1:5000/students/S104 \
--H "Content-Type: application/json" \
--d '{"name":"Kunal","dept":"ME"}'
-```
-Get Student
-```sh
-curl http://127.0.0.1:5000/students/S104
-```
-Borrow Book
-```sh
-curl -X POST http://127.0.0.1:5000/borrow \
--H "Content-Type: application/json" \
--d '{"student_id":"S101","book_id":"B1","borrow_date":"2024-02-01"}'
-```
