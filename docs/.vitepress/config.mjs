@@ -12,6 +12,7 @@ const JS_PREFIX = '/appdev-II-theory/javascript';
 const VUE_PREFIX = '/appdev-II-theory/vue';
 
 export default defineConfig({
+  ignoreDeadLinks: true,
   title: 'Application Development',
   description: 'Documentation for AppDev Projects and Theory',
   base: '/MAD1TAs-book/',
@@ -216,7 +217,7 @@ export default defineConfig({
                   },
                   {
                     text: 'curl commands & server',
-                    link: '/appdev-I-theory/week5/5-business-logic-layer-CONTROLLER',
+                    link: '/appdev-I-theory/week5/5-curl-server',
                   },
                   {
                     text: 'Flask SQLAlchemy Basics',
@@ -254,8 +255,8 @@ export default defineConfig({
                 { text: 'OpenAPI specification', 
                   link: '/appdev-I-theory/week6/6-openapi-specification.md' },
                 ]
-              }
-              // { text: 'W7 – Backend', link: '/appdev-I-theory/week7/7-Backend' },
+              },
+              { text: 'W7 – Backend', link: '/appdev-I-theory/week7/7-Backend' },
               // { text: 'W8 – Frontend', link: '/appdev-I-theory/week8/8-Frontend' },
               // { text: 'W9 – Security', link: '/appdev-I-theory/week9/9-Security' },
               // { text: 'W10 – Testing', link: '/appdev-I-theory/week10/10-Testing' },

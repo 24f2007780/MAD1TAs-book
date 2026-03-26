@@ -17,7 +17,7 @@ By the end of this week, you should be able to:
 
 ### Topics Covered
 
-- **[REST APIs and Data Exchange](6-REST-APIs.md)**
+- **[REST APIs and Data Exchange](6-REST-APIs)**
   REST constraints, CRUD mapping with HTTP verbs, idempotent operations, JSON data transfer and API design example.
 
 - **[Flask RESTful Basics](6-flask-restful-basics.md)**

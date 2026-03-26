@@ -7,8 +7,7 @@ U – <b>Update</b><br>
 D – <b>Delete</b><br>
 </div>
 
-- A set of **actions** that define the complete life cycle of data.<br>
-In the library system [discussed before](../week4/4-SQL-Recap.html#database-example-library-management-system):
+- A set of **actions that define the complete life cycle of data.** In the library system we [discussed before](../week4/4-SQL-Recap.html#database-example-library-management-system):
 
 1. A book is **Created**.
 2. Users can **Read** books many times.
@@ -118,10 +117,12 @@ Optimization: Efficient transaction logging, Data durability mechanisms.
 
 An API (Application Programming Interface) is a <span style="font-weight:bold; color:rgb(181, 118, 244)">standardized way</span> for a client (frontend/external system) to communicate with a server.
 
+:::attention An API acts as a layer that translates HTTP requests into CRUD operations on the database.
+:::
+
 - It is a set of definitions and protocols that allow two applications to communicate with
 each other.
-- APIs are used to share data and functionality between applications.
-- APIs follow a request-response model, where one application sends requests to another
+- APIs are follows a **request-response model** to share data and functionality between applications, where one application sends requests to another
 to access data or perform actions.
 - There are many different types of APIs, such as Web APIs, Library APIs, Database APIs
 and Hardware APIs.
@@ -132,6 +133,13 @@ The client only knows <span style="font-weight:bold; color:rgb(98, 151, 208)">AP
 - Internal business logic
 - Server implementation details
 
+### Why API?
+- **Scalability**: enables distributed systems to grow
+- **Efficiency**: allows reuse of backend services
+- **Automation**: enables systems to interact without human input
+- **Security** : controlled access via authentication and authorization
+
+
 A Controller groups related actions logically:
 | Controller             | Actions                                      |
 | ---------------------- | -------------------------------------------- |
@@ -141,9 +149,27 @@ A Controller groups related actions logically:
 
 The server exposes structured URLs and HTTP methods
 
+## Routes and URL Mapping
+Routes define how incoming HTTP requests are mapped to specific functions (**handlers**) in the server.
+- **Maps a URL to a function handler functions** (typically within controllers)
+- **HTTP methods** (GET, POST, PUT, DELETE) specify the type of **CRUD** operation to perform.
+- **URL structure** like `students/<int:student_id>` identifies **resource**, while route determines which **function** is executed.
+
+#### Route Handling using Decorators
+
+In Python frameworks like Flask, decorators are used to map routes to functions.
+```py
+
+@app.route("/books", methods=["GET"])
+def get_books():
+    ...
+```
+The decorator binds the URL `/books` to the function `get_books()`
+- When a request hits `/books`, this function is executed
+
 <LibraryAPI />
 
-:::details restful code for the same
+:::details `flask_restful` code for the same example
 
 ```py
 from flask import Flask
@@ -203,13 +229,13 @@ borrow_parser.add_argument("borrow_date", required=True)
 # ---------------------- FIELDS ----------------------
 
 student_fields = {
-    "student_id": fields.String,
+    "student_id": fields.Integer,
     "name": fields.String,
     "dept": fields.String
 }
 
 book_fields = {
-    "book_id": fields.String,
+    "book_id": fields.Integer,
     "title": fields.String,
     "category": fields.String,
     "edition": fields.String,
@@ -401,10 +427,10 @@ class BorrowResource(Resource):
 # ---------------------- ROUTES ----------------------
 
 api.add_resource(BookListResource, "/books")
-api.add_resource(BookResource, "/books/<string:book_id>")
+api.add_resource(BookResource, "/books/<int:book_id>")
 
 api.add_resource(StudentListResource, "/students")
-api.add_resource(StudentResource, "/students/<string:student_id>")
+api.add_resource(StudentResource, "/students/<int:student_id>")
 
 api.add_resource(BorrowListResource, "/borrows")
 api.add_resource(BorrowResource, "/borrows/<int:borrow_id>")

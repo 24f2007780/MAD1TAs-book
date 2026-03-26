@@ -1,37 +1,34 @@
 
 # Distributed Software Architecture
 
-Distributed software architecture is a design where application components are spread across multiple machines connected via a network.
+Distributed software architecture is a system design approach in which application components run on multiple machines and communicate over a network.
 
-* Components run on **different systems**
-* Communication happens via **network protocols (HTTP, TCP, etc.)**
-* Enables **scalability & fault tolerance**
+- Components run on **different systems**
+- Communication happens via **network protocols (HTTP, TCP, etc.)**
+- Enables **scalability** (handling increased load by adding machines) and **fault tolerance** (system continues working even if some components fail).
 
 
 ### Web Architecture
 
-The structure used to build and deliver web applications using technologies like **HTML, CSS, JavaScript, HTTP**.
+The structure used to design, build, and deliver web applications over the internet. using technologies like **HTML, CSS, JavaScript, HTTP**.
 
+- Clients and servers may be **geographically far apart**
+- Network conditions vary (latency, speed), can be **unreliable**
 
-* Clients and servers may be **geographically far apart**
-* Network conditions vary (latency, speed)
-* Communication is **stateless and unreliable by default**
-
----
 
 ### Client–Server Responsibilities
 :::tabs
 == Client
 
-* User interface
-* Sends requests
-* Displays response
+- User interface
+- Sends requests
+- Displays response
 
 == Server
 
-* Stores data
-* Processes logic
-* Returns results
+- Stores data
+- Processes business logic and handles requests
+- Returns results
 
 :::
 
@@ -55,29 +52,20 @@ graph LR
 
 # Assumptions in Distributed Systems
 
-* ❌ Server is **not always on**
-* ❌ Server does **not know client state**
-* ❌ Authentication is **not automatic**
-* ❌ Network latency is **unpredictable**
+1. Server is **not always on**
+2. The server **does not maintain client state** between requests (**stateless** interaction).
+3. Authentication is **not automatic** (must be handled explicitly by tokens/sessions)
+4. Network latency is **unpredictable**
 
-
-## What is an API?
-
-An API (Application Programming Interface) is a set of rules that allows software applications to communicate with each other.
-
-### Why Use an API?
-
-* Scalability
-* Efficiency
-* Automation
-* Security
 
 
 # REST Architecture 
 
-* REST = **REpresentational State Transfer**
-* A **set of design constraints**, not strict rules
-* Designed for **real-world web limitations**
+An API (Application Programming Interface) is a set of rules and protocols that allows different software systems to communicate and exchange data
+
+- REST = **REpresentational State Transfer**
+- A **set of design constraints**, not strict rules
+- Designed to work efficiently over HTTP and handle real-world web constraints such as **latency, scalability, and stateless** communication.
 
 
 ## REST Constraints
@@ -86,20 +74,20 @@ An API (Application Programming Interface) is a set of rules that allows softwar
 ### 1 Client–Server
 Separation of concerns
 
-* Client → UI & interaction
-* Server → data & logic
-* Independent development
-* Scalability
+- Client → UI & interaction
+- Server → data & logic
+- Independent development
+- network can be `local`, not alter just connects client to server.
 
 
 ### 2: Stateless
 
 Each request is independent
-* Server does NOT remember past requests
-* Client must send **all required data every time**
-* Server does not know:
-  * which page user was on
-  * if user is logged in (unless token is sent)
+- Server does NOT remember past requests
+- Client must send **all required data every time**, we can't assume it is the same server answering us.
+- Server does not know:
+  - which page user was on
+  - if user is logged in (unless token is sent)
 
 
 ```mermaid
@@ -117,19 +105,18 @@ sequenceDiagram
 
 ### 3: Layered System
 
-System is divided into layers
+The system is organized into multiple layers, where each layer has a specific responsibility.
 
-#### Components
+#### Typical Components
 
-* Load Balancer
-* Authentication Server
-* Backend Servers
-
+- Load Balancer
+- Authentication Server
+- Backend Servers
+- Divide app into view, controller and model. [MVC](../week4/4-database-layer-MODEL.md)
 ##### Benefits
-
-* Security
-* Scalability
-* Flexibility
+Can make changes in one layer without affecting other, making it secure and easier to maintain or debug errors.
+- reuse components
+- modular design
 
 ```mermaid
 graph LR
@@ -147,10 +134,10 @@ Responses can be stored (cached)
 
 #### Benefits
 
-* Faster responses
-* Reduced server load
+- Faster responses
+- Reduced server load
 
-* Example: Browser caches images, CSS
+- Example: Browser caches images, CSS
 
 
 ```mermaid
@@ -161,20 +148,19 @@ graph LR
     Server --> Proxy
 ```
 
-* `Cache-Control`
-* `Expires`
+- `Cache-Control`
+- `Expires`
 
 ---
 
 ### 5: Uniform Interface
 
 
-Standard way of communication
+Standard way of communication between client-server.
 
 ### Rules
 
-* Resources identified by **URLs**
-* Use standard HTTP methods:
+- In REST APIs, **URLs represent resources** (e.g., /books, /students) rather than actions. Use standard HTTP methods:
 
 | Method | Purpose |
 | ------ | ------- |
@@ -185,20 +171,17 @@ Standard way of communication
 
 #### Benefits
 
-* Simplicity
-* Consistency
-* Easy to understand APIs
+- Simplicity
+- Consistency
+- Easy to understand APIs
 
 ---
 
 #### 6. Code on Demand
 
-Server can send executable code
-
-### Examples
-
-* JavaScript
-* Applets
+Server can send executable code. Example:
+- JavaScript
+- Applets
 
 ## Summary Table
 
@@ -215,31 +198,31 @@ Server can send executable code
 
 # REST (REpresentational State Transfer)
 
-* Client - Server may be far apart & State?
-* Different networks, latencies, quality
-* Authentication? Not core part of protocol
-* guidelines & constraints
+- Client - Server may be far apart & State?
+- Different networks, latencies, quality
+- Authentication? Not core part of protocol
+- guidelines & constraints
 
 ### What is REST?
 
-* REST is an **architectural style** for designing web services.
-* Uses **HTTP methods** to operate on **resources**.
-* Resources are identified using **URIs (Uniform Resource Identifiers)**.
-* Communication happens in a **client–server model**.
+- REST is an **architectural style** for designing web services.
+- Uses **HTTP methods** to operate on **resources**.
+- Resources are identified using **URIs (Uniform Resource Identifiers)**.
+- Communication happens in a **client–server model**.
 
 
 #### What does it actually mean?
 
-* Every request from client → server must include **all required information (state)**.
-* Server does **not remember previous requests**.
-* This is called **stateless communication**.
+- Every request from client → server must include **all required information (state)**.
+- Server does **not remember previous requests**.
+- This is called **stateless communication**.
 
 ::: info
-* Everything is a **resource** (user, product, order, etc.)
-* Each resource has:
+- Everything is a **resource** (user, product, order, etc.)
+- Each resource has:
 
-  * A **URI**
-  * A **representation** (JSON, XML, etc.)
+  - A **URI**
+  - A **representation** (JSON, XML, etc.)
 
 ```
 GET /users/101
@@ -253,27 +236,27 @@ GET /users/101
 
 1. **Client accesses resource**
 
-   * Uses URI (e.g., `/users/101`)
-   * No prior state assumed
+   - Uses URI (e.g., `/users/101`)
+   - No prior state assumed
 
 2. **Client specifies operation**
 
-   * Using HTTP methods:
+   - Using HTTP methods:
 
-     * GET, POST, PUT, DELETE
+     - GET, POST, PUT, DELETE
 
 3. **Server processes request**
 
-   * Applies business logic
-   * Interacts with database if needed
+   - Applies business logic
+   - Interacts with database if needed
 
 4. **Server sends response**
 
-   * Returns:
+   - Returns:
 
-     * Data (JSON/XML)
-     * Status codes (200, 404, etc.)
-     * Links to other resources (HATEOAS – optional advanced concept)
+     - Data (JSON/XML)
+     - Status codes (200, 404, etc.)
+     - Links to other resources (HATEOAS – optional advanced concept)
 
 | Aspect             | CRUD                         | REST                         |
 | ------------------ | ---------------------------- | ---------------------------- |
@@ -285,38 +268,38 @@ GET /users/101
 | **Implementation** | SQL / ORM / DB logic         | APIs using URIs + HTTP       |
 | **State**          | Internal DB state            | Stateless communication      |
 
-* REST ≠ CRUD
-* But:
+- REST ≠ CRUD
+- But:
 
-  * REST **maps well to CRUD operations**
+  - REST **maps well to CRUD operations**
 
 ##  Idempotent Operations
-* An operation is **idempotent** if:
+- An operation is **idempotent** if:
 
-  * Repeating it multiple times → same result as once
+  - Repeating it multiple times → same result as once
 
 ### Idempotent
 
-* GET
-* PUT
-* DELETE
-* HEAD
-* OPTIONS
+- GET
+- PUT
+- DELETE
+- HEAD
+- OPTIONS
 
 ### Non-Idempotent
 
-* POST
-* PATCH
+- POST
+- PATCH
 
 
 
 ## Typical REST API Functionality
 
-* CRUD operations
-* Filtering & listing
-* Create VM
-* Restart server
-* Control IoT devices
+- CRUD operations
+- Filtering & listing
+- Create VM
+- Restart server
+- Control IoT devices
 
 
 
