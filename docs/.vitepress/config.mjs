@@ -220,7 +220,7 @@ export default defineConfig({
                     link: '/appdev-I-theory/week5/5-curl-server',
                   },
                   {
-                    text: 'Flask SQLAlchemy Basics',
+                    text: 'Flask SQLAlchemy: Basics Crud Operation',
                     link: '/appdev-I-theory/week5/5-flask-sqlalchemy-basics',
                   },
                   {
@@ -233,10 +233,33 @@ export default defineConfig({
                   },
               
                   {
-                    text: 'SQLAlchemy Relationships',
-                    link: '/appdev-I-theory/week5/5-flask-sqlalchemy-relationships'
+                    text: 'Flask SQLAlchemy: Querying Database',
+                    link: '/appdev-I-theory/week5/5-flask-sqlalchemy-querying.md',
                   },
-    
+                  {
+                    text: 'Flask SQLAlchemy: Tables and Models',
+                    link: '/appdev-I-theory/week5/5-table-creation',
+                  },
+                  {
+                    text: 'Flask SQLAlchemy: UPDATE and DELETE',
+                    link: '/appdev-I-theory/week5/5-flask-sqlalchemy-update-and-delete',
+                  },
+                  {
+                    text: 'Extra: Select vs Query API',
+                    link: '/appdev-I-theory/week5/5-extra-select-vs-query-api',
+                  },
+                  {
+                    text: 'Extra: Base SQLAlchemy ',
+                    link: '/appdev-I-theory/week5/5-extra-base-sqlalchemy',
+                  },
+                  // {
+                  //   text: 'Flask Basics',
+                  //   link: '/appdev-I-theory/week4/5-',
+                  // },
+                  // {
+                  //   text: 'Templating in Flask',
+                  //   link: '/appdev-I-theory/week4/4-flask-templating',
+                  // },
                   // {
                   //   text: 'More Features in Flask',
                   //   link: '/appdev-I-theory/week4/4-more-flask-features',
