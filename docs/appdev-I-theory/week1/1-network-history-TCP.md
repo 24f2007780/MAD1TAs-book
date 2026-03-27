@@ -56,10 +56,10 @@ tcp --> domain --> http --"DNS database of ISP local cache"--> web
 | **PUT**    | Update data  | Edit user profile   |
 | **DELETE** | Remove data  | Delete account |
 
-You will learn about *HTTP methods* in greater detail in [Week 6](../week6/6-Rest-APIs.md)<br>
+You will learn about *HTTP methods* in greater detail in [Week 6](../week6/6-REST-APIs)<br>
 
 
-## [Curl Commands](../week5/5-business-logic-layer-CONTROLLER#curl-commands)
+## [Curl Commands](../week5/5-curl-server#curl-commands)
 
 - HTTP is a **stateless protocol**: each client request is handled independently. The server does not remember previous requests. To maintain user state across multiple requests (e.g., shopping cart, login sessions), techniques such as:
 

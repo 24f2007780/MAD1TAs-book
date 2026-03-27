@@ -1,127 +1,307 @@
 
-#  REpresentational State Transfer - REST
-REST (Representational State Transfer) APIs are the standard way to build web services that allow different systems to communicate over HTTP. They use standard HTTP methods and JSON for data exchange.
+# Distributed Software Architecture
+
+Distributed software architecture is a system design approach in which application components run on multiple machines and communicate over a network.
+
+- Components run on **different systems**
+- Communication happens via **network protocols (HTTP, TCP, etc.)**
+- Enables **scalability** (handling increased load by adding machines) and **fault tolerance** (system continues working even if some components fail).
+
+
+### Web Architecture
+
+The structure used to design, build, and deliver web applications over the internet. using technologies like **HTML, CSS, JavaScript, HTTP**.
+
+- Clients and servers may be **geographically far apart**
+- Network conditions vary (latency, speed), can be **unreliable**
+
+
+### Client–Server Responsibilities
+:::tabs
+== Client
+
+- User interface
+- Sends requests
+- Displays response
+
+== Server
+
+- Stores data
+- Processes business logic and handles requests
+- Returns results
+
+:::
+
+
+```mermaid
+graph LR
+    Client1[Client - Browser]
+    Client2[Client - Mobile]
+    Network[(Network)]
+    Server[Server]
+
+    Client1 --> Network
+    Client2 --> Network
+    Network --> Server
+    Server --> Network
+    Network --> Client1
+    Network --> Client2
+```
+
+---
+
+# Assumptions in Distributed Systems
+
+1. Server is **not always on**
+2. The server **does not maintain client state** between requests (**stateless** interaction).
+3. Authentication is **not automatic** (must be handled explicitly by tokens/sessions)
+4. Network latency is **unpredictable**
+
+
+
+# REST Architecture 
+
+An API (Application Programming Interface) is a set of rules and protocols that allows different software systems to communicate and exchange data
+
+- REST = **REpresentational State Transfer**
+- A **set of design constraints**, not strict rules
+- Designed to work efficiently over HTTP and handle real-world web constraints such as **latency, scalability, and stateless** communication.
+
+
+## REST Constraints
+
+
+### 1 Client–Server
+Separation of concerns
+
+- Client → UI & interaction
+- Server → data & logic
+- Independent development
+- network can be `local`, not alter just connects client to server.
+
+
+### 2: Stateless
+
+Each request is independent
+- Server does NOT remember past requests
+- Client must send **all required data every time**, we can't assume it is the same server answering us.
+- Server does not know:
+  - which page user was on
+  - if user is logged in (unless token is sent)
+
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+
+    Client->>Server: Request (with all info)
+    Server->>Client: Response
+
+    Client->>Server: New Request (no memory)
+    Server->>Client: Response
+```
+
+
+### 3: Layered System
+
+The system is organized into multiple layers, where each layer has a specific responsibility.
+
+#### Typical Components
+
+- Load Balancer
+- Authentication Server
+- Backend Servers
+- Divide app into view, controller and model. [MVC](../week4/4-database-layer-MODEL.md)
+##### Benefits
+Can make changes in one layer without affecting other, making it secure and easier to maintain or debug errors.
+- reuse components
+- modular design
+
+```mermaid
+graph LR
+    Client --> Network
+    Network --> LB[Load Balancer]
+    LB --> Auth[Auth Server]
+    LB --> Backend[Backend Pool]
+```
+
+---
+
+### 4: Cacheability
+
+Responses can be stored (cached)
+
+#### Benefits
+
+- Faster responses
+- Reduced server load
+
+- Example: Browser caches images, CSS
+
+
+```mermaid
+graph LR
+    Client --> Proxy[Cache / Proxy]
+    Proxy -->|Cached Response| Client
+    Proxy -->|Miss| Server
+    Server --> Proxy
+```
+
+- `Cache-Control`
+- `Expires`
+
+---
+
+### 5: Uniform Interface
+
+
+Standard way of communication between client-server.
+
+### Rules
+
+- In REST APIs, **URLs represent resources** (e.g., /books, /students) rather than actions. Use standard HTTP methods:
+
+| Method | Purpose |
+| ------ | ------- |
+| GET    | Read    |
+| POST   | Create  |
+| PUT    | Update  |
+| DELETE | Remove  |
+
+#### Benefits
+
+- Simplicity
+- Consistency
+- Easy to understand APIs
+
+---
+
+#### 6. Code on Demand
+
+Server can send executable code. Example:
+- JavaScript
+- Applets
+
+## Summary Table
+
+| Constraint        | Purpose                     |
+| ----------------- | --------------------------- |
+| Client-Server     | Separation of concerns      |
+| Stateless         | No memory on server         |
+| Layered           | Modular system              |
+| Cacheable         | Improve performance         |
+| Uniform Interface | Standard communication      |
+| Code on Demand    | Extend client functionality |
+
+---
+
+# REST (REpresentational State Transfer)
 
 - Client - Server may be far apart & State?
 - Different networks, latencies, quality
 - Authentication? Not core part of protocol
 - guidelines & constraints
-# Understanding RESTful APIs with Flask-RESTful
 
-RESTful APIs are essential for modern web development, allowing seamless communication between a client and a server. In Flask, we can create RESTful APIs efficiently using the `Flask-RESTful` extension.
+### What is REST?
 
-## 1. What is an API?
+- REST is an **architectural style** for designing web services.
+- Uses **HTTP methods** to operate on **resources**.
+- Resources are identified using **URIs (Uniform Resource Identifiers)**.
+- Communication happens in a **client–server model**.
 
-An API (Application Programming Interface) is a set of rules that allows software applications to communicate with each other. APIs enable data exchange between systems and provide a standardized way for applications to interact.
 
-## 2. Why Use an API?
+#### What does it actually mean?
 
-- **Scalability**: APIs enable applications to grow and integrate with multiple platforms.
-- **Efficiency**: Reduces redundancy by allowing different systems to share functionality.
-- **Automation**: Automates tasks and workflows between services.
-- **Security**: Ensures controlled access to data using authentication mechanisms.
+- Every request from client → server must include **all required information (state)**.
+- Server does **not remember previous requests**.
+- This is called **stateless communication**.
 
-## 3. When to Use an API?
+::: info
+- Everything is a **resource** (user, product, order, etc.)
+- Each resource has:
 
-- When different applications need to communicate.
-- To expose data or services to external applications.
-- When developing microservices architecture.
+  - A **URI**
+  - A **representation** (JSON, XML, etc.)
 
-## 4. How APIs Work
+```
+GET /users/101
+```
 
- A client sends a request to the server, and the server processes it and returns a response.
-APIs follow a request-response cycle:
-- A client sends a request to an API.
-- The API processes the request and interacts with the database if needed.
-- The API returns a response to the client.
+→ Fetch user with ID 101
 
-💡 **Too Much used Analogy:** Imagine ordering food at a restaurant. The waiter (API) takes your order (request), gives it to the kitchen (server), and brings back the food (response).
+:::
 
-## 5. Hierarchy: From Route to Flask-RESTful API
+### REST Communication Flow (Sequence)
 
-Understanding the progression from a simple route to a full-fledged Flask-RESTful API is crucial for building scalable applications. Below is a structured hierarchy:
+1. **Client accesses resource**
 
-1. **Flask Route (********`@app.route`********)**: The most basic way to create an API using Flask. It defines individual endpoints manually and maps them to functions.
+   - Uses URI (e.g., `/users/101`)
+   - No prior state assumed
 
-   - Example:
-     ```python
-     @app.route('/hello', methods=['GET'])
-     def hello():
-         return "Hello, World!"
-     ```
+2. **Client specifies operation**
 
-2. **API (Application Programming Interface)**: A broader concept that refers to any defined mechanism allowing applications to interact. APIs serve data through structured endpoints.
+   - Using HTTP methods:
 
-3. **RESTful API**: A **RESTful API** follows the principles of **REST (Representational State Transfer)** to enable efficient client-server communication. It follows standard HTTP methods:
+     - GET, POST, PUT, DELETE
 
-| HTTP Method | Operation | CRUD |
-|------------|----------|----------|
-| POST | Create new data | Create |
-| GET | Retrieve data | Read |
-| PUT | Update existing data | Update |
-| DELETE | Remove data | Delete |
+3. **Server processes request**
 
-## **Idempotency in HTTP Verbs**
+   - Applies business logic
+   - Interacts with database if needed
 
-**Idempotency** means that making multiple identical requests has the same effect as making a single request. In other words, the outcome remains unchanged no matter how many times the request is sent.
+4. **Server sends response**
 
-#### **Idempotent HTTP Methods**
-These methods ensure that repeated requests **do not** change the server state after the first successful request.
+   - Returns:
 
-1. **GET**:  
-   - Retrieves data from the server.  
-   - Multiple GET requests return the same result without modifying data.  
-   - Example: Fetching user details (`GET /user/1`) multiple times does not alter the user.
+     - Data (JSON/XML)
+     - Status codes (200, 404, etc.)
+     - Links to other resources (HATEOAS – optional advanced concept)
 
-2. **PUT**:  
-   - Updates or creates a resource at a specified location.  
-   - Sending the same `PUT` request repeatedly results in the same final state.  
-   - Example: `PUT /user/1` with `{ "name": "John" }` will always update user 1 to "John" regardless of how many times it is sent.
+| Aspect             | CRUD                         | REST                         |
+| ------------------ | ---------------------------- | ---------------------------- |
+| **Definition**     | Basic database operations    | Architectural style for APIs |
+| **Scope**          | Database level               | Web/API level                |
+| **Operations**     | Create, Read, Update, Delete | Uses HTTP methods            |
+| **Protocol**       | Not tied to any protocol     | Uses HTTP                    |
+| **Focus**          | Data manipulation            | Resource-based communication |
+| **Implementation** | SQL / ORM / DB logic         | APIs using URIs + HTTP       |
+| **State**          | Internal DB state            | Stateless communication      |
 
-3. **DELETE**:  
-   - Removes a resource.  
-   - Multiple DELETE requests for the same resource will always result in the resource being removed or remain absent.  
-   - Example: `DELETE /user/1` ensures user 1 is deleted, and subsequent calls do nothing.
+- REST ≠ CRUD
+- But:
 
-4. **HEAD**:  
-   - Similar to `GET`, but it only returns headers without the response body.  
-   - It does not modify any resources, so it is idempotent.
+  - REST **maps well to CRUD operations**
 
-5. **OPTIONS**:  
-   - Used to describe the communication options available for a resource.  
-   - Making multiple requests does not change anything.
+##  Idempotent Operations
+- An operation is **idempotent** if:
 
-#### **Non-Idempotent HTTP Methods**
-These methods **do not guarantee** the same outcome when called multiple times.
+  - Repeating it multiple times → same result as once
 
-1. **POST**:  
-   - Creates a new resource.  
-   - Sending multiple `POST` requests results in multiple resources being created.  
-   - Example: `POST /user` with `{ "name": "Alice" }` creates multiple user entries.
+### Idempotent
 
-2. **PATCH**:  
-   - Partially updates a resource.  
-   - Multiple `PATCH` requests **may** lead to different states depending on how they are applied.  
-   - Example: Incrementing a counter in a `PATCH` request changes the state each time.
+- GET
+- PUT
+- DELETE
+- HEAD
+- OPTIONS
 
----
+### Non-Idempotent
 
-### **Key Takeaways**
-- **Idempotent methods:** `GET`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`
-- **Non-idempotent methods:** `POST`, `PATCH`
-- **Idempotency helps prevent unintended side effects** when requests are retried due to network failures.
+- POST
+- PATCH
 
-Here's a **Flask** example demonstrating idempotency for `PUT`, `DELETE`, and `POST` using SQLite and SQLAlchemy.
 
----
 
-### **Scenario:**  
-- We have an API for managing users (`id`, `name`).
-- `PUT /users/<id>` ensures **idempotent updates**.
-- `DELETE /users/<id>` ensures **idempotent deletion**.
-- `POST /users` demonstrates **non-idempotent** behavior.
+## Typical REST API Functionality
 
----
+- CRUD operations
+- Filtering & listing
+- Create VM
+- Restart server
+- Control IoT devices
+
+
 
 ### **Flask Application with Idempotency Handling**
 ```python

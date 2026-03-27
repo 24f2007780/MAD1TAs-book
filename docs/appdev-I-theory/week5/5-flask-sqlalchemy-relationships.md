@@ -1,7 +1,7 @@
 # Flask-sqlalchemy Relationships
 
 ::: warning Foreign key column goes on the "many" side in one-to-many (or many-to-one)
-##### Many-to-One (Many articles belong to one user)
+#### Many-to-One (Many articles belong to one user)
 ```python
 class User(db.Model):
     __tablename__ = 'user'
@@ -15,10 +15,10 @@ class Article(db.Model):
     article_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String)
     content = db.Column(db.String)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.user_id"))  # Foreign key in Article
+    user_id = db.Column(db.Integer, db.ForeignKey("user.user_id"))  # Foreign key in Article 
     author = db.relationship("User", back_populates="articles")  # Many articles to one user
 ```
-##### Many-to-Many
+#### Many-to-Many
 
 ```python
 class User(db.Model):
@@ -42,8 +42,16 @@ class ArticleAuthors(db.Model):
 ```
 
 - Use `db.relationship()` for convenience, especially for bidirectional access.
-- For many-to-many, use an association table with two foreign keys and `secondary` in relationships.
-#### one-to-one
+- For many-to-many, use an association table with two foreign keys and `secondary` in relationships. secondary=user_articles → tells SQLAlchemy it's `many-to-many`
+- back_populates connects both sides
+
+### one-to-one
 add `unique=True` constraint on the foreign key column.
+```py
+user_id = db.Column(db.Integer, db.ForeignKey("user.user_id"), unique=True)  # Foreign key in Article
+```
 ![](../static/one-many-PYQ.png)
 :::
+
+<LibrarySQlalchemy />
+
