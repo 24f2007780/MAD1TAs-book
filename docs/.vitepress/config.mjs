@@ -256,7 +256,19 @@ export default defineConfig({
                   link: '/appdev-I-theory/week6/6-openapi-specification.md' },
                 ]
               },
-              { text: 'W7 – Backend', link: '/appdev-I-theory/week7/7-Backend' },
+              { text: 'Week7: Backend Systems',
+                link: '/appdev-I-theory/week7/week7-index',
+                collapsed: true,
+                items: [
+                { text: 'Memory architecture', 
+                  link: '/appdev-I-theory/week7/7-memory-architecture.md' },
+                { text: 'Data search algorithmns', 
+                  link: '/appdev-I-theory/week7/7-data-search-algo.md' },
+                { text: 'SQL recommendations', 
+                  link: '/appdev-I-theory/week7/7-SQL-web.md' },
+                ]
+              },
+
               // { text: 'W8 – Frontend', link: '/appdev-I-theory/week8/8-Frontend' },
               // { text: 'W9 – Security', link: '/appdev-I-theory/week9/9-Security' },
               // { text: 'W10 – Testing', link: '/appdev-I-theory/week10/10-Testing' },

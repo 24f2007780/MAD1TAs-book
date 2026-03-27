@@ -480,7 +480,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 ```
 
-🔹 **Advantages over `json.dumps()` in Flask:**
+**Advantages over `json.dumps()` in Flask:**
 1. **Automatically sets `Content-Type: application/json`**
 2. **Handles Unicode characters correctly**
 3. **Handles lists and tuples properly**

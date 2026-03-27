@@ -19,7 +19,7 @@
 `nc` = `netcat` (simple networking tool)
 `-l` = listen mode  on port `1500`(acts like a server)
 
-- When a client connects on port `1500` → sends current date as HTTP response from `echo` -> restarts and waits again
+- When a client connects on port `1500` → sends current date as HTTP response from `echo` → restarts and waits again
 
 ##### Python Built-in HTTP Server
 

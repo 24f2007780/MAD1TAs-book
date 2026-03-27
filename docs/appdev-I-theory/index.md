@@ -8,3 +8,8 @@ Himanshu Rastogi, 2024-06-10 -->
 </script>
 
   [Overview](overview.md)
+<span style="color:rgb(240, 96, 118)">red</span>
+<span style="color:rgb(98, 151, 208)">blue</span>
+<span style="color:rgb(255, 192, 0)">yellow</span>
+<span style="color:rgb(152, 205, 137)">green</span>
+<span style="color:rgb(181, 118, 244)">purple</span>

@@ -361,7 +361,7 @@ form:focus-within {
 }
 ```
 
-#### 🔹 Form-State Pseudo-Classes
+#### Form-State Pseudo-Classes
 
 :::tabs
 == :checked

@@ -292,16 +292,16 @@ An HTTP method is idempotent if making the same request multiple times results i
 
 - `GET` is **idempotent** → No change in Database, repeated requests produce the same result.
 - `PUT` is **idempotent** → No matter how many times you update user `1` with same data, final user state is same.
-  - After first -> updated
-  - After second -> no further change
+  - After first → updated
+  - After second → no further change
 
 - `DELETE` is **idempotent** → User 1 remains deleted regardless of retries. 
   - First → deletes
   - Second → nothing changes
 
 - ❌ `POST` is **not idempotent** → creates a **new resource, resulting in multiple entries.**
-  - First -> creates row
-  - Second -> creates another user row (duplicate)
+  - First → creates row
+  - Second → creates another user row (duplicate)
 
 
 ::: info [Tools helpful for API development & testing, even in TDS course](https://tds.s-anand.net/2025-01/rest-apis/):
