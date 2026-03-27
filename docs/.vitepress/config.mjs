@@ -240,6 +240,18 @@ export default defineConfig({
                     text: 'Flask SQLAlchemy: Tables and Models',
                     link: '/appdev-I-theory/week5/5-table-creation',
                   },
+                  {
+                    text: 'Flask SQLAlchemy: UPDATE and DELETE',
+                    link: '/appdev-I-theory/week5/5-flask-sqlalchemy-update-and-delete',
+                  },
+                  {
+                    text: 'Extra: Select vs Query API',
+                    link: '/appdev-I-theory/week5/5-extra-select-vs-query-api',
+                  },
+                  {
+                    text: 'Extra: Base SQLAlchemy ',
+                    link: '/appdev-I-theory/week5/5-extra-base-sqlalchemy',
+                  },
                   // {
                   //   text: 'Flask Basics',
                   //   link: '/appdev-I-theory/week4/5-',
