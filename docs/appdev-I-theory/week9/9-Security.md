@@ -7,7 +7,7 @@
   User can have multiple roles (Secretary > House RC > Student, Club Member).
 - **Attribute-based** time of day, age/citizenship → multiple complex conditions **Policies**
 - **Discretionary**: can change file access modes, who you share with static simple checks **Permissions**
-- **Mandatory** decision made by centralized management, users ❌ share ℹ️info without permission (military, high-security)
+- **Mandatory** decision made by centralized management, users ❌ share ℹinfo without permission (military, high-security)
 
 **Policies**: More dynamic, combining multiple conditions unlike static **Permissions**
 
@@ -105,6 +105,47 @@ A["❌ tap channel"]--> B["Server certificates"]--> C["Client certificates rare 
 ![](https://www.researchgate.net/profile/Kanchana-Thilakarathna/publication/306187575/figure/fig1/AS:395752913293314@1471366255623/HTTPS-message-sequence-diagram-with-detailed-TLS-handshaking-steps.png)
 
 **Wildcard**: 1 certificate that secures all subdomains of a domain (e.g., *.google.com)* ↓ secure
+
+
+## 📜 Server Certificate
+
+* Issued by trusted **Certificate Authorities (CA)**
+* Verifies:
+
+  * server identity
+  * domain ownership
+* Uses strong **cryptographic algorithms**
+* Extremely hard to forge
+
+---
+
+## ✅ Advantages of HTTPS
+
+* Encrypts data in transit
+* Prevents:
+
+  * eavesdropping
+  * man-in-the-middle attacks
+* Ensures data integrity
+
+---
+
+## ❌ Limitations (Important Correction)
+
+* HTTPS **only secures the communication channel**
+* It **does NOT**:
+
+  * validate input
+  * prevent SQL injection
+  * prevent application logic bugs
+
+---
+
+| Factor      | Impact                                       |
+| ----------- | -------------------------------------------- |
+| Performance | Slight overhead due to encryption            |
+| Caching     | Reduced (proxies cannot read encrypted data) |
+
 
 ## Logging
 - built in Apache, Nginx indicate possible security attacks: 

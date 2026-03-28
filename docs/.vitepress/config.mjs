@@ -287,8 +287,10 @@ export default defineConfig({
                   link: '/appdev-I-theory/week7/7-memory-architecture.md' },
                 { text: 'Data search algorithmns', 
                   link: '/appdev-I-theory/week7/7-data-search-algo.md' },
-                { text: 'SQL recommendations', 
+                { text: 'No SQL vs SQL', 
                   link: '/appdev-I-theory/week7/7-SQL-web.md' },
+                { text: 'SQL injection & security', 
+                  link: '/appdev-I-theory/week7/7-web-security.md' },
                 ]
               },
 
