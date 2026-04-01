@@ -279,7 +279,7 @@ export default defineConfig({
                   link: '/appdev-I-theory/week6/6-openapi-specification.md' },
                 ]
               },
-              { text: 'Week7: Backend Systems',
+              { text: 'Week7: Backend',
                 link: '/appdev-I-theory/week7/week7-index',
                 collapsed: true,
                 items: [
@@ -294,7 +294,18 @@ export default defineConfig({
                 ]
               },
 
-              // { text: 'W8 – Frontend', link: '/appdev-I-theory/week8/8-Frontend' },
+              { text: 'Week8: Frontend', 
+                link: '/appdev-I-theory/week8/week8-index',
+                collapsed: true,
+                items: [
+                { text: 'frontend: HTML, CSS, JS', 
+                  link: '/appdev-I-theory/week8/8-frontend.md' },
+                { text: 'Asynchronous & DOM', 
+                  link: '/appdev-I-theory/week8/8-async-dom.md' },
+                { text: 'Browser/client & server validation', 
+                  link: '/appdev-I-theory/week8/8-client-validation.md' },
+                ]
+              },
               // { text: 'W9 – Security', link: '/appdev-I-theory/week9/9-Security' },
               // { text: 'W10 – Testing', link: '/appdev-I-theory/week10/10-Testing' },
               // { text: 'W11 – Beyond HTML', link: '/appdev-I-theory/week11/11-Beyond-HTML' },
