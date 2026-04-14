@@ -1,20 +1,3 @@
-
-## Original Web Model (Synchronous Page Reload)
-In traditional web applications:
-- client sends a request to the server
-- server responds with a complete HTML page
-- browser renders the entire page
-
-For every update:
-- A new request is sent
-- The server returns a full page (HTML, CSS, JS)
-- The browser re-renders everything from scratch
-
-Limitations:
-- High server load due to repeated full-page responses
-- Redundant data transfer
-- Slow updates due to full reloads
-
 # Frontend Fundamentals (HTML/CSS/JS)
 The frontend is the part of an application that users directly interact with. It is responsible for presenting data and handling user interactions.
 
@@ -52,20 +35,20 @@ Controls the visual presentation of a webpage
 - Other languages (e.g., Python via `Brython`, `PyScript`) exist but are less common
 - **Transpilation** refers to converting code written in one language (e.g., TypeScript) into JavaScript so it can run in browsers.
 
-- `Chrome/Edge/Brave`: V8 JavaScript Engine
-2. `Firefox`: SpiderMonkey
-3. `Safari`: JavaScriptCore
-2. In advanced use cases, JavaScript can also run on the server (e.g., Node.js)
+1. Chrome/Edge/Brave: `V8` JavaScript Engine
+2. Firefox: `SpiderMonkey`
+3. Safari: `JavaScriptCore`<br>
+In advanced use cases, JavaScript can also run on the server (e.g., `Node.js`)
 :::
 
 
-- **Server-Side Rendering (SSR)** – The server generates fully formed HTML pages (e.g., using templating engines like Jinja2 in Flask or Django Templates) and sends them to the browser for immediate display.
-- **Client-Side Rendering (CSR)** – The browser initially loads a minimal HTML shell, and JavaScript dynamically fetches data (typically via APIs returning JSON) to render content in the browser.
+- **Server-Side Rendering (SSR)**: The server generates fully formed HTML pages (e.g., using templating engines like Jinja2 in Flask or Django Templates) and sends them to the browser for immediate display.
+- **Client-Side Rendering (CSR)**: The browser initially loads a minimal HTML shell, and JavaScript dynamically fetches data (typically via APIs returning JSON) to render content in the browser.
 
-:::warning SSR improves initial load performance and SEO, while CSR enables richer interactivity and smoother user experiences after load.
+:::warning **SSR** improves initial load performance and SEO, while <br> **CSR** enables richer interactivity and smoother user experiences after load.
 :::
 
-### client-side scripting
+## 1. client-side scripting
 
 Client-side scripting uses JavaScript in the browser to create dynamic behavior without requiring full page reloads.
 
@@ -80,10 +63,19 @@ Client-side scripting uses JavaScript in the browser to create dynamic behavior 
 
 - **Machine client** using HTTP end-points: these machine may access APIs, `POST` sensor information to data collection sites (monitoring, time series analysis) 
 
-## Static pages
+
+## 2. server-side rendering: Run-time HTML generation 
+HTML is generated dynamically when a user accesses the page
+- Traditional CGI/Web-Services Gateway Interface `WSGI` based apps
+- Python frameworks (Flask, Django)
+- Ruby on Rails
+- PHP-based systems
+- Content Management Systems (e.g., WordPress, Joomla, Drupal)
+
+## 1. Static pages
 Static pages are pre-built HTML files that are served directly to users without modification.
 
-→ Server simply delivers HTML files without dynamic processing by server
+→ Server simply delivers HTML files without dynamic processing by server<br>
 → All/most pages are generated ahead of time
 
 | Advantages                                                                                                      | Limitations                                               |
@@ -94,17 +86,9 @@ Static pages are pre-built HTML files that are served directly to users without 
 
 Modern static sites are often built using static site generators such as: `Jekyll, Hugo, Next.js, Gatsby`
 
-## Dynamic Webpages
+## 2. Dynamic pages
 
 Dynamic pages are generated at runtime on the server based on user input, database queries, or application logic.
-
-### Run-time HTML generation server-side
-HTML is generated dynamically when a user accesses the page
-- Traditional CGI/Web-Services Gateway Interface `WSGI` based apps
-- Python frameworks (Flask, Django)
-- Ruby on Rails
-- PHP-based systems
-- Content Management Systems (e.g., WordPress, Joomla, Drupal)
 
 | Advantages                                      | Limitations                           |
 | ----------------------------------------------- | ------------------------------------- |
@@ -114,6 +98,23 @@ HTML is generated dynamically when a user accesses the page
 
 - Dynamic pages support real-time customization such as user authentication, personalized content, and time-dependent data.
 - Better control over sensitive data compared to client-side approaches.
+
+
+## Original Web Model (Synchronous Page Reload)
+In traditional web applications:
+- client sends a request to the server
+- server responds with a complete HTML page
+- browser renders the entire page
+
+For every update:
+- A new request is sent
+- The server returns a full page (HTML, CSS, JS)
+- The browser re-renders everything from scratch
+
+Limitations:
+- High server load due to repeated full-page responses
+- Redundant data transfer
+- Slow updates due to full reloads
 
 ::: tip MODERN Browser Workflow to handle load
 

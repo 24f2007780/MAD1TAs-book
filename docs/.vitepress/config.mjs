@@ -306,7 +306,15 @@ export default defineConfig({
                   link: '/appdev-I-theory/week8/8-client-validation.md' },
                 ]
               },
-              // { text: 'W9 – Security', link: '/appdev-I-theory/week9/9-Security' },
+              { text: 'W9 – Security', link: '/appdev-I-theory/week9/week9-index.md',
+                collapsed: true,
+                items: [
+                { text: 'Access Control & security mechanism', 
+                  link: '/appdev-I-theory/week9/9-access-security-mechanisms.md' },
+                { text: 'Session Cookie & HTTPS', 
+                  link: '/appdev-I-theory/week9/9-cookie-HTTPS.md' },
+                ]
+              },
               // { text: 'W10 – Testing', link: '/appdev-I-theory/week10/10-Testing' },
               // { text: 'W11 – Beyond HTML', link: '/appdev-I-theory/week11/11-Beyond-HTML' },
               // { text: 'W12 - Deployment', link: '/appdev-I-theory/week12/12-Deployment' },

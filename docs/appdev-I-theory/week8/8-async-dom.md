@@ -13,13 +13,25 @@ Modern web applications aim to provide responsive and interactive user experienc
 
 ```javascript
 async function fetchData() {
-  let response = await fetch('https://example.com/data'); // runs in background
-  const data = await response.json();
-  console.log(data);
+  try {
+    console.log("Fetching data...");
+
+    // Send request to server (non-blocking)
+    const response = await fetch("https://example.com/data");
+
+    // Convert response to JSON
+    const data = await response.json();
+    console.log("Data received:", data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 }
 
+// Call function
 fetchData();
-console.log("Runs without waiting immediately!");
+
+// This runs immediately (does NOT wait)
+console.log("This runs before data is received");
 ```
 
 #### Key Advantages
@@ -82,7 +94,7 @@ Asynchronous: Ordering food and receiving a notification when ready
 
 ## [DOM (Document Object Model)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 
-The **Document Object Model (DOM)** is a  programming interface that represents a web page It provides an abstract model of the document, allowing programs to access and modify content, structure, and style dynamically.
+The **Document Object Model (DOM)** is a programming interface that represents a web page. It provides an abstract model of the document, allowing programs to access and modify content, structure, and style dynamically.
 It's flexible but also increases frontend complexity, especially in large applications.
 
 ### Key Features of DOM Manipulation
@@ -129,6 +141,7 @@ document.querySelector("button").addEventListener("click", () => {
   para.parentNode.appendChild(newElement);
 });
 ```
+<DOMNotice />
 
 You will learn more DOM code in [Week 11](../week11/11-Beyond-HTML.md)
 
@@ -162,7 +175,7 @@ Minimum browser requirements:
   - `localStorage` (persistent)
   - `sessionStorage` (temporary)
 
-
+You will learn more about this in MAD2 course.
 #### 3. Drag and Drop API
 
 - Allows users to interact with elements visually by dragging and dropping
@@ -173,19 +186,18 @@ Minimum browser requirements:
 
 1. Client sends HTTP request
 2. Web server forwards request to WSGI application
-3. Application processes request using:
-   - `environ` (request data)
-   - `start_response` (response handler)
-4. Response is sent back to the browser
-
+3. The app receives:
+   - `environ` → info about the request (URL, method, etc.)
+   - `start_response` → function to start sending a response
+4. The app processes the request and sends back data to the server.
+5. The server sends it to the browser.
 
 #### Accessibility & Best Practices
 
 - Follow **World Wide Web Consortium (`W3C`)** accessibility guidelines
   - Do not rely solely on color or visual cues
-  - Separate structure (HTML), style (CSS), and behavior (JavaScript). Gives freedom to browser (user)
+  - Separate structure (`HTML`), style (`CSS`), and behavior (`JavaScript`). Gives freedom to browser (user)
 - Ensure compatibility with different browsers and devices
-:::
 
 
 ::: details WSGI Components **Web Server Gateway Interface**
@@ -197,12 +209,7 @@ Server-side frameworks like `Flask` use standards like `WSGI` to process request
 | **Web Server**       | Receives requests from users and sends them to the app   | `Apache, Nginx, Gunicorn`           |
 | **WSGI Application** | The Python code that processes the request logic | `Flask/Django app`                  |
 | **Middleware**       | Adds additional processing between server and app | Authentication, logging, compression, etc. |
-1. Web server sends the request to the WSGI app.
-2. The app receives:
-   - `environ` → info about the request (URL, method, etc.)
-   - `start_response` → function to start sending a response
-3. The app processes the request and sends back data to the server.
-4. The server sends it to the browser.
+
 
 | Benefit                     | Description                                      |
 | --------------------------- | ------------------------------------------------ |

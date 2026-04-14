@@ -167,6 +167,7 @@
   --vp-button-brand-active-bg: #b1045a;
 */
 
+
 :root {
   --vp-button-brand-border: transparent;
   --vp-button-brand-text: #ffffff; /* White text for contrast */
@@ -220,7 +221,15 @@
     --vp-home-hero-image-filter: blur(56px);
   }
 }
+/* tighter lists inside paragraphs */
+.vp-doc p + ul {
+  margin-top: 0.2rem;
+}
 
+/* more spacing between sections */
+.vp-doc ul + p {
+  margin-top: 0.8rem;
+}
 @media (min-width: 960px) {
   :root {
     --vp-home-hero-image-filter: blur(68px);
@@ -246,21 +255,101 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
-/* =========================================================
-   Global Content Alignment
-   ========================================================= */
-
-/* Center all images inside markdown content */
-.vp-doc img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.vp-doc {
+  max-width: 100% !important;
 }
 
-/* Center headings (h1 → h5) inside markdown content */
+.VPContent .container {
+  max-width: 1100px !important;
+}
+
+.vp-doc {
+  font-size: 16.5px;       /* slightly bigger for readability */
+  line-height: 1.65;
+}
+
+.vp-doc p {
+  margin: 0.6rem 0;
+}
+
+.vp-doc ul,
+.vp-doc ol {
+  padding-left: 1.3rem;
+  margin: 0.5rem 0;        /* tighter */
+}
+
+.vp-doc li {
+  margin-bottom: 0.3rem;   /* reduced gap */
+  line-height: 1.5;
+}
+
+/* remove extra spacing when nested */
+.vp-doc li > ul {
+  margin-top: 0.2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;             /* reduced from 1.6rem */
+  margin: 1.2rem 0 1.5rem 0;
+}
+
+.card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  padding: 1.1rem 1.3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+}
+
+.card h3 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.1rem;
+  color: var(--vp-c-brand-1);
+}
+
+.card p {
+  margin: 0.35rem 0;
+}
+
+.card ul {
+  padding-left: 1.1rem;
+  margin: 0.35rem 0;
+}
+
+.card li {
+  margin-bottom: 0.3rem;
+}
+
+.custom-block.blue {
+  background: #e3e8ef;
+  border-left: 4px solid #4b5d73;
+  color: #2f3b4a;
+}
+
+.dark .custom-block.blue {
+  background: #1f2933;
+  border-left: 4px solid #5b6f8a;
+  color: #d1d9e6;
+}
+
+.vp-doc img {
+  display: block;
+  margin: 1rem auto;
+}
+
 .vp-doc h1,
 .vp-doc h2 {
   text-align: center;
+  margin-bottom: 0.8rem;
 }
 
 .vp-doc {
@@ -270,4 +359,3 @@
 .VPContent .container {
   max-width: 1100px !important;
 }
-

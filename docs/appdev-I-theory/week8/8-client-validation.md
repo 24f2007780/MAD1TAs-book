@@ -19,6 +19,41 @@
 ## Server-side validation is essential:
 - Server cannot trust that requests come from a valid frontend. Has to check datatypes `email, date range` & sanitization.
 - HTTP is stateless, so the server cannot assume prior client state
+```html
+<form>
+  <label for="email">Institute Email</label>
+
+  <input
+    type="email"
+    id="email"
+    name="email"
+    required
+    pattern="^[a-zA-Z0-9._%+-]+@ds\.study\.iitm\.ac\.in$"
+    title="Please enter a valid @ds.study.iitm.ac.in email"
+  />
+
+  <button type="submit">Submit</button>
+</form>
+```
+
+```js
+<script>
+const emailInput = document.getElementById("email");
+
+emailInput.addEventListener("input", () => {
+  const value = emailInput.value;
+
+  // Check domain
+  if (!value.endsWith("@ds.study.iitm.ac.in")) {
+    emailInput.setCustomValidity(
+      "Email must be from @ds.study.iitm.ac.in domain"
+    );
+  } else {
+    emailInput.setCustomValidity("");
+  }
+});
+</script>
+```
 
 ## Client-side validation:
 
@@ -49,7 +84,7 @@ email.addEventListener("input", (event) => {
 });
 ```
 
-### 1. CAPTCHA
+## 1. CAPTCHA
 **Problem**: Automated scripts can generate a large number of requests, increasing server load.
 
 **Solution**:
@@ -59,7 +94,7 @@ email.addEventListener("input", (event) => {
 
 Used in systems like ticket booking and appointment platforms like <span style="color:rgb(181, 118, 244)">Railway Tatkal, CoWin </span>
  
-### 2. Sandboxing
+## 2. Sandboxing
 Similar to a virtual machine but at a higher abstraction level.
 - secure area that `JS` engine runs in a <span style="color:rgb(240, 96, 118)">restricted execution environment</span>
     - No direct access to no computer local files, OS resources (except HTTP connection)
@@ -67,15 +102,15 @@ Similar to a virtual machine but at a higher abstraction level.
 - popular JS file with bad version which redirects 1000s to same →  `DoS` Denial of Service server
 - difficult to navigate/close page (too many resources kill it)
 - exploit bugs in browser
-- ❌ tilt, camera sensors, local storage via user browser permissions → local native compile ✅ smooth ↓ browser
+- No access tilt, camera sensors, local storage via user browser permissions → local native compile so more secure for unstable testing version of app.
 
-### 3. Crypto-mining Risk
+## 3. Crypto-mining Risk
 - JavaScript can perform arbitrary computations in the browser
 - Malicious pages may run hidden scripts (e.g., cryptocurrency mining)
 - Results are sent back to the server via asynchronous requests
 - Users may be unaware of resource usage
 
-### 4. Overload and Denial of Service (DoS)
+## 4. Overload and Denial of Service (DoS)
 overwhelming a system with excessive requests
 Client-side attack:
 - A script consumes CPU resources
@@ -86,3 +121,4 @@ Server-side attack:
 - Generates large volumes of requests to a target server
 
 This can make services unavailable.
+You will learn more about `security` in [Week 9](../week9/9-Security.md)
