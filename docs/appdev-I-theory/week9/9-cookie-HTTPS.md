@@ -4,14 +4,16 @@ A session stores state across multiple requests:
 - Logged-in status
 - Preferences
 - Permissions (allow this site every time)
-- Cookies
-
+Cookies are used to store a session identifier that links the client to server-side session data.
 Server sends:
-```
-Set-Cookie: <cookie-name> =<cookie-value>; Domain=<domain-value>; Secure; HttpOnly
+
+```txt
+Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain>; Secure; HttpOnly
 ```
 
-- delete cookie record to logout
+- Logout requires:
+  - Invalidating the session on the server
+  - Removing the session cookie from the client
 - client must send cookies back with every subsequent request
 
 ## Types of Session Storage
@@ -25,24 +27,31 @@ Set-Cookie: <cookie-name> =<cookie-value>; Domain=<domain-value>; Secure; HttpOn
     - `redis cache key-value stores`
   
 ## Cookie Theft
-If stolen → attacker can impersonate user. We can avoid this by:
-- Session timeout
-- IP validation
-- If someone steals the cookie, can't impersonate the user.
+If a session cookie is stolen, an attacker can impersonate the user.
 
-Cross-Site Request Forgery (CSRF)
-Attacker tricks user into sending unintended requests
+Mitigation techniques:
+- Session timeouts
+- Secure and HttpOnly cookie flags
+- Binding session to IP address
 
-:::info
+## Cross-Site Request Forgery (CSRF)
 
-1. User logs into bank
-2. Attacker sends malicious link or create page
-3. Browser auto-submits request using existing session cookie (unauthorized requests to another logged-in site)
+An attacker tricks a user into sending unintended requests to a trusted site where the user is authenticated.
+
+:::info Example
+
+1. User logs into a banking website  
+2. Attacker sends a malicious link or embeds a hidden request  
+3. Browser automatically sends the request using the existing session cookie  
 
 → Money transfer happens without user intent
 
-Solution: Validate request origin (CSRF tokens)*verify on server that legitimate start point*
+Solution:
+- Use CSRF tokens
+- Validate request origin on the server *verify on server that legitimate start point*
+
 :::
+
 
 ```python
 from flask_login import login_required, current_user, logout_user, login_user
@@ -50,31 +59,34 @@ from flask_login import login_required, current_user, logout_user, login_user
 app.secret_key ='_5#y2L"F4Q8z/n/xec]/'
 
 @app.route('/')
-def index () :
-	if 'username' in session:
-		return f'Logged in as {session ["username"] } '
-	return 'You are not logged in'
+def index():
+    if 'username' in session:
+        return f'Logged in as {session['username']}'
+    return 'You are not logged in'
 
-@app.route('/login' , methods=['GET', 'POST' ] )
-	def login():
-	if request.method == 'POST':
-		session['username' ] = request.form ['username' ] # Store username
-		return redirect (url for ('index' ) )
-	return '''<form method="post">
-	<p><input type=text name=username>
-	<p><input type=submit value=Login>
-	</form>'''
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('index'))
+    return '''
+    <form method="post">
+        <input type="text" name="username">
+        <input type="submit" value="Login">
+    </form>
+    '''
 
 @app.route('/profile')
 @login_required
-def profile() :
-	return f'Welcome back {current_user.name}'
+def profile():
+    return f'Welcome back {current_user.name}'
 
-@app.route("/logout")
+@app.route('/logout')
 @login_required
 def logout():
-	logout_user()
-	return redirect(url_for('main.index'))
+    logout_user()
+    session.clear()
+    return redirect(url_for('index'))
 ```
 
 ## HTTPS
@@ -86,10 +98,10 @@ Data encrypted using a shared secret key  `long binary string KEY`
 Without key → unreadable (`XOR` all input data with key to generate new binary encrypt text)
 ### TLS Handshake
 1. Client connects
-2. Server sends certificate
-3. Client verifies certificate
-4. Secure key established
-5. Encrypted communication begins
+2. Server sends its digital certificate  
+3. Client verifies certificate using trusted authorities  
+4. Key exchange mechanism establishes a shared secret  
+5. Secure encrypted communication begins  
 
 ### Server Authentication
 Prevents: DNS hijacking (false IP address) or fake servers
@@ -105,10 +117,10 @@ A["❌ tap channel"]--> B["Server certificates"]--> C["Client certificates used 
 ```
 
 | Advantages | Limitations |
-|-----|----|
-| Confidentiality of user identity in public WiFi Networks | Performance over head to `encrypt` |
-| integrity (hard for hacker to tamper between channels) | proxy caching becomes difficult |
-| Authentication (server verified) | old browsers may lack updated certificate chains |
+|-----------|------------|
+| Confidentiality (data cannot be read by attackers) | Performance overhead due to encryption |
+| Integrity (data cannot be altered in transit) | Reduced effectiveness of proxy caching |
+| Authentication (server identity verified) | Compatibility issues with outdated systems |
 
 - **Client or OS root** could be stolen certificates → revocate → ensure OS, browser update **trust stores**
 
@@ -116,7 +128,7 @@ A["❌ tap channel"]--> B["Server certificates"]--> C["Client certificates used 
 
 Wildcard Certificates
 1 certificate that secures all subdomains of a domain
-Example (not actual google certificate implementation): `*.google.com` covers all subdomains like `docs.google`, `maps.google. and `mail.google`
+Example (not actual google certificate implementation): `*.google.com` covers all subdomains like `docs.google`, `maps.google` and `mail.google`
 - If compromised → all subdomains affected
 
 
@@ -136,9 +148,9 @@ Logging is the process of recording events, activities, and accesses within an a
 ### Server-level Logging
 
 Built into web servers like `Apache HTTP Server & Nginx` to log:
-- URLs accessed: look for malformed or suspicious URLs
-- Requests per second: look for sudden spike in requests or repeated failed requests
-- IP addresses: repeated access to restricted endpoints
+- URLs accessed: detect malformed or suspicious requests  
+- Request rates: identify abnormal spikes or repeated failures  
+- IP addresses: monitor repeated access attempts to restricted endpoints  
 - Status codes
 
 ### Application-level Logging
@@ -167,4 +179,4 @@ Logs include timestamps, so we can analyze:
 - Sudden traffic surges
 3. **Incident Analysis**
 - Identify exact time of failure or attack
-- Time-series Database: `RRDTool, InfluxDV, Prometheus` query trends and metrics
+- Time-series Database: `RRDTool, InfluxDB, Prometheus` query trends and metrics

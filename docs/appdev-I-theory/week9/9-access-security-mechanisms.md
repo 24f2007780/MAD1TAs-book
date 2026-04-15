@@ -156,7 +156,8 @@ This is not real security, just hiding.
 
 ### 2. Address-Based Control
 - Access determined by where request comes from - access/deny based on **IP address**
-:::info 
+
+:::info Example
 A company allows access to its admin dashboard only from office IP addresses.
 
 If someone tries from outside (home/public network), access is denied even with correct credentials.
@@ -168,7 +169,7 @@ If someone tries from outside (home/public network), access is denied even with 
   - Passwords must be hashed, not stored in plain text directly in server
   - Most common authentication method
 
-:::info
+:::info Example
 When logging into an e-commerce site:
 
 - You enter username/password
@@ -181,7 +182,8 @@ Even if the database is leaked, raw passwords are not directly exposed.
 - Access is granted using tokens instead of passwords.
   - Tokens are hard to guess or duplicate
   - Often used for APIs and machine-to-machine communication
-:::info
+
+:::info Example
 
 A mobile app logs in once and receives a token.For future requests, it sends:
 
@@ -250,7 +252,7 @@ sequenceDiagram
 
 ## API key/token
 Used primarily for machine-to-machine communication (APIs, CLI tools, services).
-- In browsers `cookie` is preferred (not in URL)
+- In browsers `cookie` is preferred, `API` is send via `HTTP` header
 - Sent in request headers
 - Must be hard to guess, securely stored (`.env`) in environment variables & configuration files `config.py` 
 - Tokens should have:
@@ -284,7 +286,7 @@ Even if an attacker intercepts the request, they only see the final hash. Nonce 
 secure (irreversible) **cryptographic** certificates provided to each client 
 - Client can provide this for the server to **handshake** exchange info 
 
-:::info
+:::info Example
 In a corporate VPN:
 
 Your device has a certificate
