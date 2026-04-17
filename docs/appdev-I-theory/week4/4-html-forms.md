@@ -26,6 +26,13 @@ name=John+Doe&email=john.doe%40example.com
 
 ```
 
+:::info
+
+- `GET` method appends the form data to the URL in name/value pairs, which is visible in the browser's address bar. It is suitable for non-sensitive data and when bookmarking or sharing the URL is desired.
+- `POST` method sends the form data in the body of the HTTP request, which is not visible in the URL. It is more secure for sensitive data and is generally used for form submissions that modify server-side data.
+
+:::
+
 Now we will explore each of the components of an HTML form in detail.
 
 ## Form Tag
@@ -70,6 +77,7 @@ These attributes can be used be all `<input>` tags:
 - `disabled`: Disables the input field, preventing user interaction, submission and transmission over the network.
 - `title`: Provides additional information about the input field, usually displayed as a tooltip.
 - `readonly`: Makes the input field read-only, preventing user modification.
+- `hidden`: Hides the input field from the user, but it will still be submitted with the form data.
 
 ### email Input
 
@@ -132,6 +140,22 @@ selected_fruits = request.form.getlist('fruit')
 
 This creates a submit button that, when clicked, will submit the form data to the server. The `value` attribute specifies the text displayed on the button.
 The `submit` input type does not support additional attributes like other input types, but we can use the `form` attribute to associate the button with a specific form if needed.
+
+### Date-Time Input
+
+```html
+<input type="datetime-local" name="appointment" id="appointment_id">
+```
+
+This creates a date-time input field that allows users to select both a date and a time. The `datetime-local` input type does not include timezone information. The value entered in this field will be sent to the server in the format `YYYY-MM-DDTHH:MM` (e.g., `2024-06-01T14:30`).
+
+### reset Input
+
+```html
+<input type="reset" value="Reset Form">
+```
+
+This creates a reset button that, when clicked, will reset all form fields to their default values. The `value` attribute specifies the text displayed on the button. The `reset` input type does not support additional attributes like other input types, but we can use the `form` attribute to associate the button with a specific form if needed.
 
 ## Button Tag
 
@@ -264,6 +288,7 @@ Label tags can be associated with input elements in two ways:
 
 1. Using the `for` attribute: The `for` attribute of the `label` tag should match the `id` attribute of the corresponding input element. This creates a link between the label and the input field.
 2. Wrapping the input element: The input element can be nested inside the `label` tag.
+
 
 ## Complete Form Example
 

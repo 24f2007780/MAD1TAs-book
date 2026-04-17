@@ -251,19 +251,7 @@ export default defineConfig({
                   {
                     text: 'Extra: Base SQLAlchemy ',
                     link: '/appdev-I-theory/week5/5-extra-base-sqlalchemy',
-                  },
-                  // {
-                  //   text: 'Flask Basics',
-                  //   link: '/appdev-I-theory/week4/5-',
-                  // },
-                  // {
-                  //   text: 'Templating in Flask',
-                  //   link: '/appdev-I-theory/week4/4-flask-templating',
-                  // },
-                  // {
-                  //   text: 'More Features in Flask',
-                  //   link: '/appdev-I-theory/week4/4-more-flask-features',
-                  // }
+                  }
                 ],
               },
               {
@@ -272,7 +260,7 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                 { text: 'REST APIs', 
-                  link: '/appdev-I-theory/week6/6-REST-APIs' },
+                  link: '/appdev-I-theory/week6/6-Rest-APIs' },
                 { text: 'Flask restful basics', 
                   link: '/appdev-I-theory/week6/6-flask-restful-basics.md' },
                 { text: 'OpenAPI specification', 
@@ -315,6 +303,16 @@ export default defineConfig({
                   link: '/appdev-I-theory/week9/9-cookie-HTTPS.md' },
                 ]
               },
+              {
+                text: 'W10 – Testing', link: '/appdev-I-theory/week10/10-week-index.md',
+                collapsed: true,
+                items: [
+                  { text: 'Testing Fundamentals', link: '/appdev-I-theory/week10/10-testing.md' },
+                  { text: 'Assertion and Pytest Basics', link: '/appdev-I-theory/week10/10-pytest-basics.md' },
+                  { text: 'Pytest Features', link: '/appdev-I-theory/week10/10-pytest-features.md' },
+                  { text: 'Flask Testing', link: '/appdev-I-theory/week10/10-pytest-flask-integration.md' },
+                ]
+              }
               // { text: 'W10 – Testing', link: '/appdev-I-theory/week10/10-Testing' },
               // { text: 'W11 – Beyond HTML', link: '/appdev-I-theory/week11/11-Beyond-HTML' },
               // { text: 'W12 - Deployment', link: '/appdev-I-theory/week12/12-Deployment' },

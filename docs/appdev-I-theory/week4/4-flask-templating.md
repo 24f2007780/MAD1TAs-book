@@ -218,6 +218,38 @@ our_flask_app/
 
 This allows us to host static files such as CSS, JavaScript, and images alongside our Flask application. **Though this method is not recommended for production use, as dedicated web servers like Nginx or Apache are better suited for serving static content efficiently.**
 
+## Flask Template Strings
+
+In addition to rendering templates from files, Flask also allows us to render templates from strings using the `render_template_string` function. This can be useful for simple templates or when we want to generate HTML dynamically without creating a separate template file.
+
+Here is an example of how to use `render_template_string`:
+
+```python
+from flask import Flask, render_template_string
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    template = '''
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        <h1>{{ heading }}</h1>
+        <p>{{ message }}</p>
+    </body>
+    </html>
+    '''
+    return render_template_string(template, title='Home Page', heading='Welcome to Flask!', message='This is a simple Flask application using template strings.')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
 ## Summary
 
 Flask's templating system, powered by Jinja2, provides a powerful way to create dynamic web pages by separating the presentation layer from the business logic. By using templates, we can create reusable HTML structures, include static files, and implement template inheritance to maintain a consistent layout across our web application.

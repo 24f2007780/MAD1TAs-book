@@ -45,8 +45,7 @@ Now we can run this script and access the API by navigating to `http://localhost
 == Browser
 ![Browser showing JSON response](../static/week6/6-browser.png)
 == Thunder Client
-**click on the image to view in other page**
-<a href="../static/week6/6-thunder-client.png" target="_blank" title="click to view on other page">![Thunder Client showing JSON response](../static/week6/6-thunder-client.png)</a>
+![Thunder Client showing JSON response](../static/week6/6-thunder-client.png)
 == curl
 ![curl showing JSON response](../static/week6/6-curl.png)
 :::

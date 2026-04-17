@@ -53,6 +53,26 @@ if __name__ == '__main__':
 
 In this example, when a user accesses the URL `/search?q=flask`, the `request.args.get('q')` retrieves the value of the `q` parameter, which is "flask". The response will be "Search results for: flask". This is useful for handling search queries or filtering data based on user input in the URL.
 
+## request.view_args
+
+The `request.view_args` attribute is used to access the variables captured from the URL route. When you define a route with variable parts (e.g., `/user/<username>`), Flask captures those parts and makes them available in `request.view_args` as a dictionary.
+
+Unlike `request.args`, which captures query parameters from the URL, `request.view_args` captures the dynamic segments of the URL defined in the route. This is particularly useful for routes that include variable path components.
+
+```python
+from flask import Flask, request
+app = Flask(__name__)
+
+@app.route('/user/<username>')
+def user_profile(username):
+    # Access the captured username from the URL using request.view_args
+    captured_username = request.view_args.get('username')
+    return f'User Profile for: {captured_username}'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
 ## request.form
 
 The `request.form` attribute is used to access form data submitted in the body of a POST request. It returns a MultiDict containing the key-value pairs of the form fields. The single value fields can be accessed using the `get` method or `[]` operator.
@@ -78,7 +98,7 @@ In this example, when a user submits a form to the `/submit` route with fields `
 
 The `request.args` and `request.form` attributes return a MultiDict object, which allows us to access multiple values for the same key. This is particularly useful when dealing with form fields that can have multiple selections, such as checkboxes or multi-select dropdowns. 
 
-::: warning When accessing a key normally (using get() or []), Flask returns only the first value associated with that key, even if multiple values exist. We can access all values using the `getlist` method. 
+::: warning When accessing a key normally (using get() or []), Flask returns only the first value associated with that key, even if multiple values exist. We can access all values using the `getlist` method.
 
 We can also convert the MultiDict to a standard dictionary using to_dict(flat=False).
 For low-level inspection, we may read the raw request body using request.stream.read().
