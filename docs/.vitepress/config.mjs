@@ -294,17 +294,21 @@ export default defineConfig({
                   link: '/appdev-I-theory/week8/8-client-validation.md' },
                 ]
               },
-              { text: 'W9 – Security', link: '/appdev-I-theory/week9/week9-index.md',
+              { text: 'Week9: Security', link: '/appdev-I-theory/week9/week9-index.md',
                 collapsed: true,
                 items: [
                 { text: 'Access Control & security mechanism', 
                   link: '/appdev-I-theory/week9/9-access-security-mechanisms.md' },
-                { text: 'Session Cookie & HTTPS', 
-                  link: '/appdev-I-theory/week9/9-cookie-HTTPS.md' },
+                { text: 'Session Cookie', 
+                  link: '/appdev-I-theory/week9/9-cookie.md' },
+                { text: 'Flask Login', 
+                  link: '/appdev-I-theory/week9/9-flask-login.md' },
+                { text: 'HTTPS & Logging', 
+                  link: '/appdev-I-theory/week9/9-https-logging.md' }
                 ]
               },
               {
-                text: 'W10 – Testing', link: '/appdev-I-theory/week10/10-week-index.md',
+                text: 'Week10: Testing', link: '/appdev-I-theory/week10/10-week-index.md',
                 collapsed: true,
                 items: [
                   { text: 'Testing Fundamentals', link: '/appdev-I-theory/week10/10-testing.md' },
@@ -312,9 +316,17 @@ export default defineConfig({
                   { text: 'Pytest Features', link: '/appdev-I-theory/week10/10-pytest-features.md' },
                   { text: 'Flask Testing', link: '/appdev-I-theory/week10/10-pytest-flask-integration.md' },
                 ]
+              },
+              {
+                text: 'Week11: Beyond HTML', link: '/appdev-I-theory/week11/11-week-index.md',
+                collapsed: true,
+                items: [
+                  { text: 'Markup languages', link: '/appdev-I-theory/week11/11-markup-langs' },
+                  { text: 'Javascript features', link: '/appdev-I-theory/week11/11-javascript-features' },
+                  { text: 'Web Components', link: '/appdev-I-theory/week11/11-web-components' },
+
+                ]
               }
-              // { text: 'W10 – Testing', link: '/appdev-I-theory/week10/10-Testing' },
-              // { text: 'W11 – Beyond HTML', link: '/appdev-I-theory/week11/11-Beyond-HTML' },
               // { text: 'W12 - Deployment', link: '/appdev-I-theory/week12/12-Deployment' },
             ],
           },

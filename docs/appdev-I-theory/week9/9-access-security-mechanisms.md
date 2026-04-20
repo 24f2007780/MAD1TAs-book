@@ -57,7 +57,6 @@ Not all parts of a system should be publicly accessible. Sensitive data such as 
     <li>Easy to manage</li>
     <li>Supports role hierarchy</li>
   </ul>
-
     <strong>Example:</strong> In a college fest:
     <br>Admin → full control  
     <br>Student → view own data  
