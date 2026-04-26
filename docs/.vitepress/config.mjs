@@ -326,8 +326,15 @@ export default defineConfig({
                   { text: 'Web Components', link: '/appdev-I-theory/week11/11-web-components' },
 
                 ]
-              }
-              // { text: 'W12 - Deployment', link: '/appdev-I-theory/week12/12-Deployment' },
+              },
+              { text: 'W12: Deployment', link: '/appdev-I-theory/week12/12-index', collapsed:true,
+                items:[
+                  {text: 'Scaling & Deployment', link: '/appdev-I-theory/week12/12-theory'},
+                  {text: 'Version Control System', link: '/appdev-I-theory/week12/12-vcs.md'},
+                  {text: 'GIT', link: '/appdev-I-theory/week12/12-git.md'},
+                  {text: 'Github', link: '/appdev-I-theory/week12/12-github.md'},
+                  {text: 'Containerization', link: '/appdev-I-theory/week12/12-containers.md'}
+                ]},
             ],
           },
         ],
