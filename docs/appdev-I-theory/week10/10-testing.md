@@ -1,6 +1,6 @@
 # Testing
 
-Now that we have seen the basics of backend + frontend development, we built applications, but didn’t focus on verifying them. Now it's time to learn about testing. Testing is an essential part of software development that helps ensure the quality and reliability of your code. In this section, we will cover the basics of testing, including different types of tests and how to write tests for your applications.
+Now that we have seen the basics of backend + frontend development, we built applications, but didn’t focus on verifying them. Now it's time to learn about testing. Testing is an essential part of software development that helps ensure the quality and reliability of our code. In this section, we will cover the basics of testing, including different types of tests and how to write tests for your applications.
 
 ## Classification of Tests
 

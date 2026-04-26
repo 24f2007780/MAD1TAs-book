@@ -49,7 +49,6 @@ def test_addition():
     assert add(0, 0) == 0
 ```
 
-
 ```bash [output]
 (web-venv) himanshu@fedora my-notes  main* $ pytest test_example.py
 ================================ test session starts =================================

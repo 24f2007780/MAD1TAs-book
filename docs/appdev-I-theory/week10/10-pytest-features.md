@@ -263,8 +263,8 @@ Pytest provides several command-line flags that can be used to control the behav
 
 - `-v` or `--verbose`: Increases the verbosity of the test output, showing more details about each test case.
 - `-q` or `--quiet`: Decreases the verbosity of the test output, showing only the summary of test results.
-- `-s`: Disables output capturing, allowing you to see print statements and other output from the tests in real-time.
 - `-k`: Allows you to specify an expression to select tests based on their names or markers. For example, `pytest -k "addition"` will run all tests that have "addition" in their name. It matches substrings in test names, class names, and other identifiers (like markers). So `pytest -k "add"` will also run tests with "addition" in their name.
+- `-k` also supports logical expressions, so you can combine multiple conditions. For example, `pytest -k "addition or subtraction"` will run tests that have either "addition" or "subtraction" in their name. You can also use `and` and `not` to create more complex expressions, such as `pytest -k "addition and not subtraction"` to run tests that have "addition" in their name but do not have "subtraction".
 - `-m`: Allows you to specify a marker expression to select tests based on their markers. For example, `pytest -m "slow"` will run all tests marked with `slow`.
 - `-x` or `--exitfirst`: Stops the test run after the first failure is encountered.
 - `--maxfail`: Specifies the maximum number of test failures before pytest stops running the tests. For example, `pytest --maxfail=2` will stop the test run after 2 failures.
