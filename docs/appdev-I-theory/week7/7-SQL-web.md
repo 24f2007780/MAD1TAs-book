@@ -9,15 +9,15 @@
 ## Indexing
 
 - As tables grow large, quick searching becomes important:
-  - **INDEX** is a data structure which is sorted or hashed representation of one or more columns with specific data types (e.g. `string/int/date`)
+  - **INDEX**:  a specialized data structure (like a B-Tree or Hash Table) that stores a sorted or hashed representation of one or more columns with specific data types (e.g. `string/int/date`)
 - **Fast lookup**: reduces search complexity from $O(N)$ (full scan) to $O(\log N)$ (B-tree) or $O(1)$ (hash index in ideal cases).
 - Improves read performance at the cost of additional storage and slower write operations `INSERT/UPDATE`
-- B-tree index supports prefix search `LIKE 'pattern%'` but NOT `LIKE '%pattern%'`
+- A B-Tree index helps with prefix searches (e.g., `LIKE 'pattern%'`) but is not efficient for `LIKE '%pattern%'` searches because the data is sorted from left to right.
 - Hash index supports only exact match (`=`), not pattern search  
 - in-memory tables
-  - ✅ equality comparisons ❌ range
-  - ❌ `ORDER BY`
-  - ❌ partial key prefix
+  - equality comparisons (not `<` `>` range)
+  - no `ORDER BY`
+  - partial key prefix
 
 :::details B-Tree Index
 
@@ -74,7 +74,14 @@ WHERE A=1
 WHERE B=2
 ```
 
-# NoSQL
+:::info The Leftmost Prefix Rule
+Imagine an index on `(First Name, Last Name)`.
+- Searching for `First Name = 'Priya'` is **fast** (leftmost prefix).
+- Searching for `First Name = 'Priya' AND Last Name = 'Shah'` is **very fast** (full index).
+- Searching *only* for `Last Name = 'Shah'` is **slow**, as the index is sorted by First Name first.
+:::
+
+## NoSQL
 
 NoSQL databases sacrifice strict consistency in some cases to achieve higher scalability and availability.
 
@@ -102,8 +109,8 @@ Store all related data together in a single document (denormalized).</p>
 <div class="card">
 <h3>🔑 Key-Value Stores</h3>
 <pre>Redis, DynamoDB, BerkeleyDB, Memcache</pre>
-<p>Store data as simple key-value pairs<br>(Typically implemented using hash tables (O(1)). Some systems may use trees for range queries.
-)</p>
+<p>
+- Store data as simple key-value pairs. This is typically implemented using Hash Tables for `O(1)` access. Some systems use trees to allow range queries.
 <p>Direct access using a unique key (like a dictionary).</p>
 <h5>Example</h5>
 <pre>"user:1" → "{name: Baskaran, books: [B1, B2]}" 
@@ -402,6 +409,13 @@ Redundancy means maintaining extra copies or components to improve system reliab
 - Suitable for social media, analytics, caching layers
 *Social media or Non-financial parts of E-commerce*
 :::
+
+### SQL vs. NoSQL: Trade-off
+Relational databases (SQL) prioritize **consistency** at the cost of scalability. NoSQL databases prioritize **scalability and availability**, often settling for "eventual consistency." 
+
+**Analogy**: 
+- **SQL (ACID)**: Like a banking transaction. If you transfer money, the balance *must* be correct across all records immediately.
+- **NoSQL (BASE)**: Like a Facebook "Like." If you like a post, it's okay if your friend sees the updated count a few seconds later than you do.
 
 :::info Check the following links for more details:
 

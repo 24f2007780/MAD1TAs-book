@@ -23,6 +23,7 @@ import pdb
 def my_function():
     # some code
     pdb.set_trace()  # This will start the debugger at this point
+    pdb.set_trace()  # This pauses execution and opens the interactive debugger
     # more code
 ```
 
@@ -56,4 +57,4 @@ flask run
 
 When an error occurs, you will see a detailed error page with the stack trace and the ability to inspect variables. This can help you quickly identify the source of the error and understand what went wrong.
 
-we will complete it later.
+*Additional advanced debugging techniques and automated testing will be covered in later modules.*

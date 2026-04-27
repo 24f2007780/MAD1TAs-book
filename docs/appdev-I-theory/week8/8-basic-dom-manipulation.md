@@ -4,7 +4,18 @@ In this section, we will learn how to manipulate the Document Object Model (DOM)
 
 ## Understanding the DOM
 
-The DOM represents the structure of an HTML document as a tree of nodes. Each node represents an element, attribute, or piece of text in the document. The DOM provides methods and properties to access and manipulate these nodes. For example, you can use the `document.getElementById()` method to access an element by its ID, or the `document.querySelector()` method to access an element using a CSS selector.
+The DOM represents the structure of an HTML document as a tree of nodes. Each node represents an element, attribute, or piece of text. The DOM provides methods and properties to access and manipulate these nodes. For example, you can use the `document.getElementById()` method to access an element by its ID, or the `document.querySelector()` method to access an element using a CSS selector.
+
+```mermaid
+graph TD
+    document[Document] --> html[html]
+    html --> head[head]
+    html --> body[body]
+    head --> title[title]
+    body --> h1[h1]
+    body --> p[p]
+```
+The DOM provides built-in methods and properties to traverse and modify this tree dynamically.
 
 ## Selecting Elements
 
@@ -18,7 +29,15 @@ To manipulate the DOM, you first need to select the elements you want to work wi
 
 ## Altering Element Content
 
-Once you have selected an element, you can alter its content using properties like `innerHTML`, `textContent`, or `innerText`. For example:
+Once selected, you can modify an element's content. <!--like `innerHTML`, `textContent`, or `innerText`-->
+
+:::info content properties Comparison
+| Property | What it does |
+| :--- | :--- |
+| `innerHTML` | Gets/Sets the HTML markup inside (Careful: XSS risk!) |
+| `textContent` | Gets/Sets the raw text content (Fastest/Safest) |
+| `innerText` | Gets/Sets the visible text (takes CSS styling into account) |
+:::
 
 ```javascript
 const element = document.getElementById('myElement');
@@ -73,7 +92,7 @@ In this example, we add a click event listener to a button element. When the but
 
 ## Writing into the DOM
 
-You can also write directly into the DOM using the `document.write()` method. However, this method is generally not recommended for modern web development as it can overwrite the entire document if used after the page has loaded. Instead, it is better to use the methods mentioned above to manipulate the DOM safely and effectively.
+You can write directly to the document stream using `document.write()`. **Warning**: This is widely considered a bad practice in modern apps because it can wipe the entire page content if called after the initial load. Use `appendChild` or `innerHTML` instead.
 
 ```javascript
 document.write('This will write directly into the DOM');

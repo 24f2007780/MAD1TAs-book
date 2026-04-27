@@ -6,6 +6,10 @@ We have already seen how to use the `print` function to output information to th
 
 In Python, the `logging` module provides a powerful and flexible framework for logging. It allows us to log messages with different severity levels (DEBUG, INFO, WARNING, ERROR, CRITICAL) and to configure different handlers to output logs to various destinations (console, files, etc.).
 
+:::warning Security Tip: Avoid Logging Sensitive Data
+Never log **Personally Identifiable Information (PII)** such as passwords, auth tokens, or credit card numbers. In production, logs are often stored in centralized systems where many developers might have access.
+:::
+
 ## Basic Logging Setup
 
 To set up basic logging in our Python application, we can use the following code:
@@ -28,10 +32,13 @@ In this example, we configure the logging to write messages to a file named `app
 - **INFO**: Confirmation that things are working as expected.
 - **WARNING**: An indication that something unexpected happened, or indicative of some problem in the
 near future (e.g., ‘disk space low’). The software is still working as expected.
+- **WARNING**: An indication that something unexpected happened, or identifies a potential problem in the near future (e.g., 'disk space low'). The software is still working as expected.
 - **ERROR**: Due to a more serious problem, the software has not been able to perform some function.
 - **CRITICAL**: A very serious error, indicating that the program itself may be unable to continue running.
 
 Actually logging levels are just integer values, and we can define our own levels if needed. The standard levels are defined as follows:
+Under the hood, logging levels are represented as integer values, and we can define our own custom levels if needed. The standard levels are defined as follows:
+<!-- SUGGESTION: More precise technical explanation of how the module works -->
 
 | Level    | Value |
 |----------|-------|

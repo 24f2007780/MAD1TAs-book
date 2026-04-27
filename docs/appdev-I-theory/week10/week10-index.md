@@ -1,15 +1,5 @@
 # Week 10
-
-:::info Session Recourses
-Best Recorded Session: [YouTube Link](https://www.youtube.com/)
-
-Instructor sessions:
-    - Wed · 6–8 PM
-    - Sat · 11 AM – 1 PM
-
-TA sessions:
-    - Tue, Thu, Sat · 6–8 PM
-:::
+<SessionResources :week="10" />
 
 In week 10, we will cover the following topics:
 

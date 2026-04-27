@@ -22,8 +22,9 @@ By the end of this week, you should be able to:
 - **[Client-Side Computation & Performance](8-frontend.md)**
   JavaScript engines (`V8`, SpiderMonkey), CPU/GPU usage, client load, and implications for performance and energy consumption.
 
-- **[WebAssembly and Native Capabilities](8-async-dom.md)**
-  Introduction to WASM, stack-based virtual machine, sandboxing, high-performance execution, and compilation using `Emscripten`. Overview of native browser capabilities and associated security concerns.
+- **[Asynchronous DOM Manipulation](8-async-dom.md)**  
+  Learn how web pages update dynamically using asynchronous requests without reloading the entire page.  
+  Understand how JavaScript interacts with the DOM, handles API calls, and enables responsive, real-time user experiences.
 
 - **[Client-Side Validation](8-client-validation.md)**
-  HTML5 form validation (`required`, `pattern`, etc.), JavaScript Constraint Validation API, and comparison with server-side validation. Importance of stateless HTTP and re-validation on the server.Sandboxing, access to native resources, CAPTCHA systems, crypto-mining risks, and Denial of Service (DoS) attacks in client-server environments.
+  Introduction to WASM, HTML5 form validation (`required`, `pattern`, etc.), JavaScript Constraint Validation API, and comparison with server-side validation. Importance of stateless HTTP and re-validation on the server.Sandboxing, access to native resources, CAPTCHA systems, crypto-mining risks, and Denial of Service (DoS) attacks in client-server environments.

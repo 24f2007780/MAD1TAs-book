@@ -1,6 +1,7 @@
 # API Data Transfer Formats
 
-Web services use different data formats to exchange information between a client (e.g., browser) and a server over a network. Which format use choose affects performance, readability, and compatibility between systems.
+Web services use different data formats to exchange information between a client (e.g., browser) and a server over a network. Which format you choose affects performance, readability, and compatibility between systems.
+<!-- SUGGESTION: Fixes grammatical error ("use" -> "you") | REMOVE ORIGINAL LINE ABOVE -->
 <div class="card">
 <h3> HTML (HyperText Markup Language)</h3>
 
@@ -15,13 +16,15 @@ Web services use different data formats to exchange information between a client
 <h3>🟦 JSON (JavaScript Object Notation)</h3>
 
 - Most widely used API format  
-- Lightweight, easy to read for humans.  
+- Lightweight and easy for humans to read.
+<!-- SUGGESTION: Improves the flow of the bullet point | REMOVE ORIGINAL LINE ABOVE -->
 - Language-independent, with built-in support in most programming languages like `request.get_json()` & `jsonify()`
 - Supports:  
     - Objects → `{ }`  
     - Arrays → `[ ]`  
     - Key-value pairs  `{"k":v}`
     - easy to parse and generate for machines
+- Easy for machines to parse and generate
 
 **Example**
 <img src="https://www.devopsschool.com/blog/wp-content/uploads/2022/02/student-json-object.jpg" style="width:100%; border-radius:8px;">
@@ -63,8 +66,30 @@ Web services use different data formats to exchange information between a client
 **Key Points**
 - Cleaner than JSON<br>
 - Sensitive to indentation<br>
-- Less commonly used for API data transfer, but widely used for `config` & API specifications  [swagger](https://editor.swagger.io/)
+- Less commonly used for API data transfer, but widely used for configuration and API specifications like [Swagger/OpenAPI](https://editor.swagger.io/).
 </div>
+
+:::tip JSON vs. YAML Comparison
+Here is how the same student record looks in both formats. Notice how YAML uses indentation while JSON uses braces and quotes.
+
+**JSON**
+```json
+{
+  "name": "Arjun",
+  "age": 20,
+  "courses": ["CS101", "MA201"]
+}
+```
+**YAML**
+```yaml
+name: Arjun
+age: 20
+courses:
+  - CS101
+  - MA201
+```
+
+:::
 
 ## JSON, YAML, XML formats
 
@@ -82,7 +107,7 @@ Web services use different data formats to exchange information between a client
 ## OpenAPI (Swagger)
 - A **standardized specification** for describing RESTful APIs in a machine-readable format.
 - Written in **JSON or YAML**
-- Acts as a **contract between client and server** by clearly defining available endpoints, inputs, and outputs.
+- Acts as a **"contract" between the client and the server** by clearly defining available endpoints, inputs, and outputs.
 - Can be used to automatically generate interactive documentation (Swagger UI) and client/server code.
 #### Key Features
 ### 1. API Description Language

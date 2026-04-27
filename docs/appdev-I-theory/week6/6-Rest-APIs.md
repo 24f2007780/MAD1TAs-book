@@ -7,6 +7,7 @@ API stands for Application Programming Interface. It is a set of rules and proto
 ## SSR, CSR Applications and Need of APIs
 
 There are two main componenets of an application:
+There are two main components of an application:
 
 - **Frontend**: The part of the application that interacts with the user. It is responsible for displaying data and handling user interactions. Examples of frontend technologies include HTML, CSS, JavaScript, and frontend frameworks like React, Angular, and Vue.js.
 - **Backend**: The part of the application that runs on the server. It is responsible for processing requests, managing data, and performing business logic. Examples of backend technologies include Python, Node.js, Ruby, and backend frameworks like Flask, Django, and Express.
@@ -14,9 +15,20 @@ There are two main componenets of an application:
 There are two main types of applications based on how the frontend and backend interact:
 
 - **Server-Side Rendered (SSR) Applications**: In SSR applications, the server generates the HTML for each page and sends it to the client. The client then renders the page in the browser. This approach is simpler to implement but can be less efficient for dynamic content and may result in slower page loads due to the need to reload the entire page for each interaction.
-- **Client-Side Rendered (CSR) Applications**: In CSR applications, the server provides an API that the client can use to fetch data. The client is responsible for rendering the HTML and updating the page dynamically based on user interactions. This approach can provide a better user experience and faster interactions, but it requires more complex frontend development. In CSR applications, client ask for very specific data from the server and the server responds with only that data, which is used to update the page dynamically without reloading the entire page. This is where APIs come into play. APIs allow the frontend to communicate with the backend and fetch the necessary data to update the user interface.
+- **Client-Side Rendered (CSR) Applications**: In CSR applications, the server provides an API that the client can use to fetch data. The client is responsible for rendering the HTML and updating the page dynamically based on user interactions. This approach can provide a better user experience and faster interactions, but it requires more complex frontend development. In CSR applications, the client asks for very specific data from the server and the server responds with only that data, which is used to update the page dynamically without reloading the entire page. This is where APIs come into play. APIs allow the frontend to communicate with the backend and fetch the necessary data to update the user interface.
 
 *API is a contract between the frontend and backend that defines how they will communicate with each other. It specifies the endpoints, request methods, and data formats that the frontend can use to interact with the backend.*
+
+:::details Extra info: REST vs. SOAP
+While REST is the most common architectural style today, you may also encounter **SOAP (Simple Object Access Protocol)** in enterprise environments.
+
+| Feature | REST | SOAP |
+| :--- | :--- | :--- |
+| **Protocol** | Architectural Style (over HTTP) | Strict Protocol (WSDL) |
+| **Format** | Often JSON (supports XML, CSV) | Strictly XML |
+| **Complexity** | Simple, lightweight | Heavy, more complex |
+| **Statelessness** | Inherently stateless | Can be stateful |
+:::
 
 ## Creating a API resource in plain Flask
 
@@ -173,8 +185,8 @@ In this example, we have defined a resource class called `Item` that has methods
 
 :::info A Question for you
 
-- Think why we have two endpoints for the same resource?
-- Why post method does not have an item_id in the endpoint?
+- Think about why we have two different endpoints for the same resource?
+- Why does the POST method not include an 'item_id' in the URL?
 
 :::details View Answer
 

@@ -23,7 +23,7 @@ let isStudent = true;   // Boolean
 let x = null;           // Null
 let y;                  // Undefined
 
-// ARRAYs
+// Arrays: Ordered lists of values
 let fruits = ["apple", "banana", "cherry"];
 console.log(fruits[0]); // apple
 ```
@@ -42,7 +42,7 @@ console.log(5 === '5'); // false (strict equality of same data type)
 
 ```
 
-In JavaScript, you can declare variables using the `var`, `let`, or `const` keywords. The `var` keyword is function-scoped and can be re-declared and updated, while `let` and `const` are block-scoped. The `const` keyword is used for variables that cannot be reassigned.
+In JavaScript, variables are declared using `var`, `let`, or `const`. `var` is function-scoped and allows re-declaration (which can lead to bugs), while `let` and `const` are block-scoped (modern standard). Use `const` by default for variables that won't change.
 ```js
 if (true) {
     var x = 10;
@@ -79,7 +79,7 @@ const greet = (name) => {
 };
 console.log(greet("Bob")); // Output: Hello, Bob!
 ```
-- Arrow functions do not have their own `this`; they inherit it from the surrounding scope.
+- Arrow functions do not have their own `this` binding; they inherit it from the surrounding context (lexical `this`).
 Arrow functions can also be written in a more concise form when they have a single expression:
 
 ```javascript
@@ -156,10 +156,24 @@ count = 2; // ✅ allowed
 ```
 
 ## Template Literals
-like formatted strings `f-strings` in python:
 ```js
 let name = "Alice";
 console.log(`Hello ${name}`);
+```
+
+:::tip String Concatenation vs. Template Literals
+Before ES6, we used `+` to join strings. Template literals (like `f-strings` in python) are much cleaner for multi-line strings or embedding variables.
+```js
+let item = "Laptop";
+let price = 50000;
+
+// Old way
+console.log("The " + item + " costs Rs. " + price);
+
+// Better way
+console.log(`The ${item} costs Rs. ${price}`);
+```
+:::
 ```
 
 ### Type checking
@@ -172,6 +186,12 @@ console.log(typeof 10);      // number
 
 ```let name = prompt("Enter your name");
 alert("Hello " + name);
+```
+```js
+let userName = prompt("Enter your name:");
+if (userName) {
+    alert(`Hello ${userName}!`);
+}
 ```
 - undefined → variable declared but not assigned
 - null → intentional empty value

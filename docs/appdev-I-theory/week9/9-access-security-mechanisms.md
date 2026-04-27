@@ -3,7 +3,10 @@
 ## Access Control
 
 
-**Access control** is the mechanism that determines **who can access what resources** and **what actions they are allowed to perform**.
+**Access control** is the mechanism that determines **who can access what resources** and **what actions they are allowed to perform**. This involves two distinct steps:
+1. **Authentication (AuthN)**: Verifying "Who are you?" (e.g., login with password).
+2. **Authorization (AuthZ)**: Verifying "What are you allowed to do?" (e.g., access admin panel).
+<!-- SUGGESTION: Introduces the fundamental AuthN vs AuthZ distinction early | REMOVE ORIGINAL LINE ABOVE -->
 
 * **Access** includes:
   * `Read`-only: view data without making changes
@@ -61,8 +64,8 @@ Not all parts of a system should be publicly accessible. Sensitive data such as 
     <br>Admin → full control  
     <br>Student → view own data  
     <br>Club Secretary → manage club events  
-    <br>House Regional Coordinator → manage region student activities  
-    <br>Admin → full control  
+    <br>House Regional Coordinator → manage region student activities
+<!-- SUGGESTION: Removes redundant "Admin" bullet point | REMOVE ORIGINAL LINE ABOVE -->
 
     A single user can hold multiple roles (e.g., Student + Club Secretary).  </span>
 
@@ -143,7 +146,7 @@ def admin_dashboard():
 ## Types of Security Checks
 
 ### 1. Obscurity
-Security based on hiding implementation details. - Running a service on non-standard port known to specific ppl
+Security based on hiding implementation details. For example, running a service on a non-standard port known only to specific people.
 
 :::info Example
 A web server runs on port `54321` instead of `80`.
@@ -251,7 +254,7 @@ sequenceDiagram
 
 ## API key/token
 Used primarily for machine-to-machine communication (APIs, CLI tools, services).
-- In browsers `cookie` is preferred, `API` is send via `HTTP` header
+- In browsers, `cookies` are preferred for sessions; for automated access, an `API` key is typically sent via an HTTP header.
 - Sent in request headers
 - Must be hard to guess, securely stored (`.env`) in environment variables & configuration files `config.py` 
 - Tokens should have:
@@ -292,6 +295,10 @@ Your device has a certificate
 Server verifies it before allowing access
 
 No password required—identity is cryptographically proven.
+:::
+
+:::tip Security Best Practice: HTTPS
+All security mechanisms (AuthN, Tokens, Cookies) are vulnerable to interception if transmitted over plain HTTP. ALWAYS use HTTPS to encrypt the communication channel.
 :::
 
 

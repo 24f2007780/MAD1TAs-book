@@ -11,6 +11,10 @@ Server sends:
 Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain>; Secure; HttpOnly
 ```
 
+- **HttpOnly**: Prevents JavaScript from reading the cookie (mitigates XSS).
+- **Secure**: Only sends the cookie over HTTPS connections.
+- **SameSite**: Controls whether the cookie is sent with cross-site requests (mitigates CSRF). Values: `Strict`, `Lax` (default), or `None`.
+
 - Logout requires:
   - Invalidating the session on the server
   - Removing the session cookie from the client
@@ -24,7 +28,17 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain>; Secure; HttpOnly
   - Backend options:
     - Database
     - File storage
-    - `redis cache key-value stores`
+    - `Redis` (In-memory cache for high-speed access)
+:::
+
+:::info Storage Comparison: Cookies vs. Web Storage
+| Feature | Cookies | LocalStorage | SessionStorage |
+| :--- | :--- | :--- | :--- |
+| **Capacity** | ~4KB | ~5-10MB | ~5MB |
+| **Sent with HTTP?** | Yes (automatic) | No | No |
+| **Persistence** | Expiration date | Permanent | Until tab/window closed |
+| **Access** | Client + Server | Client only | Client only |
+:::
 
 
 ## Cookie Theft
