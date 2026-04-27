@@ -149,6 +149,8 @@ document.body.appendChild(clone)</code></pre>
 <script setup>
 import { ref, onMounted, watch, nextTick } from 'vue'
 
+defineOptions({ name: 'WebComponents' })
+
 const tabs = [
   { name: 'Shadow DOM', icon: '🔒' },
   { name: 'Custom Element', icon: '🏷️' },

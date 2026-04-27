@@ -58,10 +58,18 @@ user = User.query.filter_by(username=username).first()
 if not user:
     flash("User does not exist")
     
-if not check_password_hash(user.password, password):
     flash("Incorrect password")
+    
+username = request.form.get("username")
+password = request.form.get("password")
+user = User.query.filter_by(username=username).first()
 
-session['username'] = username
+if user and check_password_hash(user.password, password):
+    session['user_id'] = user.id
+    session['username'] = username
+else:
+    flash("Invalid credentials")
+<!-- SUGGESTION: Provides a more complete and safe login logic snippet | REMOVE ORIGINAL LINE ABOVE -->
 ```
 
 ```python
@@ -160,6 +168,8 @@ user_id → full User object → current_user
 ### Login Flow (Flask-Login)
 
 ```python
+username = request.form.get("username")
+password = request.form.get("password")
 user = User.query.filter_by(username=username).first()
 
 if not user:
@@ -234,6 +244,8 @@ login_user(user, remember=True)
 Creates:
 * Long-lived cookie
 * Survives browser restart
+* Survives the closing of the browser (uses a persistent cookie instead of a session cookie).
+<!-- SUGGESTION: Clarifies the technical difference between session and persistent cookies | REMOVE ORIGINAL LINE ABOVE -->
 
 Controlled by:
 ```python
@@ -323,6 +335,8 @@ You will learn `Flask-JWT-Extended` for it in MAD2 course (or you can use `Flask
 * Always protect forms (CSRF)
 
 Authentication is not just login, it has to also has to **securely maintain identity across requests**
+Authentication is not just about the login process; its primary job is to **securely maintain and verify identity across multiple requests** using sessions or tokens.
+<!-- SUGGESTION: Fixes repetition and clarifies the core concept | REMOVE ORIGINAL LINE ABOVE -->
 
 :::details
 

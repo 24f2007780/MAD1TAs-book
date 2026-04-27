@@ -1,5 +1,5 @@
 # Security: Sessions, HTTPS & Access Control
-<SessionResources :week="6" />
+<SessionResources :week="9" />
 
 This week answers a core systems question:
 > **How does a web application identify users, control access, and keep communication secure?**

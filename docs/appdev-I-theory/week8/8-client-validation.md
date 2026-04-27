@@ -2,7 +2,7 @@
 ## WASM (Web Assembly)
 - **binary instruction format** is hard to learn for human
 - Executes on a stack-based virtual machine
-- Runs in a sandboxed with controlled access to APIs
+- Runs in a **sandboxed environment** with controlled access to system APIs.
 - Executable Format for Web **High performance** but less used 
     - `Emscripten` tool compiles C → WASM
 - Enables high-performance execution of `non-JavaScript` code in browser: 
@@ -17,7 +17,7 @@
 ⚠️ Adoption is still limited compared to `JavaScript` but growing steadily.
 
 ## Server-side validation is essential:
-- Server cannot trust that requests come from a valid frontend. Has to check datatypes `email, date range` & sanitization.
+- The server cannot assume that requests always come from your frontend. An attacker could send a manual `POST` request with malicious data. Therefore, the server MUST re-validate data types  `email, date range`, ranges, and perform **sanitization** (to prevent XSS and Injection).
 - HTTP is stateless, so the server cannot assume prior client state
 ```html
 <form>
@@ -97,7 +97,7 @@ Used in systems like ticket booking and appointment platforms like <span style="
 ## 2. Sandboxing
 Similar to a virtual machine but at a higher abstraction level.
 - secure area that `JS` engine runs in a <span style="color:rgb(240, 96, 118)">restricted execution environment</span>
-    - No direct access to no computer local files, OS resources (except HTTP connection)
+  - No direct access to local files or OS resources on the user's computer (exceptions include controlled storage APIs).
     - Browser's `local` & `session` storage (with restrictions)
 - popular JS file with bad version which redirects 1000s to same →  `DoS` Denial of Service server
 - difficult to navigate/close page (too many resources kill it)
@@ -114,6 +114,7 @@ Similar to a virtual machine but at a higher abstraction level.
 overwhelming a system with excessive requests
 Client-side attack:
 - A script consumes CPU resources
+- A malicious script consumes excessive CPU/GPU resources.
 - Browser becomes slow or unresponsive
 
 Server-side attack:

@@ -1,5 +1,5 @@
 # Week12: Deployment, Scaling, and Service-Approach
-
+<SessionResources :week='12'/>
 In week 12, we will cover the following topics:
 
 - **Deployment**: Lifecycle of development to production, deployment options, and best practices.

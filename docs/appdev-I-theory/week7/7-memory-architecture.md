@@ -7,7 +7,7 @@ No single memory type is optimal for all three simultaneously, so systems use a 
 `Registers → Cache (SRAM) → Main Memory (DRAM) → Secondary Storage (SSD → HDD) → Cold Storage`
 
 As we move from top to bottom:
-- Latency increases (slower access)
+- Latency increases (slower data access time)
 - Throughput decreases (generally)
 - Capacity increases
 - Cost per bit decreases
@@ -34,7 +34,7 @@ SRAM → **Static** RAM <br>DRAM → **Dynamic** RAM
 <ul>
 <li>Located inside the CPU</li>
 <li>Used for immediate computation and instruction execution</li>
-<li>Acts as the CPU’s working notepad for executing instructions</li>
+<li>Acts as the CPU's high-speed "scratchpad" for immediate data.</li>
 <li><b>Fastest memory available</b></li>
 </ul>
 </div>
@@ -62,6 +62,15 @@ SRAM → **Static** RAM <br>DRAM → **Dynamic** RAM
 </ul>
 </div>
 
+:::info Analogy: The Library System
+To understand memory hierarchy, imagine you are studying in a library:
+- **Registers**: The book currently open in your hands. (Fastest)
+- **Cache (SRAM)**: The stack of books on your desk. (Very Fast)
+- **Main Memory (DRAM)**: The bookshelf in the room you are sitting in. (Fast)
+- **SSD/HDD**: The main archive in the basement of the library. (Slow)
+- **Cold Storage**: An off-site warehouse where you have to request books 24 hours in advance. (Slowest)
+:::
+
 <div class="card">
 <h4>SSD – Solid State Drive (<span style="color:rgb(98, 151, 208)">100s of GB to several TB</span> Flash Storage)</h4>
 <ul>
@@ -88,7 +97,7 @@ Frequently accessed data is kept in faster memory levels to minimize access time
 
 - CPU operates on data in `registers`
 - Backed by `L1, L2, L3` cache (`SRAM`)
-- Backed by several GB of `DRAM` working memory
+- Backed by several GB of `DRAM` working memory. (When this is full, the OS use **Swap Memory/Virtual Memory** on your SSD/HDD, which significantly slows down performance).
 - Backed by `SSD` for high read/write throughput and fast persistent storage.
 - Backed by `HDD` for high capacity
 - All layers are ultimately backed by **long-term backup systems**.

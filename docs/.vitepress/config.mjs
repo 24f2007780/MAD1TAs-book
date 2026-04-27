@@ -308,7 +308,7 @@ export default defineConfig({
                 ]
               },
               {
-                text: 'Week10: Testing', link: '/appdev-I-theory/week10/10-week-index.md',
+                text: 'Week10: Testing', link: '/appdev-I-theory/week10/week10-index.md',
                 collapsed: true,
                 items: [
                   { text: 'Testing Fundamentals', link: '/appdev-I-theory/week10/10-testing.md' },
@@ -318,7 +318,7 @@ export default defineConfig({
                 ]
               },
               {
-                text: 'Week11: Beyond HTML', link: '/appdev-I-theory/week11/11-week-index.md',
+                text: 'Week11: Beyond HTML', link: '/appdev-I-theory/week11/week11-index.md',
                 collapsed: true,
                 items: [
                   { text: 'Markup languages', link: '/appdev-I-theory/week11/11-markup-langs' },
@@ -327,7 +327,7 @@ export default defineConfig({
 
                 ]
               },
-              { text: 'W12: Deployment', link: '/appdev-I-theory/week12/12-index', collapsed:true,
+              { text: 'W12: Deployment', link: '/appdev-I-theory/week12/week12-index.md', collapsed:true,
                 items:[
                   {text: 'Scaling & Deployment', link: '/appdev-I-theory/week12/12-theory'},
                   {text: 'Version Control System', link: '/appdev-I-theory/week12/12-vcs.md'},

@@ -7,7 +7,7 @@ Unlike languages focused only on computation, JavaScript is tightly integrated w
 ::: warning Javascript Characteristics
 1. **High-Level Language**: `JavaScript` abstracts low-level details like memory management and hardware interaction.
 - Developers can focus on **logic and behavior** and worry less about system-level operations
-- Managed automatically by the engine (e.g., garbage collection)
+- Managed automatically by the engine's **Garbage Collector**, which identifies and reclaims memory that is no longer in use.
 
 2. **Dynamic Typing**: A variable can hold different data types during execution. Type is determined at runtime, not compile time
 - No explicit type declaration required
@@ -22,9 +22,9 @@ No strict requirement for classes like `Java`
 - `V8` Engine (Chrome, Edge)
 - `SpiderMonkey` (Firefox)
 5. **APIs** with wide range of tools:
-	- `text, dates, RegEx` manipulations like `day.js`
-	- dict/list/array standard data structures
-	- [[DOM]] `document object model` real-time interaction with browser environment
+	- Built-in `text, dates, RegEx` manipulations (like `day.js` for advanced date handling).
+	- Standard data structures like `Objects` (dictionaries) and `Arrays`.
+	- `document object model` real-time interaction with browser environment
 	- We can do input/output or file access thru APIs (no Native support)
 :::
 
@@ -32,14 +32,17 @@ No strict requirement for classes like `Java`
 
 Using browser Developer Tools is essential because it gives you direct visibility into how a web application works internally, which is otherwise hidden behind the UI.
 
-1. **Storage (Cookies, Local Storage)**
+1. **Application Tab: Cookies, Local Storage**
 Websites store data in your browser (e.g., login sessions, preferences)
 - View cookies (session IDs, auth tokens) to understand how the website is being authenticated and current user state
 - Inspect `local/session storage`
 
 <span style="color:rgb(181, 118, 244)">You can check if a site stores a session_id cookie after login</span>
 
-2. **Network Tab (Data Flow)**
+2. **Elements Tab**: Directly inspect and modify the HTML structure and CSS styles in real-time.
+
+
+3. **Network Tab (Data Flow)**
 Shows all requests between browser and server like `fetch`ed APIs, images, scripts, files
 - See where data comes from and use it
 - Inspect request/response payloads and `headers`
@@ -47,7 +50,7 @@ Shows all requests between browser and server like `fetch`ed APIs, images, scrip
 
 <span style="color:rgb(181, 118, 244)">Click a button → Network tab shows an API call → You can inspect the JSON response</span>
 
-3. **Console (Debugging & Execution)**
+4. **Console (Debugging & Execution)**
 The console acts as a live JavaScript environment, helping you understand how code interacts with the page and how the browser executes scripts internally.
 - Run code instantly
 - See errors and warnings (debug code)

@@ -5,9 +5,9 @@ Modern web applications aim to provide responsive and interactive user experienc
 - Allows **partial page updates**, where only required data is fetched and specific sections of the page are updated without a full reload.
 - load minimal data in *background* after main page has been loaded and rendered.
 - `AJAX` refresh enables browser to send async requests and receive only the required data (typically JSON).
-- A user selects an `clothes category` from a form
-- The browser requests only the `cloth category` data (not full HTML)
-- A specific `<div>` is updated dynamically
+- A user selects a `product category` (e.g., 'Electronics') from a form
+- The browser requests only the data for that category (typically in JSON format)
+- A specific section of the page (like a product grid `<div>`) updates dynamically
 
 **Asynchronous (Non-blocking):**
 
@@ -49,7 +49,7 @@ function fetchData() {
   console.log("Data fetched!");
 }
 ```
-⚠️ Modern JavaScript APIs such as `fetch` are asynchronous by default. True **blocking** behavior is rare and discouraged in browsers.
+⚠️ Note: Even though the code above looks synchronous, the `fetch` API is actually asynchronous. To make JS truly "block," you would need a very long-running loop, which would freeze the entire browser tab!
 
 
 | Feature         | **Synchronous (Blocking)**      | **Asynchronous (Non-blocking)** |
@@ -61,6 +61,14 @@ function fetchData() {
 ##### Real-world Analogy
 Synchronous: Waiting at a counter until your order is ready<br>
 Asynchronous: Ordering food and receiving a notification when ready
+
+:::details How it works: **JavaScript Event Loop** (MAD 2 course)
+JavaScript is single-threaded, meaning it can only do one thing at a time. So how can it be "non-blocking"?
+1. **Call Stack**: Executes your code line by line.
+2. **Web APIs**: When you call `fetch` or `setTimeout`, the browser handles it in the background.
+3. **Task Queue**: Once the background task is done, the result moves here.
+4. **Event Loop**: It waits until the Call Stack is empty, then moves tasks from the Queue to the Stack for execution.
+:::
 
 ## Asynchronous Communication Techniques
 
@@ -138,7 +146,9 @@ document.querySelector("button").addEventListener("click", () => {
 
   // Put the paragraph on the end of the document by appending it to
   // the body (which is the parent of para)
-  para.parentNode.appendChild(newElement);
+
+  const existingPara = document.querySelector("p");
+  existingPara.parentNode.appendChild(newElement);
 });
 ```
 <DOMNotice />

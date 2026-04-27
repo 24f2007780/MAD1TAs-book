@@ -3,10 +3,10 @@
 - Problem with HTTP: open connection to server on fixed network port `default 80` and data is visible + modifiable
 Encrypts all **physical wire** communications using **TLS/SSL** protocols
 
-:::warning HTTPS **secure sockets** encrypted channel
-Data encrypted using a shared secret key  `long binary string KEY`
-Without key → unreadable (`XOR` all input data with key to generate new binary encrypt text)
-:::
+>[!DANGER] HTTPS **secure sockets** encrypted channel
+> Data encrypted using a shared secret key  `long binary string KEY`
+> Without the key, data appears as unreadable "noise" (let's say `XOR` all input data with key to generate new binary encrypt text)
+
     
 ### TLS Handshake
 1. Client connects
@@ -25,7 +25,8 @@ Prevents: DNS hijacking (false IP address) or fake servers
 
 ```mermaid
 graph LR
-A["❌ tap channel"]--> B["Server certificates"]--> C["Client certificates used in corporate intranets"]-->D["Certificate Authority CA"]-->E["**OS root certificate** fails❌ if you try DNS hijack with fake IP certificate"]
+A["❌ Tap channel"] --> B["Server Certificate"] --> C["Client certificates used in corporate intranets"] --> D["Certificate Authority (CA)"] --> E["**Trust Store (OS/Browser)**"]
+E --"Validation Fails if certificate is invalid"--> F["⚠️ Connection Blocked"]
 ```
 
 | Advantages | Limitations |
@@ -73,9 +74,9 @@ Python logging framework logs include:
 
 ### Log Rotation
 Logs grow very large → storage issues:
-1. keep last $N$ files
-2. delete oldest file(less space overhead)
-3. rename $\log.i \to \log.i+1$
+1. **Retention**: Keep only the last $N$ log files.
+2. **Deletion**: Automatically delete the oldest file when space is low.
+3. **Rotation**: Rename active logs ($\log.i \to \log.i+1$) to make room for new entries.
 
 ### Logging in Cloud Platforms
 - Automatic log collection

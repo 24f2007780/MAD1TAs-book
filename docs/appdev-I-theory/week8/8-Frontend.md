@@ -31,9 +31,9 @@ Controls the visual presentation of a webpage
 - Handles user interactions (clicks, input, navigation)
 - Updating page content without reloading (dynamic UI updates)
 - Communicating with servers using APIs (e.g., via `fetch` or `AJAX`)
-- No machine-endpoints `APIs`: embedded devices (small web client does not have own network protocol → server→ local temperature sensor `HTTP  JS`)
+- Can act as a bridge for **embedded devices**: A small web client (e.g., controlling a temperature sensor) may use JS to communicate over HTTP even if the device doesn't support complex network protocols natively.
 - Other languages (e.g., Python via `Brython`, `PyScript`) exist but are less common
-- **Transpilation** refers to converting code written in one language (e.g., TypeScript) into JavaScript so it can run in browsers.
+- **Transpilation**: Converting code from one high-level language to another (e.g., TypeScript to JavaScript). Unlike **Compilation** (which usually goes down to machine code/bytecode), transpilation stays at a similar level of abstraction.
 
 1. Chrome/Edge/Brave: `V8` JavaScript Engine
 2. Firefox: `SpiderMonkey`

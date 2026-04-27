@@ -10,7 +10,7 @@
 :::
 
 :::details $O(\log_2 N) \text{ grows slowly LOGARITHMIC with input, best in practice}$
-- Each step halves the search space
+- Each step halves the remaining search space, making it highly efficient.
 - **Binary search for a number "X" in sorted array**: look at middle element in array, 
 	- greater than "X"" → search in lower half
 	- smaller than "X"→ search in upper half
@@ -47,6 +47,32 @@ for i in users: # N
 
 ![](https://miro.medium.com/0*cKsIBkGxRWujTm_U.jpg)
 
+:::details Linear vs. Binary Search in Python
+**Linear Search ($O(N)$):**
+```python
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i  # Found
+    return -1  # Not found
+```
+
+**Binary Search ($O(\log N)$):**
+```python
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+```
+:::
+
 ## Arrays
 - fixed size (must allocate **memory** in advance)
     - so adding new entries beyond this "allocated" size requires resizing (creating a new larger array & copying the elements)
@@ -66,7 +92,7 @@ for i in users: # N
 - Each node:
     - Left → smaller values
     - Right → larger values
-- We need BST as maintains sorted order as the tree grows  
+- We use a BST because it maintains sorted order as the tree grows.
     - average search → $O(\log N)$
     - Worst case (skewed tree) → $O(N)$
 - No shifting required for `insert/delete`

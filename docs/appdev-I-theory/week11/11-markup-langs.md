@@ -34,7 +34,7 @@
 <div class="card">
   <h2>XML (eXtensible Markup Language)</h2>
 
-  <p>XML is a simplified subset of SGML designed</p>
+  <p>XML is a simplified subset of SGML designed to be easier to use and implement on the web and across varied systems.</p>
   <p>Tags are custom-defined, but must follow strict rules (proper nesting, closing tags).</p>
   <p><strong>Use case:</strong> Enable systems to exchange data in a structured, predictable format across platforms.</p>
 
@@ -66,7 +66,6 @@
 
   <p><strong>Use Case:</strong> Fix the inconsistencies of HTML and make it more extensible by applying XML’s strict syntax rules.  </p>
   <p>`XML Namespaces` allows inter-operable with other XML-based application</p>
-
   <p><strong>Why It Failed:</strong> Too strict — even small mistakes break the entire page, making it impractical for real-world web development.</p>
 </div>
 
@@ -112,6 +111,7 @@
 
   <p><strong>Maintained by:</strong>`WHATWG` Web Hypertext Application Technology Working Group `W3C`
   </p>
+
 </div>
 
 Both HTML & XML are human and machine readable, 
@@ -123,4 +123,8 @@ Both HTML & XML are human and machine readable,
 | Custom Tags       | Yes                   | Yes           | Limited              | Via JavaScript  |
 | Error Handling    | No tolerance          | No tolerance  | No tolerance         | Forgiving       |
 | Current Relevance | Obsolete              | Still used    | Rare                 | Dominant        |
+
+:::tip JSON vs. XML 
+In modern web APIs, JSON (JavaScript Object Notation) has largely replaced XML because it is more lightweight, less verbose, and maps directly to JavaScript objects.
+:::
 
